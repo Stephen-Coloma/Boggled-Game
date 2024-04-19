@@ -10,14 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1018.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <VBox alignment="TOP_CENTER" layoutX="34.0" layoutY="31.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="953.0" style="-fx-border-color: #8bce39; -fx-border-width: 4; -fx-background-color: white;">
             <children>
-                <Text fill="GREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT GAME CONFIGURATION" textAlignment="CENTER" wrappingWidth="461.60318982601166">
+                <Text fill="GREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT GAME CONFIGURATION" textAlignment="CENTER" wrappingWidth="669.6032203435898">
                     <font>
-                        <Font name="Arial Bold" size="30.0" />
+                        <Font name="Arial Black" size="40.0" />
                     </font>
                     <VBox.margin>
                         <Insets top="50.0" />
@@ -32,9 +31,9 @@
                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="99.0" layoutX="83.0" layoutY="16.0" stroke="#8bce39" strokeType="INSIDE" strokeWidth="4.0" style="-fx-arc-height: 30; -fx-arc-width: 30;" width="777.0" />
                                         <HBox alignment="CENTER" layoutX="83.0" layoutY="16.0" prefHeight="99.0" prefWidth="777.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="WAITING TIME" textAlignment="CENTER" wrappingWidth="185.03524708747864">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="WAITING TIME" textAlignment="CENTER" wrappingWidth="202.10189747810364">
                                                     <font>
-                                                        <Font size="27.0" />
+                                                        <Font name="Arial Rounded MT Bold" size="27.0" />
                                                     </font>
                                                     <HBox.margin>
                                                         <Insets right="150.0" />
@@ -50,7 +49,7 @@
                                                 </Button>
                                                 <Label text="10 seconds">
                                                     <font>
-                                                        <Font size="27.0" />
+                                                        <Font name="Arial Rounded MT Bold" size="27.0" />
                                                     </font>
                                                     <HBox.margin>
                                                         <Insets left="10.0" right="10.0" />
@@ -70,9 +69,9 @@
                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="99.0" layoutX="83.0" layoutY="16.0" stroke="#8bce39" strokeType="INSIDE" strokeWidth="4.0" style="-fx-arc-height: 30; -fx-arc-width: 30;" width="777.0" />
                                         <HBox alignment="CENTER" layoutX="83.0" layoutY="16.0" prefHeight="99.0" prefWidth="777.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ROUND TIME" textAlignment="CENTER" wrappingWidth="180.7687065601349">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ROUND TIME" textAlignment="CENTER" wrappingWidth="199.9687798023224">
                                                     <font>
-                                                        <Font size="27.0" />
+                                                        <Font name="Arial Rounded MT Bold" size="27.0" />
                                                     </font>
                                                     <HBox.margin>
                                                         <Insets right="150.0" />
@@ -88,7 +87,7 @@
                                                 </Button>
                                                 <Label text="10 seconds">
                                                     <font>
-                                                        <Font size="27.0" />
+                                                        <Font name="Arial Rounded MT Bold" size="27.0" />
                                                     </font>
                                                     <HBox.margin>
                                                         <Insets left="10.0" right="10.0" />
@@ -110,17 +109,17 @@
                         </VBox>
                     </children>
                 </Pane>
-                <Button mnemonicParsing="false" prefHeight="73.0" prefWidth="283.0" style="-fx-background-color: GREEN;" text="SAVE" textFill="WHITE">
+                <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="265.0" style="-fx-background-color: GREEN;" text="SAVE" textFill="WHITE">
                     <font>
-                        <Font size="25.0" />
+                        <Font name="Arial Black" size="22.0" />
                     </font>
                     <VBox.margin>
                         <Insets bottom="30.0" />
                     </VBox.margin>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="73.0" prefWidth="283.0" style="-fx-background-color: GREEN;" text="CANCEL" textFill="WHITE">
+                <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="265.0" style="-fx-background-color: GREEN;" text="CANCEL" textFill="WHITE">
                     <font>
-                        <Font size="25.0" />
+                        <Font name="Arial Black" size="22.0" />
                     </font>
                 </Button>
             </children>

@@ -12,7 +12,7 @@
             <children>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ROUND TIME" textAlignment="CENTER" wrappingWidth="185.03524708747864">
                     <font>
-                        <Font size="27.0" />
+                        <Font name="Arial Rounded MT Bold" size="27.0" />
                     </font>
                 </Text>
             </children>
@@ -30,7 +30,7 @@
             <children>
                 <Label alignment="CENTER" text="10 seconds">
                     <font>
-                        <Font size="27.0" />
+                        <Font name="Arial Rounded MT Bold" size="27.0" />
                     </font>
                 </Label>
             </children>

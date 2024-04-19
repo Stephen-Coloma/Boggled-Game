@@ -6,14 +6,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="777.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox alignment="CENTER" prefHeight="99.0" prefWidth="325.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="WAITING TIME" textAlignment="CENTER" wrappingWidth="185.03524708747864">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="WAITING TIME" textAlignment="CENTER" wrappingWidth="202.63520741462708">
                     <font>
-                        <Font size="27.0" />
+                        <Font name="Arial Rounded MT Bold" size="27.0" />
                     </font>
                 </Text>
             </children>
@@ -31,7 +30,7 @@
             <children>
                 <Label alignment="CENTER" text="10 seconds">
                     <font>
-                        <Font size="27.0" />
+                        <Font name="Arial Rounded MT Bold" size="27.0" />
                     </font>
                 </Label>
             </children>

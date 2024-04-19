@@ -20,7 +20,7 @@
                <children>
                   <Text fill="#248946" strokeType="OUTSIDE" strokeWidth="0.0" text="LIST OF PLAYERS">
                      <font>
-                        <Font name="Forte" size="35.0" />
+                        <Font name="Arial Rounded MT Bold" size="35.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="20.0" top="20.0" />

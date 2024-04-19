@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54023a0d-2ec0-4efc-abdf-2e6ac357422c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Server_Java/res/images/search.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server_Java/res/fxmls/CreateAccountView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server_Java/res/fxmls/CreateAccountView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server_Java/res/fxmls/EditGameConfigView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server_Java/res/fxmls/EditGameConfigView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server_Java/res/fxmls/MainMenuAdminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server_Java/res/fxmls/MainMenuAdminPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server_Java/res/fxmls/PlayerListView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server_Java/res/fxmls/PlayerListView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server_Java/res/fxmls/RoundTimeConfigCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server_Java/res/fxmls/RoundTimeConfigCard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server_Java/res/fxmls/WaitingTimeConfigCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server_Java/res/fxmls/WaitingTimeConfigCard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +34,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -37,25 +46,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/2023-2_9329-finteam2_java/src/Server_Java/res/images",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/2023-2_9329-finteam2_java/src/Server_Java/res/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Admin\Desktop\2023-2_9329-finteam2_java\src\Server_Java\res\images" />
@@ -128,5 +137,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
