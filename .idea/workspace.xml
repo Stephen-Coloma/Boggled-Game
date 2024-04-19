@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54023a0d-2ec0-4efc-abdf-2e6ac357422c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Server_Java/res/fxmls/MainAdminPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Server_Java/res/images/boggledlogo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server_Java/res/words.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server_Java/res/images/search.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,13 +16,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="ClientUIs" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,7 +44,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Projects/java/2NDYEAR2NDSEM/FINALS/2023-2_9329-finteam2_java/src/Server_Java/res/fxmls",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/2023-2_9329-finteam2_java/src/Server_Java/res/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +58,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Desktop\2023-2_9329-finteam2_java\src\Server_Java\res\images" />
       <recent name="D:\Projects\java\2NDYEAR2NDSEM\FINALS\2023-2_9329-finteam2_java\src\Server_Java\res\fxmls" />
       <recent name="D:\Projects\java\2NDYEAR2NDSEM\FINALS\2023-2_9329-finteam2_java\src\Server_Java\res\images" />
     </key>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1018.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="982.0" style="-fx-border-color: #248946; -fx-background-color: white; -fx-border-width: 2;">
+         <children>
+            <HBox prefHeight="73.0" prefWidth="934.0">
+               <children>
+                  <Text fill="#248946" strokeType="OUTSIDE" strokeWidth="0.0" text="LIST OF PLAYERS">
+                     <font>
+                        <Font name="Forte" size="35.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="280.0" top="20.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../../../../../../Downloads/boggled/boggled/src/main/resources/Boggled_images/search.png" />
+                     </image>
+                  </ImageView>
+                  <TextField prefHeight="35.0" prefWidth="262.0" promptText="Search" style="-fx-background-color: transparent; -fx-border-color: #248946; -fx-background-radius: 10; -fx-border-radius: 10;">
+                     <HBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="604.0" prefWidth="950.0" style="-fx-background-color: white; -fx-table-header-background: #8BCE39; -fx-border-color: #8BCE39;">
+               <columns>
+                  <TableColumn prefWidth="106.4000244140625" text="USERNAME" />
+                  <TableColumn prefWidth="135.99996948242188" text="PASSWORD" />
+                  <TableColumn prefWidth="183.199951171875" text="FULL NAME" />
+                  <TableColumn prefWidth="185.60009765625" text="NUMBER OF GAMES PLAYED" />
+                  <TableColumn prefWidth="138.39996337890625" text="GAME POINTS" />
+                  <TableColumn prefWidth="116.0" text="EDIT DETAILS" />
+                  <TableColumn prefWidth="80.79996337890623" text="DELETE" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</Pane>
