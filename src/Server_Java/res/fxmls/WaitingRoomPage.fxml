@@ -13,13 +13,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1300.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane prefHeight="98.0" prefWidth="1300.0">
+      <Pane prefHeight="98.0" prefWidth="1300.0" style="-fx-border-color: WHITE;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#248946" height="99.0" stroke="BLACK" strokeType="INSIDE" width="1300.0" />
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1300.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1300.0" style="-fx-border-color: WHITE;">
                <children>
                   <Pane prefHeight="100.0" prefWidth="444.0">
                      <children>
@@ -32,9 +31,9 @@
                   </Pane>
                   <Pane prefHeight="100.0" prefWidth="410.0">
                      <children>
-                        <Text fill="WHITE" layoutX="91.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAITING ROOM">
+                        <Text fill="WHITE" layoutX="70.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAITING ROOM">
                            <font>
-                              <Font name="System Bold" size="30.0" />
+                              <Font name="Arial Black" size="35.0" />
                            </font>
                         </Text>
                      </children>
@@ -43,7 +42,7 @@
                      <children>
                         <Button layoutX="265.0" layoutY="22.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="137.0" style="-fx-background-color: #F2E7D1; -fx-border-radius: 4;" text="CANCEL" textFill="GREEN">
                            <font>
-                              <Font name="Arial Black" size="22.0" />
+                              <Font name="Arial Rounded MT Bold" size="20.0" />
                            </font>
                         </Button>
                      </children>
@@ -52,14 +51,14 @@
             </HBox>
          </children>
       </Pane>
-      <HBox alignment="CENTER" prefHeight="563.0" prefWidth="1300.0">
+      <HBox alignment="CENTER" prefHeight="563.0" prefWidth="1300.0" style="-fx-border-color: WHITE;">
          <children>
             <Pane>
                <children>
                   <Circle fill="#f2e7d1" layoutX="203.0" layoutY="276.0" radius="202.0" stroke="#248946" strokeType="INSIDE" strokeWidth="17.0" />
                   <Label alignment="CENTER" layoutX="83.0" layoutY="130.0" prefHeight="292.0" prefWidth="225.0" text="10" textAlignment="CENTER" textFill="#248946">
                      <font>
-                        <Font size="200.0" />
+                        <Font name="Arial Rounded MT Bold" size="180.0" />
                      </font>
                   </Label>
                </children>
@@ -74,12 +73,12 @@
                <children>
                   <Label text="PLAYER JOINED: " textFill="WHITE">
                      <font>
-                        <Font size="40.0" />
+                        <Font name="Arial Black" size="35.0" />
                      </font>
                   </Label>
                   <Label text="10" textFill="WHITE">
                      <font>
-                        <Font size="40.0" />
+                        <Font name="Arial Black" size="40.0" />
                      </font>
                   </Label>
                </children>
