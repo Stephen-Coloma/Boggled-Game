@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54023a0d-2ec0-4efc-abdf-2e6ac357422c" name="Changes" comment="">
+    <list default="true" id="54023a0d-2ec0-4efc-abdf-2e6ac357422c" name="Changes" comment="refactor (waiting room  ui): Modify UI design for waiting room">
+      <change afterPath="$PROJECT_DIR$/src/Client_Java/res/fxmls/GameRoundPopup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client_Java/res/fxmls/BoggledGameLetterCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client_Java/res/fxmls/BoggledGameLetterCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client_Java/res/fxmls/BoggledGamePointsCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client_Java/res/fxmls/BoggledGamePointsCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client_Java/res/fxmls/BoggledGameUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client_Java/res/fxmls/BoggledGameUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client_Java/res/fxmls/BoggledGameWordCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client_Java/res/fxmls/BoggledGameWordCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client_Java/res/fxmls/GameLobbyUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client_Java/res/fxmls/GameLobbyUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client_Java/res/fxmls/LogInUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client_Java/res/fxmls/LogInUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="ServerUIs" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
