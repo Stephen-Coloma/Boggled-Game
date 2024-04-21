@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54023a0d-2ec0-4efc-abdf-2e6ac357422c" name="Changes" comment="refactor (waiting room  ui): Modify UI design for waiting room">
-      <change afterPath="$PROJECT_DIR$/src/Client_Java/res/fxmls/GameRoundPopup.fxml" afterDir="false" />
+    <list default="true" id="54023a0d-2ec0-4efc-abdf-2e6ac357422c" name="Changes" comment="feat (gameround popup): Create Popup view to be shown before each round of the game starts">
+      <change afterPath="$PROJECT_DIR$/src/Client_Java/res/fxmls/GameWinnerPopup.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Client_Java/res/images/confetti.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +60,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\2023-2_9329-finteam2_java\src\Client_Java\res\images" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.ClientJava">
     <configuration name="ClientJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client_Java.ClientJava" />
@@ -112,6 +118,14 @@
       <workItem from="1713517055666" duration="476000" />
       <workItem from="1713521075000" duration="676000" />
     </task>
+    <task id="LOCAL-00001" summary="feat (gameround popup): Create Popup view to be shown before each round of the game starts">
+      <created>1713663734442</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713663734442</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,5 +141,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat (gameround popup): Create Popup view to be shown before each round of the game starts" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat (gameround popup): Create Popup view to be shown before each round of the game starts" />
   </component>
 </project>
