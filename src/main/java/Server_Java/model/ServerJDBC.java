@@ -25,7 +25,7 @@ public class ServerJDBC {
 
     public static Player login(String username, String password) throws AccountDoesNotExist, AlreadyLoggedIn {
         query = "SELECT * FROM players WHERE Username = ? AND Password = ?";
-
+        Player player = new Player();
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, username);
@@ -69,7 +69,17 @@ public class ServerJDBC {
 
 
     public static int getLastGameId() {
-        //todo: get the latest game id from the games table in boggleddb database, return 0 if there is non yet.
+        try {
+            String query = "SELECT MAX(gid) AS max_gid FROM games";
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getInt("max_gid");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 }
