@@ -34,6 +34,10 @@ module BoggledApp{
         string reason;
     };
 
+    exception NoPlayersLeft{
+        string reason;
+    };
+
     //interface for authentication
     interface Authentication{
         Player login(in string username, in string password) raises (AccountDoesNotExist, AlreadyLoggedIn);
@@ -46,7 +50,7 @@ module BoggledApp{
         long getWaitingTime(in long gid);
         long getTotalPlayersJoined(in long gid);
         Round playFirstRound(in long gid); //returns null if game status is false (no joined players). Otherwise, returns a round (for first round)
-        Round submitAndLoadNextRound(in StringSequence answersArray, in long pid, in long gid);
+        Round submitAndLoadNextRound(in StringSequence answersArray, in long pid, in long gid) raises (NoPlayersLeft);
         PlayerList viewLeaderboards();
     };
 };

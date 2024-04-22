@@ -17,6 +17,8 @@ public class ServerModel {
     private AuthenticationImpl authentication;
     private GameManagerImpl gameManager;
     private String[] args = {"-ORBInitialPort 2000", "ORBInitialHost localhost"};
+    public static int WAITING_TIME = 10;
+    public static int ROUND_LENGTH = 30;
 
     public ServerModel() {
         try {

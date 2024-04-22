@@ -1,12 +1,14 @@
 package Server_Java.model.implementations;
 
 import Server_Java.model.implementations.BoggledApp.GameManagerPOA;
+import Server_Java.model.implementations.BoggledApp.NoPlayersLeft;
 import Server_Java.model.implementations.BoggledApp.Player;
 import Server_Java.model.implementations.BoggledApp.Round;
 
 public class GameManagerImpl extends GameManagerPOA {
+
     @Override
-    public int startGame(int pid) {
+    public int startGame(Player player) {
         return 0;
     }
 
@@ -26,7 +28,7 @@ public class GameManagerImpl extends GameManagerPOA {
     }
 
     @Override
-    public Round submitAndLoadNextRound(String[] answersArray, int pid, int gid) {
+    public Round submitAndLoadNextRound(String[] answersArray, int pid, int gid) throws NoPlayersLeft {
         return null;
     }
 
