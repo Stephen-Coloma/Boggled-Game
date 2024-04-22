@@ -6,6 +6,7 @@ module BoggledApp{
         string username;
         string password;
         long points;
+        long roundsWon;
     };
 
     // sequence of players
@@ -13,20 +14,10 @@ module BoggledApp{
     // sequence of strings
     typedef sequence<string> StringSequence;
 
-//    //Game Object
-//    struct Game{
-//        long gid;
-//        boolean status; //false when there is no player joined, true otherwise
-//        PlayerList players;
-//        Player gameWinner;
-//        string[] players_points; //a string representation for players' points e.g. "werewolfXD-35"
-//    };
-
     //Round object
     struct Round{
         long gid;
-        StringSequence players_roundsWon; //a string representation for players' rounds won e.g ["werewolfXD-2", "peterXYZ-1"]
-        long playerAccumulatedPoints;
+        PlayerList playersData; //list of players where rounds won and accumulated points can be fetched
         string characterSet;
         long roundLength;
         long roundNumber;
@@ -51,7 +42,7 @@ module BoggledApp{
 
     //interface for most of the game methods
     interface GameManager{
-        long startGame(in long pid);
+        long startGame(in Player player);
         long getWaitingTime(in long gid);
         long getTotalPlayersJoined(in long gid);
         Round playFirstRound(in long gid); //returns null if game status is false (no joined players). Otherwise, returns a round (for first round)
