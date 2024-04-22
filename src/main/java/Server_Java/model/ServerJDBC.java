@@ -28,4 +28,9 @@ public class ServerJDBC {
     public static void logout(int pid) {
         //todo: database queries for logout
     }
+
+    public static int getLastGameId() {
+        //todo: get the latest game id from the games table in boggleddb database, return 0 if there is non yet.
+        return 0;
+    }
 }

@@ -15,7 +15,6 @@ public class Game {
     private int gid;
     private List<Player> playersData;
     private String characterSet;
-    private static int WAITING_TIME = ServerModel.WAITING_TIME;
     private int roundNumber;
     private Player roundWinner;
     private Player gameWinner;
@@ -41,7 +40,7 @@ public class Game {
         roundNumber = 0;
     }
 
-    /**This method adds the player who  wants to join to the game in the waiting list.
+    /**This method adds the player who  wants to join to the game in the waiting state.
      * @param player - player to join*/
     public void addPlayerToGame(Player player){
         //reset data
@@ -102,7 +101,7 @@ public class Game {
     }
 
     /**This method will be used by GameManagerImpl wherein it checks if the game is valid.
-     * If yes, it transfers the game from waiting list into ongoing games.
+     * If yes, it transfers the game from waiting state into ongoing games.
      * Note: For a game to be valid, it must have more than 1 player.
      * @return true - game is valid, false otherwise
      * */
@@ -175,14 +174,6 @@ public class Game {
 
     public void setGameWinner(Player gameWinner) {
         this.gameWinner = gameWinner;
-    }
-
-    public static int getWaitingTime() {
-        return WAITING_TIME;
-    }
-
-    public static void setWaitingTime(int waitingTime) {
-        WAITING_TIME = waitingTime;
     }
 
     public CountDownLatch getSubmissionLatch() {
