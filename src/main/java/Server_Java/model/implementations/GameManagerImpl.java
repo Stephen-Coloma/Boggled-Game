@@ -17,14 +17,41 @@ public class GameManagerImpl extends GameManagerPOA {
 
     public GameManagerImpl() {
         ongoingGames = new LinkedHashMap<>();
+        //an extra thread that transfers
+        Thread transfer = new Thread(()->{
+            try {
+                while (true){
+                    if (waitingGame != null){
+                        TIME_LEFT = ServerModel.WAITING_TIME;
+                        for (; TIME_LEFT != 0 ; TIME_LEFT--) {
+                            Thread.sleep(1000);
+                        }
 
-        //todo: create an extra thread that transfers waiting game into ongoing game.
+                        //after the countdown, check the validity of the game, then transfer it to hashmap or not
+                        if (waitingGame.isGameValid()){
+                            ongoingGames.put(waitingGame.getGid(), waitingGame);
+                            waitingGame = null;
+                        }else {
+                            waitingGame = null;
+                        }
+                    }
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
+        transfer.start();
     }
 
     @Override
     public int startGame(Player player) {
-        //todo: create the logic of the waiting game
-        return 0;
+        if (waitingGame == null){
+            int latestGid = ServerJDBC.getLastGameId();
+            waitingGame = new Game(++latestGid, player);
+        }else {
+            waitingGame.addPlayerToGame(player);
+        }
+        return waitingGame.getGid();
     }
 
     @Override
