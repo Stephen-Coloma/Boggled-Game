@@ -34,13 +34,16 @@ public class ServerJDBC {
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String fn = resultSet.getString("fullname");
-                int points = resultSet.getInt("points");
                 int loggedInStatus = resultSet.getInt("loggedinstatus");
                 if (loggedInStatus == 1) {
                     throw new AlreadyLoggedIn("Account already logged in");
                 } else {
+                    int id = resultSet.getInt("id");
+                    String fn = resultSet.getString("fullname");
+                    int points = resultSet.getInt("points");
+
+                    loginHelper(id);
+
                     return new Player(id, fn, username, password, points, 0);
                 }
             } else {
@@ -67,7 +70,19 @@ public class ServerJDBC {
 
     }
 
+    private static void loginHelper(int pid){
+        query = "UPDATE players SET loggedinstatus = 1 WHERE pid = ?";
+        try{
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, pid);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception exception){
+            exception.printStackTrace();
+        }
 
+    }
     public static int getLastGameId() {
         try {
             String query = "SELECT MAX(gid) AS max_gid FROM games";
