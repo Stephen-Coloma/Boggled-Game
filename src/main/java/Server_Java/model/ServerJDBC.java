@@ -23,9 +23,17 @@ public class ServerJDBC {
         }
     }
 
+    /**
+     * Logs in a player with the given username and password.
+     *
+     * @param username The username of the player.
+     * @param password The password of the player.
+     * @return The Player object representing the logged-in player.
+     * @throws AccountDoesNotExist If the account with the given username and password does not exist.
+     * @throws AlreadyLoggedIn     If the account is already logged in.
+     */
     public static Player login(String username, String password) throws AccountDoesNotExist, AlreadyLoggedIn {
         query = "SELECT * FROM players WHERE Username = ? AND Password = ?";
-        Player player = new Player();
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, username);
@@ -54,12 +62,15 @@ public class ServerJDBC {
         }
         return null;
     }
-
+    /**
+     * Method that logs out the player with the given player ID.
+     *
+     * @param pid The player ID of the player to be logged out.
+     */
     public static void logout(int pid) {
         query = "UPDATE players SET loggedinstatus = 0 WHERE pid = ?";
         try{
             preparedStatement = connection.prepareStatement(query);
-
             preparedStatement.setInt(1, pid);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -69,7 +80,10 @@ public class ServerJDBC {
         }
 
     }
-
+    /**
+     * Helper method to update the logged-in status of a player after successful login.
+     * @param pid The player ID of the player who is logging in.
+     */
     private static void loginHelper(int pid){
         query = "UPDATE players SET loggedinstatus = 1 WHERE pid = ?";
         try{
@@ -83,6 +97,10 @@ public class ServerJDBC {
         }
 
     }
+    /**
+     * Retrieves the ID of the last game played.
+     * @return The ID of the last game played, or 0 if no games have been played yet.
+     */
     public static int getLastGameId() {
         try {
             String query = "SELECT MAX(gid) AS max_gid FROM games";
