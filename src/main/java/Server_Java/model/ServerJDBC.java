@@ -116,9 +116,29 @@ public class ServerJDBC {
         }
         return 0;
     }
-
+    /**This method saves the game session to the database wherein each game has its gid, winner, and the total rounds played in the games table.
+     * @param gid - game id
+     * @param gameWinner - the player's pid who won the game
+     * @param roundNumber - the total rounds played in the game*/
     public static void saveGame(int gid, int gameWinner, int roundNumber) {
-        //todo: assigned to @Cristian Barcellano Bsave game data to the games table
+        query = "INSERT INTO games(gid,gamewinner,totalrounds) " +
+                "VALUES(?,?,?)";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, gid);
+            preparedStatement.setInt(2, gameWinner);
+            preparedStatement.setInt(3, roundNumber);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0){
+                System.out.println("successful insert");
+            }else {
+                System.out.println("unsuccessful insert");
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void updatePlayersPoints(List<Player> playersData) {
