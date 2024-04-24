@@ -5,11 +5,9 @@ import Server_Java.model.implementations.BoggledApp.Player;
 import Server_Java.model.implementations.BoggledApp.Round;
 import org.omg.CORBA.PRIVATE_MEMBER;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
+import java.util.stream.Collectors;
 
 public class Game {
     private int gid;
@@ -109,14 +107,39 @@ public class Game {
         return (playersData.size() > 1);
     }
 
-
     /**This method generates a random set of characters consists of 7 vowels and 13 consonants in string form */
     private String generateCharacterSet() {
-        return null;
-        //todo: create a generator for the character set stored in a string
+        String vowels = "aeiou";
+        String consonants = "bcdfghjklmnpqrstvwxyz";
+        StringBuilder charSet = new StringBuilder(20);
+
+        for (int i = 0; i < 7; i++) {
+            charSet.append(vowels.charAt((int) (Math.random() * vowels.length())));
+        }
+        for (int i = 0; i < 13; i++) {
+            charSet.append(consonants.charAt((int) (Math.random() * consonants.length())));
+        }
+        // shuffle the characters to randomize
+        List<Character> charList = charSet.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.toList());
+        Collections.shuffle(charList);
+        return charList.stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining());
+
+        //  // Shuffle the characters
+        //        char[] array = characterSet.toString().toCharArray();
+        //        for (int i = array.length - 1; i > 0; i--) {
+        //            int j = random.nextInt(i + 1);
+        //            char temp = array[i];
+        //            array[i] = array[j];
+        //            array[j] = temp;
+        //        }
+        //
+        //        return new String(array);
+        //    }
     }
-
-
 
     /**=====================GETTERS AND SETTERS=====================*/
 
