@@ -66,7 +66,12 @@ public class GameManagerImpl extends GameManagerPOA {
 
     @Override
     public Round playFirstRound(int gid) {
-        return null;
+        Game game = ongoingGames.get(gid);
+        if (game == null){
+            return null;
+        }else {
+            return game.getFirstRound();
+        }
     }
 
     @Override

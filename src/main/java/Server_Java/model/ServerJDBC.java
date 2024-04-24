@@ -5,6 +5,7 @@ import Server_Java.model.implementations.BoggledApp.AlreadyLoggedIn;
 import Server_Java.model.implementations.BoggledApp.Player;
 
 import java.sql.*;
+import java.util.List;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
@@ -114,5 +115,23 @@ public class ServerJDBC {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public static void saveGame(int gid, int gameWinner, int roundNumber) {
+        //todo: assigned to @Cristian Barcellano Bsave game data to the games table
+    }
+
+    public static void updatePlayersPoints(List<Player> playersData) {
+        //todo: assigned to @Jerwin Ramos, iterate each pid in the players data and add the points of the player to their stored points in the players table
+    }
+
+    /**This method adds all players who participated in the specific game in the gameplayers table.*/
+    public static void addPlayerGameSessions(List<Player> playersData, int gid) {
+        //todo: assigned to @Sanchie Earl Guzman, iterate each pid in the list and add it to the gid in the gameplayers table
+    }
+
+    /**todo: NOTEE!! Test your codes here*/
+    public static void main(String[] args) {
+
     }
 }

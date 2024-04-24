@@ -1,5 +1,6 @@
 package Server_Java.model.implementations;
 
+import Server_Java.model.ServerJDBC;
 import Server_Java.model.ServerModel;
 import Server_Java.model.implementations.BoggledApp.Player;
 import Server_Java.model.implementations.BoggledApp.Round;
@@ -92,11 +93,90 @@ public class Game {
         round.roundLength = ROUND_LENGTH;
         this.roundNumber++;
         round.roundNumber = this.roundNumber;
+        //optional for first round
         round.roundWinner = this.roundWinner;
         round.gameWinner = this.roundWinner;
 
         return round;
     }
+
+
+    public Round getNextRound(String[] answersArray, int pid){
+        /*Algorithm
+        * 1. Prepare the latch and submissions
+        * 2. Compute for scores
+        * 3. Check who is the winner for the round
+        * 4. Check if that winner has already 3 wins, then, end the game nulling the round winner and making the roundwinner to game winner
+        * 5. If the round winner does not have 3 wins yet, prepare for next round
+        * 6. */
+
+        Round returnedRound = null;
+        try {
+            synchronized (this){
+                totalSubmission++;
+
+                //compute for the scores, dynamically changes the round winner for every submission
+                evaluateAnswers(answersArray, pid);
+
+                //if all players submitted the call
+                if (totalSubmission == playersData.size()){
+
+                    //check if the round winner has 3 wins already
+                    if (roundWinner.roundsWon == 3){
+                        gameWinner = roundWinner;
+                        returnedRound = prepareFinishedGameData();
+
+                    }else {
+                        returnedRound = prepareReturnedNextRound();
+                    }
+
+                    //release the latch
+                    submissionLatch.countDown();
+                }
+            }
+            //hold the thread if not all players submitted the call
+            submissionLatch.await();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //reset the latch and total submission, and the round winner
+        submissionLatch = new CountDownLatch(1);
+        totalSubmission = 0;
+        roundWinner = null;
+
+        return returnedRound;
+    }
+
+    private void evaluateAnswers(String[] answersArray, int pid){
+
+    }
+
+    private Round prepareFinishedGameData(){
+        //save first to the database the data
+        ServerJDBC.saveGame(gid, gameWinner.pid, roundNumber);
+        ServerJDBC.updatePlayersPoints(playersData);
+        ServerJDBC.addPlayerGameSessions(playersData, gid);
+
+        //preparing the  round data
+        Round round = new Round();
+        round.gid = this.gid;
+        round.playersData = this.playersData.toArray(new Player[playersData.size()]);
+        round.characterSet = null;
+        round.roundLength = 0;
+        round.roundNumber = this.roundNumber;
+        round.roundWinner = null;
+        round.gameWinner = this.gameWinner; //this will be the basis on how client will handle the returning round object
+        return round;
+    }
+
+
+    private Round prepareReturnedNextRound(){
+        //handle data where there is no round winner, show draw in the client side
+       return null;
+    }
+
+
 
     /**This method will be used by GameManagerImpl wherein it checks if the game is valid.
      * If yes, it transfers the game from waiting state into ongoing games.
@@ -127,18 +207,6 @@ public class Game {
         return charList.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining());
-
-        //  // Shuffle the characters
-        //        char[] array = characterSet.toString().toCharArray();
-        //        for (int i = array.length - 1; i > 0; i--) {
-        //            int j = random.nextInt(i + 1);
-        //            char temp = array[i];
-        //            array[i] = array[j];
-        //            array[j] = temp;
-        //        }
-        //
-        //        return new String(array);
-        //    }
     }
 
     /**=====================GETTERS AND SETTERS=====================*/
