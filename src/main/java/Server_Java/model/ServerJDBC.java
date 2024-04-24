@@ -5,12 +5,13 @@ import Server_Java.model.implementations.BoggledApp.AlreadyLoggedIn;
 import Server_Java.model.implementations.BoggledApp.Player;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
-    private static final String USER = "user";
-    private static final String PASSWORD = "password";
+    private static final String USER = "root";
+    private static final String PASSWORD = null;
     private static Connection connection;
     private static String query;
     private static PreparedStatement preparedStatement;
@@ -125,13 +126,47 @@ public class ServerJDBC {
         //todo: assigned to @Jerwin Ramos, iterate each pid in the players data and add the points of the player to their stored points in the players table
     }
 
-    /**This method adds all players who participated in the specific game in the gameplayers table.*/
+    /**
+     * This method adds all players who participated in the specific game in the gameplayers table.
+     *
+     * @param playersData List of Player objects representing the players who participated in the game
+     * @param gid The ID of the specific game session
+     */
     public static void addPlayerGameSessions(List<Player> playersData, int gid) {
-        //todo: assigned to @Sanchie Earl Guzman, iterate each pid in the list and add it to the gid in the gameplayers table
+
+        query = "INSERT INTO gameplayers ( player, gamesession) "+
+                "VALUES ( ?, ? ); ";
+
+        try{
+            preparedStatement = connection.prepareStatement(query);
+
+            for (Player player : playersData){
+                preparedStatement.setInt(1, player.pid);
+                preparedStatement.setInt(2, gid);
+
+                preparedStatement.executeUpdate();
+            }
+
+            System.out.println("Updated successfully");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e){
+            System.out.println("There is an error in adding players");
+        }
     }
 
     /**todo: NOTEE!! Test your codes here*/
     public static void main(String[] args) {
 
+        List<Player> playersData = new ArrayList<>();
+
+        playersData.add(new Player(1, "John Doe", "john", "12345", 100, 10));
+        playersData.add(new Player(2, "John Doe1", "john", "12345", 100, 10));
+        playersData.add(new Player(3, "John Doe2", "john", "12345", 100, 10));
+        playersData.add(new Player(4, "John Doe3", "john", "12345", 100, 10));
+
+        int gameId = 20;
+
+        addPlayerGameSessions(playersData, gameId);
     }
 }
