@@ -13,14 +13,40 @@ import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ServerModel {
     private AuthenticationImpl authentication;
     private GameManagerImpl gameManager;
     private String[] args = {"-ORBInitialPort 2000", "ORBInitialHost localhost"};
     public static int WAITING_TIME = 10;
     public static int ROUND_LENGTH = 30;
+    private Set<String> wordsBank;
+    private String filepath = "src/main/java/Server_Java/res/words.txt";
+
 
     public ServerModel() {
+        //todo: prepare the word bank
+        prepareWordBank(filepath);
+
+        //open the CORBA connection
+        openConnection();
+    }
+
+    private void prepareWordBank(String filepath){
+        wordsBank = new HashSet<>();
+        //todo: for every word from the text file, add it to the wordsBank;
+    }
+
+    public boolean isFoundInWordBank(String word){
+        //todo; return if it contains the word
+        return false;
+    }
+
+
+
+    private void openConnection() {
         try {
             // create and initialize the ORB
             ORB orb = ORB.init(args, null);

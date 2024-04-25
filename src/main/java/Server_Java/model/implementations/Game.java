@@ -20,6 +20,9 @@ public class Game {
     private static int ROUND_LENGTH = ServerModel.ROUND_LENGTH;
     private CountDownLatch submissionLatch;
     private int totalSubmission;
+    //EXTRA Fields
+    static HashMap<Integer, List<String>> listOfUniqueStringsPerPlayer = new HashMap<>();
+    static Set<String> duplicatedWords = new HashSet<>();
 
     public Game(int gid, Player player){
         this.gid = gid;
@@ -101,9 +104,20 @@ public class Game {
     }
 
 
+    /**This method is called when the player calls the submitAndLoadNextRound() method from the GameManagerImpl class.
+     * This method accepts all the answers from the players including their pid.
+     * It processes their answers by identifying all the unique words a player had submitted using the collectAnswers() method.
+     * If all the players submitted their answers, it computes the scores for the round for each player by calling the evaluateRound() method.
+     * Lastly, it prepares the round data to be received by all the players.
+     * prepareFinishedGameData() method is called to prepare the Round object that has a game winner.
+     * prepareReturnedNextRound() method is called to prepare the Round object that does not have a game winner yet.
+     * @param answersArray - array of strings a player submitted
+     * @param pid - the id of the player
+     * @return Round - returns the Round object for the necessary data to be handled by each client.*/
     public Round getNextRound(String[] answersArray, int pid){
         /*Algorithm
         * 1. Prepare the latch and submissions
+        * 2. Collect all answers and
         * 2. Compute for scores
         * 3. Check who is the winner for the round
         * 4. Check if that winner has already 3 wins, then, end the game nulling the round winner and making the roundwinner to game winner
@@ -114,15 +128,16 @@ public class Game {
         try {
             synchronized (this){
                 totalSubmission++;
-
-                //compute for the scores, dynamically changes the round winner for every submission
-                evaluateAnswers(answersArray, pid);
+                //collect those words
+                collectAnswers(answersArray, pid);
 
                 //if all players submitted the call
                 if (totalSubmission == playersData.size()){
+                    //evaluating the answers, where round winner or game winner will be determined
+                    evaluateRound();
 
                     //check if the round winner has 3 wins already
-                    if (roundWinner.roundsWon == 3){
+                    if (roundWinner.roundsWon == 3 && roundWinner != null){
                         gameWinner = roundWinner;
                         returnedRound = prepareFinishedGameData();
 
@@ -140,18 +155,93 @@ public class Game {
             e.printStackTrace();
         }
 
-        //reset the latch and total submission, and the round winner
+        //reset the latch and total submission, and the round winner, and the uniqueStringsPerPlayer and duplicateWords
         submissionLatch = new CountDownLatch(1);
         totalSubmission = 0;
         roundWinner = null;
+        listOfUniqueStringsPerPlayer = new HashMap<>();
+        duplicatedWords = new HashSet<>();
 
         return returnedRound;
     }
 
-    private void evaluateAnswers(String[] answersArray, int pid){
+    /**This private method evaluates the answers of each player by computing their round points using the length of each unique strings they submitted.
+     * This method also determines the round winner for the round - a player that has the highest points.
+     * If two players have the highest scores, then the round winner would be null.
+     * It then updates the playersData list.*/
+    private void evaluateRound() {
+        Player currentRoundWinner = null;
+        int maxPoints = 0;
+        boolean isRoundWinnerFound = false;
 
+        // Compute the scores
+        for (Map.Entry<Integer, List<String>> entry : listOfUniqueStringsPerPlayer.entrySet()) {
+            int points = 0;
+            int pid = entry.getKey();
+
+            // Calculate points for the current player
+            if (entry.getValue().size() > 0){
+                for (String string : entry.getValue()) {
+                    points += string.length();
+                }
+            }
+
+            // Update player's points
+            for (Player player : playersData) {
+                if (player.pid == pid) {
+                    player.points+=points;
+
+                    // Check if the player is the round winner
+                    if (points > maxPoints) {
+                        maxPoints = points;
+                        currentRoundWinner = player;
+                        isRoundWinnerFound = true;
+                    } else if (points == maxPoints) {
+                        // If two or more players have the same score, round winner is null
+                        currentRoundWinner = null;
+                        isRoundWinnerFound = false;
+                    }
+                    break;
+                }
+            }
+        }
+
+        // Set the round winner only if a winner is found and there are players to compare
+        if (isRoundWinnerFound) {
+            roundWinner = currentRoundWinner;
+            roundWinner.roundsWon++;
+        } else {
+            roundWinner = null;
+        }
     }
 
+    /**This method collects all the answers from the players and checks if their answers are unique(no other players had answered the same word/words).
+     * It then adds the data to the listOfUniqueStringsPerPlayer Hashmap to save each list of unique strings per player.
+     * @param answersArray - array of strings a player submitted
+     * @param pid - the id of the player*/
+    private void collectAnswers(String[] answersArray, int pid){
+        List<String> answersList = new ArrayList<>(Arrays.asList(answersArray));
+        List<String> copy = new ArrayList<>(answersList);
+
+        for (List<String> playerStringList : listOfUniqueStringsPerPlayer.values()) {
+            //fixme: i did not include the validation for the reserved words yet
+            for (String ans: copy) {
+                if (playerStringList.contains(ans) || duplicatedWords.contains(ans) ){
+                    //remove from the lists and add to set
+                    playerStringList.remove(ans);
+                    answersList.remove(ans);
+                    if (!duplicatedWords.contains(ans)){
+                        duplicatedWords.add(ans);
+                    }
+                }
+            }
+        }
+
+        listOfUniqueStringsPerPlayer.put(pid, answersList);
+    }
+
+    /**This method prepares the Finished Game Data the be returned to each of the client. This is called when there is a game winner already.
+     * @return Round - round object to be returned and fetched by all the clients.*/
     private Round prepareFinishedGameData(){
         //save first to the database the data
         ServerJDBC.saveGame(gid, gameWinner.pid, roundNumber);
