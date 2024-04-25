@@ -17,7 +17,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ServerModel {
@@ -32,8 +34,6 @@ public class ServerModel {
 
     public ServerModel() {
         //reading the config file
-        /*todo: create a config file in the directory src/main/java that contains the initialization of the ORB connection
-        *  and the game settings to be fetched and used in the method openConnection(params)*/
         String[] params = readConfig();
 
 
@@ -45,7 +45,25 @@ public class ServerModel {
     }
 
     private String[] readConfig() {
-        return null;
+        List<String> params  = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/configuration.config"))){
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.trim().split("=");
+                if (parts.length == 2) {
+                    String key = parts[0].trim();
+                    String value = parts[1].trim();
+                    if (key.equals("host") || key.equals("port")) {
+                        params.add(value);
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return params.toArray(new String [0]);
     }
 
     private void prepareWordBank(String filepath){
