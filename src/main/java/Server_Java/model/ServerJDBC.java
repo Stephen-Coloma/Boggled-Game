@@ -4,6 +4,10 @@ import Server_Java.model.implementations.BoggledApp.AccountDoesNotExist;
 import Server_Java.model.implementations.BoggledApp.AlreadyLoggedIn;
 import Server_Java.model.implementations.BoggledApp.Player;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 
@@ -63,6 +67,7 @@ public class ServerJDBC {
         }
         return null;
     }
+
     /**
      * Method that logs out the player with the given player ID.
      *
@@ -81,6 +86,7 @@ public class ServerJDBC {
         }
 
     }
+
     /**
      * Helper method to update the logged-in status of a player after successful login.
      * @param pid The player ID of the player who is logging in.
@@ -98,6 +104,7 @@ public class ServerJDBC {
         }
 
     }
+
     /**
      * Retrieves the ID of the last game played.
      * @return The ID of the last game played, or 0 if no games have been played yet.
@@ -116,6 +123,7 @@ public class ServerJDBC {
         }
         return 0;
     }
+
     /**This method saves the game session to the database wherein each game has its gid, winner, and the total rounds played in the games table.
      * @param gid - game id
      * @param gameWinner - the player's pid who won the game
@@ -141,6 +149,13 @@ public class ServerJDBC {
         }
     }
 
+    /**
+     * Updates the points of players in the database.
+     * This method updates the points of players in a database table named "players"
+     * based on the provided list of player data.
+     * @param playersData A list of Player objects containing the updated points for each player.
+     * @throws SQLException If an SQL exception occurs while executing the update queries.
+     */
     public static void updatePlayersPoints(List<Player> playersData) {
         query = "UPDATE players SET points = ? WHERE pid = ?";
         try{
@@ -188,7 +203,6 @@ public class ServerJDBC {
      * @return Array of Player objects representing the top players
      * @return Empty array if no players are found or in case of an error
      */
-
     public static Player[] fetchTopPlayers() {
         List<Player> topPlayers = new ArrayList<>();
         query = "SELECT * FROM players ORDER BY points DESC";

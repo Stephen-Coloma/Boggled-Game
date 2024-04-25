@@ -23,30 +23,41 @@ import java.util.Set;
 public class ServerModel {
     private AuthenticationImpl authentication;
     private GameManagerImpl gameManager;
-    private String[] args = {"-ORBInitialPort 2000", "ORBInitialHost localhost"};
+    private String[] args = {"-ORBInitialPort 2000", "ORBInitialHost localhost"}; //todo: to be deleted once the readConfig is created
     public static int WAITING_TIME = 10;
     public static int ROUND_LENGTH = 30;
-    private Set<String> wordsBank;
+    private static Set<String> wordBank;
     private String filepath = "src/main/java/Server_Java/res/words.txt";
 
 
     public ServerModel() {
+        //reading the config file
+        /*todo: create a config file in the directory src/main/java that contains the initialization of the ORB connection
+        *  and the game settings to be fetched and used in the method openConnection(params)*/
+        String[] params = readConfig();
+
+
+        //preparing the word bank
         prepareWordBank(filepath);
 
         //open the CORBA connection
         openConnection();
     }
 
+    private String[] readConfig() {
+        return null;
+    }
+
     private void prepareWordBank(String filepath){
-        wordsBank = new HashSet<>();
+        wordBank = new HashSet<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
             String line;
             // read each line from the text file
             while ((line = reader.readLine()) != null) {
                 // check if the word is not already in the HashSet
-                if (!wordsBank.contains(line)) {
+                if (!wordBank.contains(line)) {
                     // add the word to the HashSet
-                    wordsBank.add(line);
+                    wordBank.add(line);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -56,16 +67,17 @@ public class ServerModel {
         }
     }
 
-    public boolean isFoundInWordBank(String word){
+    public static boolean isFoundInWordBank(String word){
         // check if the word is present in the HashSet
-        return wordsBank.contains(word);
+        return wordBank.contains(word);
     }
 
 
+    //todo: to be edited about the parameters
     private void openConnection() {
         try {
             // create and initialize the ORB
-            ORB orb = ORB.init(args, null);
+            ORB orb = ORB.init(args, null); //todo:
 
             // get reference to rootpoa & activate the POAManager
             POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));

@@ -225,13 +225,17 @@ public class Game {
         for (List<String> playerStringList : listOfUniqueStringsPerPlayer.values()) {
             //fixme: i did not include the validation for the reserved words yet
             for (String ans: copy) {
-                if (playerStringList.contains(ans) || duplicatedWords.contains(ans) ){
-                    //remove from the lists and add to set
-                    playerStringList.remove(ans);
-                    answersList.remove(ans);
-                    if (!duplicatedWords.contains(ans)){
-                        duplicatedWords.add(ans);
+                if (ServerModel.isFoundInWordBank(ans)){
+                    if (playerStringList.contains(ans) || duplicatedWords.contains(ans) ){
+                        //remove from the lists and add to set
+                        playerStringList.remove(ans);
+                        answersList.remove(ans);
+                        if (!duplicatedWords.contains(ans)){
+                            duplicatedWords.add(ans);
+                        }
                     }
+                }else {
+                    answersList.remove(ans);
                 }
             }
         }
