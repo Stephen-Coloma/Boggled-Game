@@ -47,7 +47,7 @@ public class ServerJDBC {
                 if (loggedInStatus == 1) {
                     throw new AlreadyLoggedIn("Account already logged in");
                 } else {
-                    int id = resultSet.getInt("id");
+                    int id = resultSet.getInt("pid");
                     String fn = resultSet.getString("fullname");
                     int points = resultSet.getInt("points");
 
@@ -162,10 +162,36 @@ public class ServerJDBC {
         }
     }
 
+    /**
+     * This method retrieves player details for the top players, sorted in descending order by their points
+     *
+     * @return Array of Player objects representing the top players
+     * @return Empty array if no players are found or in case of an error
+     */
+
     public static Player[] fetchTopPlayers() {
-        // TODO: 4/25/2024 @hannah ragudos, implement the sql statement that fetches the top players from the leaderboards
-        // return would be the array of players
-        return null;
+        List<Player> topPlayers = new ArrayList<>();
+        query = "SELECT * FROM players ORDER BY points DESC";
+        //  DESC LIMIT 5;
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("pid");
+                String fullName = resultSet.getString("fullname");
+                String username = resultSet.getString("username");
+                int points = resultSet.getInt("points");
+
+                Player player = new Player(id, fullName, username, "", points, 0);
+                topPlayers.add(player);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return topPlayers.toArray(new Player[0]);
     }
 
     /**todo: NOTEE!! Test your codes here*/

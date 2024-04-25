@@ -5,8 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba15be24-360a-4466-ba16-1875bfa4af75" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/ClientJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client_Java/ClientJava.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationPOA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationPOA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerPOA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerPOA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/NoPlayersLeftHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/NoPlayersLeftHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerListHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerListHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/RoundHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/RoundHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/StringSequenceHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/StringSequenceHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/_AuthenticationStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/_AuthenticationStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/_GameManagerStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/_GameManagerStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +37,20 @@
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ServerJDBC">
+    <configuration name="ClientJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Client_Java.ClientJava" />
+      <module name="Boggled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Client_Java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServerJDBC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server_Java.model.ServerJDBC" />
       <module name="Boggled" />
@@ -33,9 +64,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServerJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server_Java.ServerJava" />
+      <module name="Boggled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server_Java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ServerJDBC" />
+        <item itemvalue="Application.ClientJava" />
+        <item itemvalue="Application.ServerJava" />
       </list>
     </recent_temporary>
   </component>
@@ -44,5 +90,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
