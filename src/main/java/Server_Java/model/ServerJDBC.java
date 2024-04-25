@@ -5,13 +5,12 @@ import Server_Java.model.implementations.BoggledApp.AlreadyLoggedIn;
 import Server_Java.model.implementations.BoggledApp.Player;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
     private static final String USER = "root";
-    private static final String PASSWORD = null;
+    private static final String PASSWORD = "";
     private static Connection connection;
     private static String query;
     private static PreparedStatement preparedStatement;
@@ -163,7 +162,61 @@ public class ServerJDBC {
         }
     }
 
+    /**
+     * This method retrieves player details for the top players, sorted in descending order by their points
+     *
+     * @return Array of Player objects representing the top players
+     * @return Empty array if no players are found or in case of an error
+     */
+
+    public static Player[] fetchTopPlayers() {
+        List<Player> topPlayers = new ArrayList<>();
+        query = "SELECT * FROM players ORDER BY points DESC";
+        //  DESC LIMIT 5;
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("pid");
+                String fullname = resultSet.getString("fullname");
+                String username = resultSet.getString("username");
+                int points = resultSet.getInt("points");
+
+                Player player = new Player(id, fullname, username, "", points, 0);
+                topPlayers.add(player);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage());
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return topPlayers.toArray(new Player[0]);
+    }
+
     /**todo: NOTEE!! Test your codes here*/
     public static void main(String[] args) {
+        try {
+            Player[] topPlayers = ServerJDBC.fetchTopPlayers();
+
+            if (topPlayers.length == 0) {
+                System.out.println("No top players found or unable to fetch top players.");
+            } else {
+                System.out.println("Top Players:");
+                for (Player player : topPlayers) {
+                    System.out.printf("ID: %d, Name: %s, Username: %s, Points: %d\n",  player.pid, player.fullName, player.username, player.points);
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Error while fetching top players: " + e.getMessage());
+        }
     }
 }
