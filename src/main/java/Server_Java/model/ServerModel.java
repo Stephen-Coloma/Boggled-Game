@@ -25,7 +25,7 @@ import java.util.Set;
 public class ServerModel {
     private AuthenticationImpl authentication;
     private GameManagerImpl gameManager;
-    private String[] args = {"-ORBInitialPort 2000", "ORBInitialHost localhost"}; //todo: to be deleted once the readConfig is created
+    private String[] args;
     public static int WAITING_TIME = 10;
     public static int ROUND_LENGTH = 30;
     private static Set<String> wordBank;
@@ -36,12 +36,15 @@ public class ServerModel {
         //reading the config file
         String[] params = readConfig();
 
+        String[] gameParams = readGameConfig();
 
         //preparing the word bank
         prepareWordBank(filepath);
 
+        args = new String[]{"-ORBInitialPort", params[0], "ORBInitialHost", params[1]};
+
         //open the CORBA connection
-        openConnection();
+        openConnection(args);
     }
 
     private String[] readConfig() {
@@ -50,12 +53,11 @@ public class ServerModel {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.trim().split("=");
-                if (parts.length == 2) {
-                    String key = parts[0].trim();
-                    String value = parts[1].trim();
-                    if (key.equals("host") || key.equals("port")) {
-                        params.add(value);
-                    }
+
+                String key = parts[0].trim();
+                String value = parts[1].trim();
+                if (key.equals("host") || key.equals("port")) {
+                    params.add(value);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -64,6 +66,26 @@ public class ServerModel {
             throw new RuntimeException(e);
         }
         return params.toArray(new String [0]);
+    }
+    private String[] readGameConfig() {
+        List<String> gameParams = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/configuration.config"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.trim().split("=");
+
+                String key = parts[0].trim();
+                String value = parts[1].trim();
+                if (key.equals("WAITING_TIME") || key.equals("ROUND_LENGTH")) {
+                    gameParams.add(value);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return gameParams.toArray(new String[0]);
     }
 
     private void prepareWordBank(String filepath){
@@ -90,12 +112,10 @@ public class ServerModel {
         return wordBank.contains(word);
     }
 
-
-    //todo: to be edited about the parameters
-    private void openConnection() {
+    private void openConnection(String[] args) {
         try {
             // create and initialize the ORB
-            ORB orb = ORB.init(args, null); //todo:
+            ORB orb = ORB.init(args, null);
 
             // get reference to rootpoa & activate the POAManager
             POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
