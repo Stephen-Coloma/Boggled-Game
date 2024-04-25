@@ -1,5 +1,6 @@
 package Server_Java.model.implementations;
 
+import Server_Java.ServerJava;
 import Server_Java.model.ServerJDBC;
 import Server_Java.model.ServerModel;
 import Server_Java.model.implementations.BoggledApp.GameManagerPOA;
@@ -76,11 +77,15 @@ public class GameManagerImpl extends GameManagerPOA {
 
     @Override
     public Round submitAndLoadNextRound(String[] answersArray, int pid, int gid) throws NoPlayersLeft {
-        return null;
+        // FIXME: 4/25/2024 , handle when there is no players left already. //a solution would be to have a thread from the client that sends a message to server to have a heartbeat. optional
+        //  do not implement yet;
+        Game game = ongoingGames.get(gid);
+        return game.getNextRound(answersArray, pid);
     }
 
     @Override
     public Player[] viewLeaderboards() {
-        return new Player[0];
+        //todo: implement the sql query
+        return ServerJDBC.fetchTopPlayers();
     }
 }

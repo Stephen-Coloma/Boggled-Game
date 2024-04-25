@@ -84,7 +84,6 @@ public class Game {
         return returnedRound;
     }
 
-
     /**This method is a helper method that prepares the first round of the game
      * @return ROUND - a copy of the necessary data from the game.*/
     private Round prepareReturnedFirstRound() {
@@ -97,8 +96,8 @@ public class Game {
         this.roundNumber++;
         round.roundNumber = this.roundNumber;
         //optional for first round
-        round.roundWinner = this.roundWinner;
-        round.gameWinner = this.roundWinner;
+        round.roundWinner = null;
+        round.gameWinner = null;
 
         return round;
     }
@@ -240,7 +239,7 @@ public class Game {
         listOfUniqueStringsPerPlayer.put(pid, answersList);
     }
 
-    /**This method prepares the Finished Game Data the be returned to each of the client. This is called when there is a game winner already.
+    /**This method prepares the Finished Game Data to be returned to each of the client. This is called when there is a game winner already.
      * @return Round - round object to be returned and fetched by all the clients.*/
     private Round prepareFinishedGameData(){
         //save first to the database the data
@@ -260,13 +259,30 @@ public class Game {
         return round;
     }
 
-
+    /**This method is called to prepare the round object to be returned to each of the client.
+     * This is called when the game continues for the next round (i.e) there is no game winner yet.
+     * @return Round - round object to be fetched by all clients. This does not have a game winner yet.
+     * And if the roundWinner is null, that means that the round is draw.*/
     private Round prepareReturnedNextRound(){
         //handle data where there is no round winner, show draw in the client side
-       return null;
+        Round round = new Round();
+        round.gid = this.gid;
+        round.playersData = this.playersData.toArray(new Player[playersData.size()]);
+        this.characterSet = generateCharacterSet();
+        round.characterSet = this.characterSet;
+        roundNumber++;
+        round.roundNumber = this.roundNumber;
+        round.roundLength = this.ROUND_LENGTH;
+
+        //round can have round winner or draw, if draw, roundWinner = null
+        if (roundWinner != null){
+            round.roundWinner = this.roundWinner;
+        }
+
+        //returned next round automatically does not have any game winner
+        round.gameWinner = null;
+        return round;
     }
-
-
 
     /**This method will be used by GameManagerImpl wherein it checks if the game is valid.
      * If yes, it transfers the game from waiting state into ongoing games.

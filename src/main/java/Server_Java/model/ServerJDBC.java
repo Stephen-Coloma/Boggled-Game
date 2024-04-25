@@ -5,13 +5,12 @@ import Server_Java.model.implementations.BoggledApp.AlreadyLoggedIn;
 import Server_Java.model.implementations.BoggledApp.Player;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
-    private static final String USER = "root";
-    private static final String PASSWORD = null;
+    private static final String USER = "user";
+    private static final String PASSWORD = "password";
     private static Connection connection;
     private static String query;
     private static PreparedStatement preparedStatement;
@@ -163,7 +162,14 @@ public class ServerJDBC {
         }
     }
 
+    public static Player[] fetchTopPlayers() {
+        // TODO: 4/25/2024 @hannah ragudos, implement the sql statement that fetches the top players from the leaderboards
+        // return would be the array of players
+        return null;
+    }
+
     /**todo: NOTEE!! Test your codes here*/
     public static void main(String[] args) {
+
     }
 }
