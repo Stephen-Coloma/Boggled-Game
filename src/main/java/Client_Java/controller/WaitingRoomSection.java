@@ -4,6 +4,7 @@ import Client_Java.ClientApp;
 import Client_Java.model.WaitingRoomSectionModel;
 import Client_Java.view.WaitingRoomSectionView;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
@@ -30,6 +31,7 @@ public class WaitingRoomSection {
             ClientApp.APPLICATION_STAGE.setScene(waitingRoomScene);
 
             setUpCancelBT();
+            initiateCountdown();
         } catch (RuntimeException | IOException e) {
             e.printStackTrace();
         }
@@ -38,8 +40,14 @@ public class WaitingRoomSection {
     private void setUpCancelBT() {
         view.getCancelBT().setOnAction(event -> {
             // TODO: either add a part here to stop the countdown or set it to the model
-
+            model.getCountdownTimer().cancel();
             ClientApp.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE);
         });
-    }
+    } // end of setUpCancelBT
+
+    private void initiateCountdown() {
+        view.getCountdownLB().textProperty().bind(model.getDuration().asString());
+        view.getPlayerCountLB().textProperty().bind(model.getPlayerCount().asString());
+        model.startCountdown();
+    } // end of initiateCountdown
 } // end of WaitingRoomSection class
