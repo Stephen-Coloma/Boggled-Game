@@ -10,8 +10,8 @@ import java.util.List;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
-    private static final String USER = "user";
-    private static final String PASSWORD = "password";
+    private static final String USER = "root";
+    private static final String PASSWORD = null;
     private static Connection connection;
     private static String query;
     private static PreparedStatement preparedStatement;
@@ -132,14 +132,35 @@ public class ServerJDBC {
 
                 int rowsAffected = preparedStatement.executeUpdate();
             }
-        }catch (SQLException e){
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    /**This method adds all players who participated in the specific game in the gameplayers table.*/
+    /**
+     * This method adds all players who participated in the specific game in the gameplayers table.
+     *
+     * @param playersData List of Player objects representing the players who participated in the game
+     * @param gid The ID of the specific game session
+     */
     public static void addPlayerGameSessions(List<Player> playersData, int gid) {
-        //todo: assigned to @Sanchie Earl Guzman, iterate each pid in the list and add it to the gid in the gameplayers table
+
+        query = "INSERT INTO gameplayers ( player, gamesession) "+
+                "VALUES ( ?, ? ); ";
+
+        try{
+            preparedStatement = connection.prepareStatement(query);
+
+            for (Player player : playersData){
+                preparedStatement.setInt(1, player.pid);
+                preparedStatement.setInt(2, gid);
+
+                preparedStatement.executeUpdate();
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**todo: NOTEE!! Test your codes here*/
