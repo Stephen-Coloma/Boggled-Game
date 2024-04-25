@@ -13,6 +13,10 @@ import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,7 +31,6 @@ public class ServerModel {
 
 
     public ServerModel() {
-        //todo: prepare the word bank
         prepareWordBank(filepath);
 
         //open the CORBA connection
@@ -36,14 +39,27 @@ public class ServerModel {
 
     private void prepareWordBank(String filepath){
         wordsBank = new HashSet<>();
-        //todo: for every word from the text file, add it to the wordsBank;
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+            String line;
+            // read each line from the text file
+            while ((line = reader.readLine()) != null) {
+                // check if the word is not already in the HashSet
+                if (!wordsBank.contains(line)) {
+                    // add the word to the HashSet
+                    wordsBank.add(line);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public boolean isFoundInWordBank(String word){
-        //todo; return if it contains the word
-        return false;
+        // check if the word is present in the HashSet
+        return wordsBank.contains(word);
     }
-
 
 
     private void openConnection() {
