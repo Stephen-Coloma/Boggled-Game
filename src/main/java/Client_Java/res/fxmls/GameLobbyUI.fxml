@@ -28,7 +28,7 @@
                         <Font name="Arial Rounded MT Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="233.0" style="-fx-background-color: #248946;" text="JOIN GAME" textFill="WHITE">
+                  <Button fx:id="joinGameBT" mnemonicParsing="false" prefHeight="62.0" prefWidth="233.0" style="-fx-background-color: #248946;" text="JOIN GAME" textFill="WHITE">
                      <VBox.margin>
                         <Insets top="50.0" />
                      </VBox.margin>
@@ -53,7 +53,7 @@
                                  </font>
                               </Text>
                               <Button layoutX="373.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;" />
-                              <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="388.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="refreshLeaderboardsBT" fitHeight="30.0" fitWidth="30.0" layoutX="388.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/refresh.png" />
                                  </image>

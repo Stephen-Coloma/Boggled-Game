@@ -5,74 +5,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa404957-5eba-4a2c-98ad-40bb5d60e04b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/target/classes/Client_Java/ClientJava.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/AuthenticationImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AccountDoesNotExist.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AlreadyLoggedIn.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/Authentication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationOperations.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationPOA.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerOperations.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerPOA.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/NoPlayersLeft.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/NoPlayersLeftHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/NoPlayersLeftHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/Player.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerListHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerListHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/Round.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/RoundHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/RoundHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/StringSequenceHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/StringSequenceHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/_AuthenticationStub.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/_GameManagerStub.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/WaitingRoomSectionModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/WaitingRoomSectionView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/LogInUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/LogInUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingRoomPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingRoomPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/LobbyPageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/LobbyPageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/temp.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/ClientJava.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2falrP1UBSaC1HrveveU4Nj72xh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "server-side",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;client-frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.ClientApp">
+    <configuration name="ClientApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Client_Java.ClientApp" />
+      <module name="Boggled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Client_Java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServerJDBC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server_Java.model.ServerJDBC" />
       <module name="Boggled" />
@@ -88,6 +85,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ClientApp" />
         <item itemvalue="Application.ServerJDBC" />
       </list>
     </recent_temporary>
@@ -106,5 +104,8 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
