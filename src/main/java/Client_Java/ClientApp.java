@@ -20,6 +20,9 @@ public class ClientApp extends Application {
         LoginPage loginPage = new LoginPage(new LoginPageModel(), new LoginPageView());
         loginPage.init();
 
+        stage.setTitle("Boggled");
+        stage.setResizable(false);
+        stage.setFullScreen(false);
         stage.show();
     } // end of start
 } // end of ClientApp class

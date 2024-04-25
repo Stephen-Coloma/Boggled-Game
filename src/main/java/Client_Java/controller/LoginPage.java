@@ -32,21 +32,17 @@ public class LoginPage {
 
             ClientApp.APPLICATION_STAGE.setScene(LOGIN_SCENE);
 
-            if (view.getLogInButton() != null) {
-                System.out.println("not null");
-            } else System.out.println("null");
-
-//            setLoginButton();
+            setUpLoginButton();
         } catch (RuntimeException | IOException e) {
             e.printStackTrace();
         }
     } // end of init
 
-    private void setLoginButton() {
+    private void setUpLoginButton() {
         view.getLogInButton().setOnAction(event -> {
             // TODO: Use the model to authenticate the player in order to proceed to the lobby
             LobbyPage lobbyPage = new LobbyPage(new LobbyPageModel(), new LobbyPageView());
             lobbyPage.init();
         });
-    }
+    } // end of setUpLoginButton
 } // end of LoginPage class
