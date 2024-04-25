@@ -5,7 +5,8 @@ import Server_Java.model.implementations.BoggledApp.AlreadyLoggedIn;
 import Server_Java.model.implementations.BoggledApp.Player;
 
 import java.sql.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
@@ -122,7 +123,18 @@ public class ServerJDBC {
     }
 
     public static void updatePlayersPoints(List<Player> playersData) {
-        //todo: assigned to @Jerwin Ramos, iterate each pid in the players data and add the points of the player to their stored points in the players table
+        query = "UPDATE players SET points = ? WHERE pid = ?";
+        try{
+            for (Player player : playersData){
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1,player.points);
+                preparedStatement.setInt(2,player.pid);
+
+                int rowsAffected = preparedStatement.executeUpdate();
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
     /**This method adds all players who participated in the specific game in the gameplayers table.*/
@@ -132,6 +144,5 @@ public class ServerJDBC {
 
     /**todo: NOTEE!! Test your codes here*/
     public static void main(String[] args) {
-
     }
 }
