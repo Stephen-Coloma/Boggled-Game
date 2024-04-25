@@ -38,6 +38,7 @@ public class WaitingRoomSection {
     private void setUpCancelBT() {
         view.getCancelBT().setOnAction(event -> {
             // TODO: either add a part here to stop the countdown or set it to the model
+
             ClientApp.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE);
         });
     }
