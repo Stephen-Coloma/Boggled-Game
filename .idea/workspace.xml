@@ -5,26 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f0bae19-3238-412d-a3d6-678e416a245b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/ServerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/CreateAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/MainMenuAdminPageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/mainmenu/CreateAccountModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/ServerView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/mainmenu/CreateAccountView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/mainmenu/MainMenuAdminPageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2024_7_37_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2024_7_37_pm__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_04_2024_8_21_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_04_2024_8_21_pm__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2024_6_14_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2024_6_14_pm__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/WaitingTimeConfigCard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/ServerJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/ServerJava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/CreateAccountConfirmationPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/CreateAccountConfirmationPopup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/CreateAccountView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/CreateAccountView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/EditConfigConfirmationPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/EditConfigConfirmationPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/EditGameConfigView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/EditGameConfigView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/MainMenuAdminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/MainMenuAdminPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/ClientJava.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/PlayerListView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/PlayerListView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/RoundTimeConfigCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/RoundTimeConfigCard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/images/game-development.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/images/game-development.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/images/new-user.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/images/new-user.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/images/search.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/images/search.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/images/visibility.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/images/visibility.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +34,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "server-frontend",
+    "git-widget-placeholder": "Merging server-frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

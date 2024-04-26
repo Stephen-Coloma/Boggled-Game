@@ -12,11 +12,11 @@
    <children>
       <Pane>
          <children>
-            <Pane prefHeight="55.0" prefWidth="800.0" style="-fx-background-color: green;">
+            <Pane prefHeight="55.0" prefWidth="800.0" style="-fx-background-color: #248946;">
                <children>
-                  <Label alignment="TOP_LEFT" layoutX="19.0" layoutY="13.0" prefHeight="38.0" prefWidth="446.0" text="Edit Configuration Confirmation" textFill="WHITE">
+                  <Label alignment="TOP_LEFT" layoutX="19.0" layoutY="17.0" prefHeight="38.0" prefWidth="446.0" text="Edit Configuration Confirmation" textFill="WHITE">
                      <font>
-                        <Font name="Arial Black" size="19.0" />
+                        <Font name="Arial Rounded MT Bold" size="19.0" />
                      </font>
                   </Label>
                </children>
@@ -25,10 +25,10 @@
       </Pane>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure you want to save the game configuration?" textAlignment="CENTER" wrappingWidth="695.7367210388184">
          <font>
-            <Font name="System Bold" size="25.0" />
+            <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
          <VBox.margin>
-            <Insets top="25.0" />
+            <Insets top="30.0" />
          </VBox.margin>
       </Text>
       <Text layoutX="62.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="695.7367210388184">
@@ -36,9 +36,9 @@
             <Font name="System Italic" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="yesButton" contentDisplay="CENTER" layoutX="343.0" layoutY="204.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="159.0" style="-fx-background-color: green; -fx-border-color: green; -fx-border-radius: 5;" text="YES" textFill="WHITE">
+      <Button fx:id="yesButton" contentDisplay="CENTER" layoutX="343.0" layoutY="204.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="159.0" style="-fx-background-color: #248946; -fx-border-color: #248946; -fx-border-radius: 5;" text="YES" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="Arial Rounded MT Bold" size="19.0" />
          </font>
       </Button>
       <Button fx:id="noButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="158.0" style="-fx-background-color: transparent; -fx-border-color: green; -fx-border-radius: 5;" text="NO">
@@ -46,7 +46,7 @@
             <Insets top="15.0" />
          </VBox.margin>
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="Arial Rounded MT Bold" size="19.0" />
          </font>
       </Button>
    </children>

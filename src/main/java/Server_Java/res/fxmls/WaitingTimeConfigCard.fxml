@@ -9,7 +9,7 @@
 
 <HBox alignment="CENTER" prefHeight="99.0" prefWidth="777.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fill="#000000da" strokeType="OUTSIDE" strokeWidth="0.0" text="ROUND TIME" textAlignment="CENTER" wrappingWidth="199.9687798023224">
+      <Text fill="#000000da" strokeType="OUTSIDE" strokeWidth="0.0" text="WAITING TIME" textAlignment="CENTER" wrappingWidth="202.10189747810364">
          <font>
             <Font name="Arial Rounded MT Bold" size="25.0" />
          </font>

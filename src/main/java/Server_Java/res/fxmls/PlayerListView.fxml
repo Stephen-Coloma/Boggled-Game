@@ -14,9 +14,9 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1018.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="982.0" style="-fx-border-color: #248946; -fx-background-color: white; -fx-border-width: 2;">
+      <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="982.0" style="-fx-border-color: #8BCE39; -fx-background-color: white; -fx-border-width: 3;">
          <children>
-            <HBox prefHeight="73.0" prefWidth="934.0">
+            <HBox prefHeight="73.0" prefWidth="934.0" style="-fx-background-color: white;">
                <children>
                   <Text fill="#248946" strokeType="OUTSIDE" strokeWidth="0.0" text="LIST OF PLAYERS">
                      <font>
@@ -26,22 +26,22 @@
                         <Insets left="20.0" top="20.0" />
                      </HBox.margin>
                   </Text>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="34.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
-                        <Insets left="280.0" top="20.0" />
+                        <Insets left="280.0" top="25.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="@../../../../../../Downloads/boggled/boggled/src/main/resources/Boggled_images/search.png" />
+                        <Image url="@../images/search.png" />
                      </image>
                   </ImageView>
-                  <TextField prefHeight="35.0" prefWidth="262.0" promptText="Search" style="-fx-background-color: transparent; -fx-border-color: #248946; -fx-background-radius: 10; -fx-border-radius: 10;">
+                  <TextField prefHeight="35.0" prefWidth="310.0" promptText="Search" style="-fx-background-color: transparent; -fx-border-color: #248946; -fx-background-radius: 10; -fx-border-radius: 10;">
                      <HBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
                   </TextField>
                </children>
             </HBox>
-            <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="604.0" prefWidth="950.0" style="-fx-background-color: white; -fx-table-header-background: #8BCE39; -fx-border-color: #8BCE39;">
+            <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="604.0" prefWidth="950.0" style="-fx-background-color: white; -fx-table-header-background: #8BCE39; -fx-border-color: #248946;">
                <columns>
                   <TableColumn prefWidth="106.4000244140625" text="USERNAME" />
                   <TableColumn prefWidth="135.99996948242188" text="PASSWORD" />
