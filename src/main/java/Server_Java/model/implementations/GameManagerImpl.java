@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 public class GameManagerImpl extends GameManagerPOA {
     private Game waitingGame;
     private HashMap<Integer, Game> ongoingGames;
-    private static int TIME_LEFT;
+    private static int timeLeft;
 
     public GameManagerImpl() {
         ongoingGames = new LinkedHashMap<>();
@@ -23,8 +23,8 @@ public class GameManagerImpl extends GameManagerPOA {
             try {
                 while (true){
                     if (waitingGame != null){
-                        TIME_LEFT = ServerModel.WAITING_TIME;
-                        for (; TIME_LEFT != 0 ; TIME_LEFT--) {
+                        timeLeft = ServerModel.waitingTime;
+                        for (; timeLeft != 0 ; timeLeft--) {
                             Thread.sleep(1000);
                         }
 
@@ -57,7 +57,7 @@ public class GameManagerImpl extends GameManagerPOA {
 
     @Override
     public int getWaitingTime(int gid) {
-        return TIME_LEFT;
+        return timeLeft;
     }
 
     @Override
@@ -85,7 +85,6 @@ public class GameManagerImpl extends GameManagerPOA {
 
     @Override
     public Player[] viewLeaderboards() {
-        //todo: implement the sql query
         return ServerJDBC.fetchTopPlayers();
     }
 }

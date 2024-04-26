@@ -17,7 +17,7 @@ public class Game {
     private int roundNumber;
     private Player roundWinner;
     private Player gameWinner;
-    private static int ROUND_LENGTH = ServerModel.ROUND_LENGTH;
+    private static int roundLength = ServerModel.roundLength;
     private CountDownLatch submissionLatch;
     private int totalSubmission;
     //EXTRA Fields
@@ -92,7 +92,7 @@ public class Game {
         round.playersData = this.playersData.toArray(new Player[playersData.size()]);
         this.characterSet = generateCharacterSet();
         round.characterSet = this.characterSet;
-        round.roundLength = ROUND_LENGTH;
+        round.roundLength = roundLength;
         this.roundNumber++;
         round.roundNumber = this.roundNumber;
         //optional for first round
@@ -223,7 +223,6 @@ public class Game {
         List<String> copy = new ArrayList<>(answersList);
 
         for (List<String> playerStringList : listOfUniqueStringsPerPlayer.values()) {
-            //fixme: i did not include the validation for the reserved words yet
             for (String ans: copy) {
                 if (ServerModel.isFoundInWordBank(ans)){
                     if (playerStringList.contains(ans) || duplicatedWords.contains(ans) ){
@@ -276,7 +275,7 @@ public class Game {
         round.characterSet = this.characterSet;
         roundNumber++;
         round.roundNumber = this.roundNumber;
-        round.roundLength = this.ROUND_LENGTH;
+        round.roundLength = this.roundLength;
 
         //round can have round winner or draw, if draw, roundWinner = null
         if (roundWinner != null){
@@ -343,14 +342,6 @@ public class Game {
 
     public void setCharacterSet(String characterSet) {
         this.characterSet = characterSet;
-    }
-
-    public static int getRoundLength() {
-        return ROUND_LENGTH;
-    }
-
-    public static void setRoundLength(int roundLength) {
-        ROUND_LENGTH = roundLength;
     }
 
     public int getRoundNumber() {

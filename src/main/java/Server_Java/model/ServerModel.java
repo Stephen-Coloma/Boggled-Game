@@ -25,9 +25,8 @@ import java.util.Set;
 public class ServerModel {
     private AuthenticationImpl authentication;
     private GameManagerImpl gameManager;
-    private String[] args;
-    public static int WAITING_TIME = 10;
-    public static int ROUND_LENGTH = 30;
+    public static int waitingTime;
+    public static int roundLength;
     private static Set<String> wordBank;
     private String filepath = "src/main/java/Server_Java/res/words.txt";
 
@@ -35,13 +34,13 @@ public class ServerModel {
     public ServerModel() {
         //reading the config file
         String[] params = readConfig();
-
         String[] gameParams = readGameConfig();
+        String[] args = new String[]{"-ORBInitialPort", params[0], "-ORBInitialHost", params[1]};
+        waitingTime = Integer.parseInt(gameParams[0]);
+        roundLength = Integer.parseInt(gameParams[1]);
 
         //preparing the word bank
         prepareWordBank(filepath);
-
-        args = new String[]{"-ORBInitialPort", params[0], "ORBInitialHost", params[1]};
 
         //open the CORBA connection
         openConnection(args);
@@ -49,7 +48,7 @@ public class ServerModel {
 
     private String[] readConfig() {
         List<String> params  = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/configuration.config"))){
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/.config"))){
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.trim().split("=");
@@ -69,14 +68,14 @@ public class ServerModel {
     }
     private String[] readGameConfig() {
         List<String> gameParams = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/configuration.config"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/.config"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.trim().split("=");
 
                 String key = parts[0].trim();
                 String value = parts[1].trim();
-                if (key.equals("WAITING_TIME") || key.equals("ROUND_LENGTH")) {
+                if (key.equals("waitingTime") || key.equals("roundLength")) {
                     gameParams.add(value);
                 }
             }

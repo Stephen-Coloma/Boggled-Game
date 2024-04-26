@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54023a0d-2ec0-4efc-abdf-2e6ac357422c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/configuration.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +49,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ServerJDBC">
+  <component name="RunManager" selected="Application.ServerJava">
     <configuration name="ClientJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client_Java.ClientJava" />
       <module name="Boggled" />
@@ -81,8 +91,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerJDBC" />
         <item itemvalue="Application.ServerJava" />
+        <item itemvalue="Application.ServerJDBC" />
         <item itemvalue="Application.ClientJava" />
       </list>
     </recent_temporary>
@@ -96,6 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714046880610</updated>
       <workItem from="1714046884309" duration="2571000" />
+      <workItem from="1714119159232" duration="2008000" />
     </task>
     <servers />
   </component>
@@ -104,15 +115,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

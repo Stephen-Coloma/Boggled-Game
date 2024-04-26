@@ -228,7 +228,6 @@ public class ServerJDBC {
         return topPlayers.toArray(new Player[0]);
     }
 
-    /**todo: NOTEE!! Test your codes here*/
     public static void main(String[] args) {
 
     }
