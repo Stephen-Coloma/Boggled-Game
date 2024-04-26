@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="760.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Boggled_images.AdminFrame">
    <left>
@@ -24,7 +25,7 @@
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="222.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2e7d1" height="62.0" layoutX="2.0" layoutY="14.0" stroke="#f2e7d1" strokeType="INSIDE" width="212.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#248946" height="62.0" layoutX="2.0" layoutY="14.0" stroke="#f2e7d1" strokeType="INSIDE" width="55.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#248745" height="62.0" layoutX="2.0" layoutY="14.0" stroke="#f2e7d1" strokeType="INSIDE" width="55.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#248946" height="62.0" layoutX="2.0" layoutY="14.0" stroke="#f2e7d1" strokeType="INSIDE" width="55.0" />
                   <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -32,9 +33,9 @@
                      </image>
                   </ImageView>
                   <Button layoutX="2.0" layoutY="15.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="212.0" style="-fx-background-color: TRANSPARENT;" />
-                  <Label alignment="TOP_CENTER" layoutX="62.0" layoutY="35.0" prefHeight="20.0" prefWidth="148.0" text="CREATE ACCOUNT" textAlignment="CENTER">
+                  <Label alignment="TOP_CENTER" layoutX="62.0" layoutY="37.0" prefHeight="20.0" prefWidth="148.0" text="CREATE ACCOUNT" textAlignment="CENTER">
                      <font>
-                        <Font name="Arial Black" size="13.0" />
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
                      </font>
                   </Label>
                </children>
@@ -44,17 +45,17 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2e7d1" height="62.0" layoutX="2.0" layoutY="14.0" stroke="#f2e7d1" strokeType="INSIDE" width="212.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#248946" height="62.0" layoutX="2.0" layoutY="14.0" stroke="#f2e7d1" strokeType="INSIDE" width="55.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#248946" height="62.0" layoutX="2.0" layoutY="14.0" stroke="#f2e7d1" strokeType="INSIDE" width="55.0" />
-                  <ImageView fitHeight="41.0" fitWidth="40.0" layoutX="9.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="17.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/visibility.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="2.0" layoutY="15.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="212.0" style="-fx-background-color: TRANSPARENT;" />
-                  <Label alignment="TOP_CENTER" layoutX="62.0" layoutY="35.0" prefHeight="22.0" prefWidth="149.0" text="VIEW PLAYERS" textAlignment="CENTER">
+                  <Label alignment="TOP_CENTER" layoutX="60.0" layoutY="36.0" prefHeight="22.0" prefWidth="149.0" text="VIEW PLAYERS" textAlignment="CENTER">
                      <font>
-                        <Font name="Arial Black" size="13.0" />
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
                      </font>
                   </Label>
+                  <Button layoutX="2.0" layoutY="14.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="212.0" style="-fx-background-color: TRANSPARENT;" />
                </children>
                <VBox.margin>
                   <Insets top="-50.0" />
@@ -65,17 +66,17 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2e7d1" height="62.0" layoutX="2.0" layoutY="14.0" stroke="#f2e7d1" strokeType="INSIDE" width="212.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#248946" height="62.0" layoutX="2.0" layoutY="14.0" stroke="#f2e7d1" strokeType="INSIDE" width="55.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#248946" height="62.0" layoutX="2.0" layoutY="14.0" stroke="#f2e7d1" strokeType="INSIDE" width="55.0" />
-                  <ImageView fitHeight="41.0" fitWidth="40.0" layoutX="9.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="12.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/game-development.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="2.0" layoutY="15.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="212.0" style="-fx-background-color: TRANSPARENT;" />
                   <Label alignment="TOP_CENTER" layoutX="62.0" layoutY="35.0" prefHeight="22.0" prefWidth="149.0" text="EDIT GAME CONFIG" textAlignment="CENTER">
                      <font>
-                        <Font name="Arial Black" size="13.0" />
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
                      </font>
                   </Label>
+                  <Button layoutX="2.0" layoutY="14.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="212.0" style="-fx-background-color: TRANSPARENT;" />
                </children>
                <VBox.margin>
                   <Insets top="-50.0" />
@@ -90,7 +91,33 @@
    <center>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1018.0" style="-fx-background-color: #F2FBEA;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="760.0" prefWidth="1018.0" />
+            <Pane prefHeight="760.0" prefWidth="1018.0" style="-fx-background-color: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.image.Image?&gt;&lt;?import javafx.scene.image.ImageView?&gt;&lt;ImageView fitHeight=&quot;168.0&quot; fitWidth=&quot;182.0&quot; pickOnBounds=&quot;true&quot; preserveRatio=&quot;true&quot; xmlns=&quot;http://javafx.com/javafx/21&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;image&gt;      &lt;Image url=&quot;@../images/boggledlogo.png&quot; /&gt;   &lt;/image&gt;&lt;/ImageView&gt;;">
+               <children>
+                  <Pane layoutX="135.0" layoutY="77.0" prefHeight="592.0" prefWidth="754.0" style="-fx-background-color: white; -fx-border-color: #8BCE39; -fx-border-width: 3;">
+                     <children>
+                        <Text fill="#248745" layoutX="84.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the Boggled Server!" textAlignment="CENTER" wrappingWidth="592.4739074707031">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="32.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#000000d9" layoutX="86.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Here, you make sure everything runs smoothly for the word game everyone loves. Keep an eye on the games, help players when needed, and make sure the fun never stops. " textAlignment="CENTER" wrappingWidth="592.4739074707031">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#000000d9" layoutX="102.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ready to start the word-play magic? Let’s go!" textAlignment="CENTER" wrappingWidth="559.4072570800781">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="301.0" fitWidth="359.0" layoutX="194.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/boggledlogo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children></Pane>
          </children></StackPane>
    </center>
 </BorderPane>
