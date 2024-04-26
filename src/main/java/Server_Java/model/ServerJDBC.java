@@ -228,6 +228,15 @@ public class ServerJDBC {
         return topPlayers.toArray(new Player[0]);
     }
 
+    public static boolean isUsernameExist(String username) {
+        //todo: fetch the sql database if the username exists, return true if yes, false if not
+        return false;
+    }
+
+    public static void createPlayerAccount(String fullName, String username, String password) {
+        //todo: make a player instance in the players database using the following fullname, username, password, points = 0, loggedinstatus = 0;
+    }
+
     public static void main(String[] args) {
 
     }

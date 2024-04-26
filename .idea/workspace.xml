@@ -4,47 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="54023a0d-2ec0-4efc-abdf-2e6ac357422c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/.config" afterDir="false" />
+    <list default="true" id="0f0bae19-3238-412d-a3d6-678e416a245b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/ServerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/CreateAccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/MainMenuAdminPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/mainmenu/CreateAccountModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/ServerView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/mainmenu/CreateAccountView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/mainmenu/MainMenuAdminPageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2024_7_37_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2024_7_37_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_04_2024_8_21_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_04_2024_8_21_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2024_6_14_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2024_6_14_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/ServerJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/ServerJava.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/configuration.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" afterDir="false" />
-=======
-    <list default="true" id="fa404957-5eba-4a2c-98ad-40bb5d60e04b" name="Changes" comment="feat: Implement lobby page and waiting room section&#10;&#10;This commit implements the UI for the lobby page and the waiting room section. Only partial implementations are made therefore it is not fully implemented yet.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/GamePageModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/WaitingRoomSectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/WaitingRoomSectionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGamePointsCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGamePointsCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameRankingCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameRankingCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameWinnerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameWinnerPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/LobbyLeaderBoardCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/LobbyLeaderBoardCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingTimeConfigCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingTimeConfigCard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/CreateAccountView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/CreateAccountView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/MainMenuAdminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/MainMenuAdminPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/ClientJava.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" afterDir="false" />
->>>>>>> 1dae84a4f0be8e0617d2c4549fd2f17160a5e5a3
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
-=======
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -52,78 +38,17 @@
       </list>
     </option>
   </component>
->>>>>>> 1dae84a4f0be8e0617d2c4549fd2f17160a5e5a3
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectColorInfo">{
-<<<<<<< HEAD
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2fal4SwyKJw9qsLtIOxVmFMonzo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-=======
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="2falrP1UBSaC1HrveveU4Nj72xh" />
->>>>>>> 1dae84a4f0be8e0617d2c4549fd2f17160a5e5a3
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-<<<<<<< HEAD
-    &quot;git-widget-placeholder&quot;: &quot;server-side&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-=======
-    &quot;git-widget-placeholder&quot;: &quot;client-frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
->>>>>>> 1dae84a4f0be8e0617d2c4549fd2f17160a5e5a3
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "server-frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
-<<<<<<< HEAD
-  <component name="RunManager" selected="Application.ServerJava">
-    <configuration name="ClientJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Client_Java.ClientJava" />
-=======
-  <component name="RunManager" selected="Application.ClientApp">
-    <configuration name="ClientApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Client_Java.ClientApp" />
->>>>>>> 1dae84a4f0be8e0617d2c4549fd2f17160a5e5a3
-      <module name="Boggled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Client_Java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerJDBC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server_Java.model.ServerJDBC" />
-      <module name="Boggled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Server_Java.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+}]]></component>
+  <component name="RunManager">
     <configuration name="ServerJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server_Java.ServerJava" />
       <module name="Boggled" />
@@ -139,63 +64,34 @@
     </configuration>
     <recent_temporary>
       <list>
-<<<<<<< HEAD
         <item itemvalue="Application.ServerJava" />
-=======
-        <item itemvalue="Application.ClientApp" />
->>>>>>> 1dae84a4f0be8e0617d2c4549fd2f17160a5e5a3
-        <item itemvalue="Application.ServerJDBC" />
-        <item itemvalue="Application.ClientJava" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="ba15be24-360a-4466-ba16-1875bfa4af75" name="Changes" comment="" />
-      <created>1714046880610</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1714046880610</updated>
-      <workItem from="1714046884309" duration="2571000" />
-      <workItem from="1714119159232" duration="2008000" />
-    </task>
-    <task id="LOCAL-00001" summary="feat: Implement lobby page and waiting room section&#10;&#10;This commit implements the UI for the lobby page and the waiting room section. Only partial implementations are made therefore it is not fully implemented yet.">
-      <option name="closed" value="true" />
-      <created>1714050860262</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1714050860262</updated>
-    </task>
-    <task id="LOCAL-00002" summary="feat: Implement lobby page and waiting room section&#10;&#10;This commit implements the UI for the lobby page and the waiting room section. Only partial implementations are made therefore it is not fully implemented yet.">
-      <option name="closed" value="true" />
-      <created>1714051030175</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1714051030175</updated>
-    </task>
-    <task id="LOCAL-00003" summary="feat: Implement lobby page and waiting room section&#10;&#10;This commit implements the UI for the lobby page and the waiting room section. Only partial implementations are made therefore it is not fully implemented yet.">
-      <option name="closed" value="true" />
-      <created>1714051131715</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1714051131715</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-<<<<<<< HEAD
-    <option name="LAST_COMMIT_MESSAGE" value="" />
-=======
-    <MESSAGE value="feat: Implement lobby page and waiting room section&#10;&#10;This commit implements the UI for the lobby page and the waiting room section. Only partial implementations are made therefore it is not fully implemented yet." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Implement lobby page and waiting room section&#10;&#10;This commit implements the UI for the lobby page and the waiting room section. Only partial implementations are made therefore it is not fully implemented yet." />
->>>>>>> 1dae84a4f0be8e0617d2c4549fd2f17160a5e5a3
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="server-side" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
