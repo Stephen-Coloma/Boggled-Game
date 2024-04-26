@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa404957-5eba-4a2c-98ad-40bb5d60e04b" name="Changes" comment="feat: Implement lobby page and waiting room section&#10;&#10;This commit implements the UI for the lobby page and the waiting room section. Only partial implementations are made therefore it is not fully implemented yet.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/GamePageModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" afterDir="false" />
+    <list default="true" id="fa404957-5eba-4a2c-98ad-40bb5d60e04b" name="Changes" comment="refactor (game-ui) : Modified scrollpanes inside Game page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/WaitingRoomSectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/WaitingRoomSectionModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameLetterCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameLetterCard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGamePointsCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGamePointsCard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameRankingCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameRankingCard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml" afterDir="false" />
@@ -18,9 +14,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameWinnerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameWinnerPopup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/LobbyLeaderBoardCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/LobbyLeaderBoardCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingTimeConfigCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingTimeConfigCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/ClientJava.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/LogInUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/LogInUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingRoomPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingRoomPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/images/refresh.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/images/refresh.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +31,21 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2falrP1UBSaC1HrveveU4Nj72xh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -127,14 +132,33 @@
       <option name="project" value="LOCAL" />
       <updated>1714051131715</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor (game-ui) : Modified scrollpanes inside Game page">
+      <created>1714138549398</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714138549398</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Implement lobby page and waiting room section&#10;&#10;This commit implements the UI for the lobby page and the waiting room section. Only partial implementations are made therefore it is not fully implemented yet." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Implement lobby page and waiting room section&#10;&#10;This commit implements the UI for the lobby page and the waiting room section. Only partial implementations are made therefore it is not fully implemented yet." />
+    <MESSAGE value="refactor (game-ui) : Modified scrollpanes inside Game page" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor (game-ui) : Modified scrollpanes inside Game page" />
   </component>
 </project>
