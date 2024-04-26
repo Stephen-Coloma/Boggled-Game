@@ -229,12 +229,36 @@ public class ServerJDBC {
     }
 
     public static boolean isUsernameExist(String username) {
-        //todo: fetch the sql database if the username exists, return true if yes, false if not
+        query = "SELECT username FROM players";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception exception){
+            exception.printStackTrace();
+        }
         return false;
     }
 
     public static void createPlayerAccount(String fullName, String username, String password) {
-        //todo: make a player instance in the players database using the following fullname, username, password, points = 0, loggedinstatus = 0;
+      query = "INSERT INTO players (fullname, username, password, points, loggedinstatus) "+
+              "VALUES ( ?, ?, ?, ?, ?); ";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, fullName);
+            preparedStatement.setString(2, username);
+            preparedStatement.setString(3, password);
+            preparedStatement.setInt(4, 0);
+            preparedStatement.setInt(5, 0);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception exception){
+            exception.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
