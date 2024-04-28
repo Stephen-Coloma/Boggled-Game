@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f0bae19-3238-412d-a3d6-678e416a245b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/mainmenu/CreateAccountConfirmationPopUpView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/CreateAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/CreateAccountConfirmationPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/CreateAccountConfirmationPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +37,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "server-frontend",
+    "last_opened_file_path": "C:/Users/steph/Downloads/boggled.sql",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -92,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714291292601</updated>
-      <workItem from="1714291299023" duration="2511000" />
+      <workItem from="1714291299023" duration="13917000" />
     </task>
     <servers />
   </component>

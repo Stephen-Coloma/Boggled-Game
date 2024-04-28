@@ -146,7 +146,7 @@ public class ServerModel {
 
             ncRef.rebind(authenticationPath, aRef);
             ncRef.rebind(gameManagerPath, gRef);
-            System.out.println("HelloServer ready and waiting ...");
+            System.out.println("Boggled Server ready and waiting ...");
             // wait for invocations from clients
             orb.run();
         }catch (Exception e){
