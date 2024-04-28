@@ -228,10 +228,19 @@ public class ServerJDBC {
         return topPlayers.toArray(new Player[0]);
     }
 
+    /**
+     * Checks if a username already exists in the database.
+     *
+     * @param username The username to check for existence.
+     * @return {@code true} if the username exists, {@code false} otherwise.
+     * @throws RuntimeException If an SQL exception occurs during the database operation.
+     */
     public static boolean isUsernameExist(String username) {
-        query = "SELECT username FROM players";
+        query = "SELECT username FROM players" +
+                " WHERE username = ?";
         try {
             preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 return true;
@@ -244,6 +253,14 @@ public class ServerJDBC {
         return false;
     }
 
+    /**
+     * Creates a new player account with the provided information.
+     *
+     * @param fullName The full name of the player.
+     * @param username The username for the player account.
+     * @param password The password for the player account.
+     * @throws RuntimeException If an SQL exception occurs during the database operation.
+     */
     public static void createPlayerAccount(String fullName, String username, String password) {
       query = "INSERT INTO players (fullname, username, password, points, loggedinstatus) "+
               "VALUES ( ?, ?, ?, ?, ?); ";
@@ -254,6 +271,7 @@ public class ServerJDBC {
             preparedStatement.setString(3, password);
             preparedStatement.setInt(4, 0);
             preparedStatement.setInt(5, 0);
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (Exception exception){
