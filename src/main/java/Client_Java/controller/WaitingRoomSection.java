@@ -1,10 +1,11 @@
 package Client_Java.controller;
 
-import Client_Java.BoggledApp.Player;
 import Client_Java.BoggledApp.Round;
 import Client_Java.ClientJava;
 import Client_Java.model.ClientModel;
+import Client_Java.model.GamePageModel;
 import Client_Java.model.WaitingRoomSectionModel;
+import Client_Java.view.GamePageView;
 import Client_Java.view.WaitingRoomSectionView;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +13,8 @@ import javafx.scene.Scene;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class WaitingRoomSection {
@@ -48,8 +47,8 @@ public class WaitingRoomSection {
     private void setUpCancelBT() {
         view.getCancelBT().setOnAction(event -> {
             /*
-            * TODO: make sure to remove the player into the players list of a game in the server side which is there is no method for this yet.
-            *  not sure if how it will interact with the callable */
+             * TODO: make sure to remove the player into the players list of a game in the server side which is there is no method for this yet.
+             *  not sure if how it will interact with the callable */
 
             ClientJava.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE);
         });
@@ -83,17 +82,23 @@ public class WaitingRoomSection {
 
         countdownThread.setDaemon(true);
         countdownThread.start();
-
     } // end of initiateCountdown
 
     private void handleFirstRound() {
         Round round = ClientModel.gameService.playFirstRound(model.getGid());
         if (round.gid < 0){
-            //todo: return back the UI to lobby
-            System.out.println("GAME IS INVALID, RETURNING TO LOBBY");
+            Timer delay = new Timer(true);
+            delay.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    Platform.runLater(() -> ClientJava.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE));
+                }
+            }, 1000);
         }else {
-            //todo: set up the UI for game
-            System.out.println("GAME IS VALID, GOING TO GAME UI");
+            Platform.runLater(() -> {
+                GamePage gamePage = new GamePage(new GamePageModel(model.getGid(), round), new GamePageView());
+                gamePage.init();
+            });
         }
-    }
+    } // end of handleFirstRound
 } // end of WaitingRoomSection class
