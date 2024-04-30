@@ -1,6 +1,6 @@
 package Client_Java.controller;
 
-import Client_Java.ClientApp;
+import Client_Java.ClientJava;
 import Client_Java.model.GamePageModel;
 import Client_Java.view.GamePageView;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +26,7 @@ public class GamePage {
 
             view = loader.getController();
 
-            ClientApp.APPLICATION_STAGE.setScene(gameScene);
+            ClientJava.APPLICATION_STAGE.setScene(gameScene);
         } catch (RuntimeException | IOException e) {
             e.printStackTrace();
         }

@@ -1,12 +1,14 @@
 package Client_Java.controller;
 
-import Client_Java.ClientApp;
+import Client_Java.ClientJava;
 import Client_Java.model.LobbyPageModel;
 import Client_Java.model.WaitingRoomSectionModel;
 import Client_Java.view.LobbyPageView;
 import Client_Java.view.WaitingRoomSectionView;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.stage.WindowEvent;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,18 +32,27 @@ public class LobbyPage {
 
             view = loader.getController();
 
-            ClientApp.APPLICATION_STAGE.setScene(LOBBY_SCENE);
+            ClientJava.APPLICATION_STAGE.setScene(LOBBY_SCENE);
 
+            setUpExitApplication();
             setUpJoinGameBT();
         } catch (RuntimeException | IOException e) {
             e.printStackTrace();
         }
     } // end of init
 
+    private void setUpExitApplication() {
+        ClientJava.APPLICATION_STAGE.setOnCloseRequest(windowEvent -> {
+            model.logout();
+            System.exit(0);
+        });
+    } // end of setUpExitApplication
+
     private void setUpJoinGameBT() {
         view.getJoinGameBT().setOnAction(event -> {
             // TODO: add a mechanism to send a request to server that the player wants to play a game before loading the waiting room section
-            WaitingRoomSection waitingRoomSection = new WaitingRoomSection(new WaitingRoomSectionModel(), new WaitingRoomSectionView());
+            int gid = model.startGame();
+            WaitingRoomSection waitingRoomSection = new WaitingRoomSection(new WaitingRoomSectionModel(gid), new WaitingRoomSectionView());
             waitingRoomSection.init();
         });
     } // end of setUpJoinGameBT

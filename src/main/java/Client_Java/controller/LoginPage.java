@@ -3,12 +3,11 @@ package Client_Java.controller;
 import Client_Java.BoggledApp.AccountDoesNotExist;
 import Client_Java.BoggledApp.AlreadyLoggedIn;
 import Client_Java.BoggledApp.Player;
-import Client_Java.ClientApp;
+import Client_Java.ClientJava;
 import Client_Java.model.LobbyPageModel;
 import Client_Java.model.LoginPageModel;
 import Client_Java.view.LobbyPageView;
 import Client_Java.view.LoginPageView;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
@@ -37,7 +36,7 @@ public class LoginPage {
 
             view = loader.getController();
 
-            ClientApp.APPLICATION_STAGE.setScene(LOGIN_SCENE);
+            ClientJava.APPLICATION_STAGE.setScene(LOGIN_SCENE);
 
             setUpLoginButton();
         } catch (RuntimeException | IOException e) {
@@ -51,7 +50,7 @@ public class LoginPage {
             try {
                 Player player = model.login(view.getUsernameField().getText(), view.getPasswordField().getText());
 
-                LobbyPage lobbyPage = new LobbyPage(new LobbyPageModel(), new LobbyPageView());
+                LobbyPage lobbyPage = new LobbyPage(new LobbyPageModel(player), new LobbyPageView());
                 lobbyPage.init();
             } catch (AlreadyLoggedIn exception1) {
                 setNoticeText("Account is already logged in");

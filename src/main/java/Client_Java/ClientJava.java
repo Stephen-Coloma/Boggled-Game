@@ -7,7 +7,7 @@ import Client_Java.view.LoginPageView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class ClientApp extends Application {
+public class ClientJava extends Application {
     public static Stage APPLICATION_STAGE;
 
     public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class ClientApp extends Application {
 
     @Override
     public void start(Stage stage) {
-        ClientApp.APPLICATION_STAGE = stage;
+        ClientJava.APPLICATION_STAGE = stage;
 
         LoginPage loginPage = new LoginPage(new LoginPageModel(), new LoginPageView());
         loginPage.init();

@@ -1,9 +1,6 @@
 package Client_Java.model;
 
-import Client_Java.BoggledApp.Authentication;
-import Client_Java.BoggledApp.AuthenticationHelper;
-import Client_Java.BoggledApp.GameManager;
-import Client_Java.BoggledApp.GameManagerHelper;
+import Client_Java.BoggledApp.*;
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
