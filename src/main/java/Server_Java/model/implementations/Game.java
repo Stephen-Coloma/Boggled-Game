@@ -280,6 +280,8 @@ public class Game {
         //round can have round winner or draw, if draw, roundWinner = null
         if (roundWinner != null){
             round.roundWinner = this.roundWinner;
+        }else {
+            round.roundWinner = null;
         }
 
         //returned next round automatically does not have any game winner

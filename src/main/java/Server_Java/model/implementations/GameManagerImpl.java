@@ -10,11 +10,14 @@ import Server_Java.model.implementations.BoggledApp.Round;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class GameManagerImpl extends GameManagerPOA {
-    private Game waitingGame;
+    private AtomicReference<Game> waitingGame = new AtomicReference<>();
     private HashMap<Integer, Game> ongoingGames;
     private static int timeLeft;
+    private static int playerCounterHolder = 1; //to be used only when the waiting game is now set to null
 
     public GameManagerImpl() {
         ongoingGames = new LinkedHashMap<>();
@@ -22,18 +25,18 @@ public class GameManagerImpl extends GameManagerPOA {
         Thread transfer = new Thread(()->{
             try {
                 while (true){
-                    if (waitingGame != null){
+                    if (waitingGame.get() != null){
                         timeLeft = ServerModel.waitingTime;
                         for (; timeLeft != 0 ; timeLeft--) {
                             Thread.sleep(1000);
                         }
-
                         //after the countdown, check the validity of the game, then transfer it to hashmap or not
-                        if (waitingGame.isGameValid()){
-                            ongoingGames.put(waitingGame.getGid(), waitingGame);
-                            waitingGame = null;
+                        if (waitingGame.get().isGameValid()){
+                            ongoingGames.put(waitingGame.get().getGid(), waitingGame.get());
+                            //todo: save the game id to the server so that the game id is reserved if some players would get the latest gid
+                            waitingGame.set(null);
                         }else {
-                            waitingGame = null;
+                            waitingGame.set(null);
                         }
                     }
                 }
@@ -46,13 +49,15 @@ public class GameManagerImpl extends GameManagerPOA {
 
     @Override
     public int startGame(Player player) {
-        if (waitingGame == null){
+        if (waitingGame.get() == null){
             int latestGid = ServerJDBC.getLastGameId();
-            waitingGame = new Game(++latestGid, player);
+            playerCounterHolder = 1;
+            waitingGame.set(new Game(++latestGid, player));
         }else {
-            waitingGame.addPlayerToGame(player);
+            playerCounterHolder++;
+            waitingGame.get().addPlayerToGame(player);
         }
-        return waitingGame.getGid();
+        return waitingGame.get().getGid();
     }
 
     @Override
@@ -62,14 +67,22 @@ public class GameManagerImpl extends GameManagerPOA {
 
     @Override
     public int getTotalPlayersJoined(int gid) {
-        return waitingGame.getPlayersData().size();
+        return playerCounterHolder;
     }
 
     @Override
     public Round playFirstRound(int gid) {
         Game game = ongoingGames.get(gid);
         if (game == null){
-            return null;
+            Round noDataRound = new Round(); //this round is a no data round to be fetched in client side
+            noDataRound.gid = -1;
+            noDataRound.playersData = new Player[]{};
+            noDataRound.characterSet = "";
+            noDataRound.roundLength = 0;
+            noDataRound.roundNumber = 0;
+            noDataRound.roundWinner = new Player(-1,"", "", "", -1, -1);
+            noDataRound.gameWinner = new Player(-1,"", "", "", -1, -1);;
+            return noDataRound;
         }else {
             return game.getFirstRound();
         }
