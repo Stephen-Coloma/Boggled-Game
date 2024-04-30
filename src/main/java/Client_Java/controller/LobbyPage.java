@@ -26,6 +26,7 @@ public class LobbyPage {
 
     public void init() {
         try {
+
             FXMLLoader loader = new FXMLLoader(new File("src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml").toURI().toURL());
 
             LOBBY_SCENE = new Scene(loader.load());
