@@ -33,7 +33,7 @@ public class GameManagerImpl extends GameManagerPOA {
                         //after the countdown, check the validity of the game, then transfer it to hashmap or not
                         if (waitingGame.get().isGameValid()){
                             ongoingGames.put(waitingGame.get().getGid(), waitingGame.get());
-                            //todo: save the game id to the server so that the game id is reserved if some players would get the latest gid
+                            ServerJDBC.saveGameId(waitingGame.get().getGid());  // save the game id to the server so that the game id is reserved if some players would get the latest gid
                             waitingGame.set(null);
                         }else {
                             waitingGame.set(null);
@@ -80,8 +80,8 @@ public class GameManagerImpl extends GameManagerPOA {
             noDataRound.characterSet = "";
             noDataRound.roundLength = 0;
             noDataRound.roundNumber = 0;
-            noDataRound.roundWinner = new Player(-1,"", "", "", -1, -1);
-            noDataRound.gameWinner = new Player(-1,"", "", "", -1, -1);;
+            noDataRound.roundWinner = new Player(-1,"", "", "", -1, -1); //the pid will be used as validator in the client side
+            noDataRound.gameWinner = new Player(-1,"", "", "", -1, -1);; //the pid will be used as validator in the client side
             return noDataRound;
         }else {
             return game.getFirstRound();
