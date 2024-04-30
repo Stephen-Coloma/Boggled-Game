@@ -10,7 +10,7 @@ import java.util.*;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
-    private static final String USER = "LeonardosAdmin";
+    private static final String USER = "user";
     private static final String PASSWORD = "password";
     private static Connection connection;
     private static String query;
@@ -126,14 +126,15 @@ public class ServerJDBC {
      * @param gameWinner - the player's pid who won the game
      * @param roundNumber - the total rounds played in the game*/
     public static void saveGame(int gid, int gameWinner, int roundNumber) {
-        query = "INSERT INTO games(gid,gamewinner,totalrounds) " +
-                "VALUES(?,?,?)";
+        query = "UPDATE games " +
+                "SET gamewinner = ?, totalrounds = ? " +
+                "WHERE gid = ?";
 
         try {
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, gid);
-            preparedStatement.setInt(2, gameWinner);
-            preparedStatement.setInt(3, roundNumber);
+            preparedStatement.setInt(1, gameWinner);
+            preparedStatement.setInt(2, roundNumber);
+            preparedStatement.setInt(3, gid);
 
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0){
@@ -142,6 +143,20 @@ public class ServerJDBC {
                 System.out.println("unsuccessful insert");
             }
         }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**This method just adds the gid into the games table so that it will not be taken by other starting games*/
+    public static void saveGameId(int gid) {
+        query = "INSERT INTO games(gid) " +
+                "VALUES(?)";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, gid);
+            int rowsAffected = preparedStatement.executeUpdate();
+        }catch (Exception e){
             e.printStackTrace();
         }
     }

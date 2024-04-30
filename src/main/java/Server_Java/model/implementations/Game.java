@@ -96,8 +96,8 @@ public class Game {
         this.roundNumber++;
         round.roundNumber = this.roundNumber;
         //optional for first round
-        round.roundWinner = null;
-        round.gameWinner = null;
+        round.roundWinner =  new Player(-1,"", "", "", -1, -1); //the pid will be used as validator in the client side
+        round.gameWinner =  new Player(-1,"", "", "", -1, -1); //the pid will be used as validator in the client side
 
         return round;
     }
@@ -254,10 +254,10 @@ public class Game {
         Round round = new Round();
         round.gid = this.gid;
         round.playersData = this.playersData.toArray(new Player[playersData.size()]);
-        round.characterSet = null;
+        round.characterSet = "";
         round.roundLength = 0;
         round.roundNumber = this.roundNumber;
-        round.roundWinner = null;
+        round.roundWinner =  new Player(-1,"", "", "", -1, -1); //verify the pid in the client side
         round.gameWinner = this.gameWinner; //this will be the basis on how client will handle the returning round object
         return round;
     }
@@ -281,11 +281,11 @@ public class Game {
         if (roundWinner != null){
             round.roundWinner = this.roundWinner;
         }else {
-            round.roundWinner = null;
+            round.roundWinner =  new Player(-1,"", "", "", -1, -1); //the pid will be used as validator in the client side
         }
 
         //returned next round automatically does not have any game winner
-        round.gameWinner = null;
+        round.gameWinner =  new Player(-1,"", "", "", -1, -1); //the pid will be used as validator in the client side
         return round;
     }
 
