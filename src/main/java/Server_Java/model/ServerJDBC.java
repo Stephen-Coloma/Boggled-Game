@@ -4,12 +4,16 @@ import Server_Java.model.implementations.BoggledApp.AccountDoesNotExist;
 import Server_Java.model.implementations.BoggledApp.AlreadyLoggedIn;
 import Server_Java.model.implementations.BoggledApp.Player;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.*;
-import java.util.List;
+import java.util.*;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
-    private static final String USER = "user";
+    private static final String USER = "LeonardosAdmin";
     private static final String PASSWORD = "password";
     private static Connection connection;
     private static String query;
@@ -47,7 +51,7 @@ public class ServerJDBC {
                 if (loggedInStatus == 1) {
                     throw new AlreadyLoggedIn("Account already logged in");
                 } else {
-                    int id = resultSet.getInt("id");
+                    int id = resultSet.getInt("pid");
                     String fn = resultSet.getString("fullname");
                     int points = resultSet.getInt("points");
 
@@ -63,6 +67,7 @@ public class ServerJDBC {
         }
         return null;
     }
+
     /**
      * Method that logs out the player with the given player ID.
      *
@@ -81,6 +86,7 @@ public class ServerJDBC {
         }
 
     }
+
     /**
      * Helper method to update the logged-in status of a player after successful login.
      * @param pid The player ID of the player who is logging in.
@@ -98,6 +104,7 @@ public class ServerJDBC {
         }
 
     }
+
     /**
      * Retrieves the ID of the last game played.
      * @return The ID of the last game played, or 0 if no games have been played yet.
@@ -116,6 +123,7 @@ public class ServerJDBC {
         }
         return 0;
     }
+
     /**This method saves the game session to the database wherein each game has its gid, winner, and the total rounds played in the games table.
      * @param gid - game id
      * @param gameWinner - the player's pid who won the game
@@ -141,16 +149,85 @@ public class ServerJDBC {
         }
     }
 
+    /**
+     * Updates the points of players in the database.
+     * This method updates the points of players in a database table named "players"
+     * based on the provided list of player data.
+     * @param playersData A list of Player objects containing the updated points for each player.
+     * @throws SQLException If an SQL exception occurs while executing the update queries.
+     */
     public static void updatePlayersPoints(List<Player> playersData) {
-        //todo: assigned to @Jerwin Ramos, iterate each pid in the players data and add the points of the player to their stored points in the players table
+        query = "UPDATE players SET points = ? WHERE pid = ?";
+        try{
+            for (Player player : playersData){
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1,player.points);
+                preparedStatement.setInt(2,player.pid);
+
+                int rowsAffected = preparedStatement.executeUpdate();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    /**This method adds all players who participated in the specific game in the gameplayers table.*/
+    /**
+     * This method adds all players who participated in the specific game in the gameplayers table.
+     *
+     * @param playersData List of Player objects representing the players who participated in the game
+     * @param gid The ID of the specific game session
+     */
     public static void addPlayerGameSessions(List<Player> playersData, int gid) {
-        //todo: assigned to @Sanchie Earl Guzman, iterate each pid in the list and add it to the gid in the gameplayers table
+
+        query = "INSERT INTO gameplayers ( player, gamesession) "+
+                "VALUES ( ?, ? ); ";
+
+        try{
+            preparedStatement = connection.prepareStatement(query);
+
+            for (Player player : playersData){
+                preparedStatement.setInt(1, player.pid);
+                preparedStatement.setInt(2, gid);
+
+                preparedStatement.executeUpdate();
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    /**todo: NOTEE!! Test your codes here*/
+    /**
+     * This method retrieves player details for the top players, sorted in descending order by their points
+     *
+     * @return Array of Player objects representing the top players
+     * @return Empty array if no players are found or in case of an error
+     */
+    public static Player[] fetchTopPlayers() {
+        List<Player> topPlayers = new ArrayList<>();
+        query = "SELECT * FROM players ORDER BY points DESC";
+        //  DESC LIMIT 5;
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("pid");
+                String fullName = resultSet.getString("fullname");
+                String username = resultSet.getString("username");
+                int points = resultSet.getInt("points");
+
+                Player player = new Player(id, fullName, username, "", points, 0);
+                topPlayers.add(player);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return topPlayers.toArray(new Player[0]);
+    }
+
     public static void main(String[] args) {
 
     }

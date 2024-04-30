@@ -13,14 +13,105 @@ import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class ServerModel {
     private AuthenticationImpl authentication;
     private GameManagerImpl gameManager;
-    private String[] args = {"-ORBInitialPort 2000", "ORBInitialHost localhost"};
-    public static int WAITING_TIME = 10;
-    public static int ROUND_LENGTH = 30;
+    public static int waitingTime;
+    public static int roundLength;
+    private static Set<String> wordBank;
+    private String filepath = "src/main/java/Server_Java/res/words.txt";
+
 
     public ServerModel() {
+        //reading the config file
+        String[] params = readConfig();
+        String[] gameParams = readGameConfig();
+        String[] args = new String[]{"-ORBInitialPort", params[0], "-ORBInitialHost", params[1]};
+        waitingTime = Integer.parseInt(gameParams[0]);
+        roundLength = Integer.parseInt(gameParams[1]);
+
+        //preparing the word bank
+        prepareWordBank(filepath);
+
+        //open the CORBA connection
+        openConnection(args);
+    }
+
+    private String[] readConfig() {
+        List<String> params  = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/.config"))){
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.trim().split("=");
+
+                String key = parts[0].trim();
+                String value = parts[1].trim();
+                if (key.equals("host") || key.equals("port")) {
+                    params.add(value);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return params.toArray(new String [0]);
+    }
+    private String[] readGameConfig() {
+        List<String> gameParams = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/.config"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.trim().split("=");
+
+                String key = parts[0].trim();
+                String value = parts[1].trim();
+                if (key.equals("waitingTime") || key.equals("roundLength")) {
+                    gameParams.add(value);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return gameParams.toArray(new String[0]);
+    }
+
+    private void prepareWordBank(String filepath){
+        wordBank = new HashSet<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+            String line;
+            // read each line from the text file
+            while ((line = reader.readLine()) != null) {
+                // check if the word is not already in the HashSet
+                if (!wordBank.contains(line)) {
+                    // add the word to the HashSet
+                    wordBank.add(line);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean isFoundInWordBank(String word){
+        // check if the word is present in the HashSet
+        return wordBank.contains(word);
+    }
+
+    private void openConnection(String[] args) {
         try {
             // create and initialize the ORB
             ORB orb = ORB.init(args, null);

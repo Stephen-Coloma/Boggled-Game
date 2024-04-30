@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<FlowPane prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<FlowPane prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="b" textAlignment="CENTER" wrappingWidth="83.52499389648438">
          <font>

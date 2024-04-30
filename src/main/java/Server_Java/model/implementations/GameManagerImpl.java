@@ -1,5 +1,6 @@
 package Server_Java.model.implementations;
 
+import Server_Java.ServerJava;
 import Server_Java.model.ServerJDBC;
 import Server_Java.model.ServerModel;
 import Server_Java.model.implementations.BoggledApp.GameManagerPOA;
@@ -13,7 +14,7 @@ import java.util.LinkedHashMap;
 public class GameManagerImpl extends GameManagerPOA {
     private Game waitingGame;
     private HashMap<Integer, Game> ongoingGames;
-    private static int TIME_LEFT;
+    private static int timeLeft;
 
     public GameManagerImpl() {
         ongoingGames = new LinkedHashMap<>();
@@ -22,8 +23,8 @@ public class GameManagerImpl extends GameManagerPOA {
             try {
                 while (true){
                     if (waitingGame != null){
-                        TIME_LEFT = ServerModel.WAITING_TIME;
-                        for (; TIME_LEFT != 0 ; TIME_LEFT--) {
+                        timeLeft = ServerModel.waitingTime;
+                        for (; timeLeft != 0 ; timeLeft--) {
                             Thread.sleep(1000);
                         }
 
@@ -56,7 +57,7 @@ public class GameManagerImpl extends GameManagerPOA {
 
     @Override
     public int getWaitingTime(int gid) {
-        return TIME_LEFT;
+        return timeLeft;
     }
 
     @Override
@@ -76,11 +77,14 @@ public class GameManagerImpl extends GameManagerPOA {
 
     @Override
     public Round submitAndLoadNextRound(String[] answersArray, int pid, int gid) throws NoPlayersLeft {
-        return null;
+        // FIXME: 4/25/2024 , handle when there is no players left already. //a solution would be to have a thread from the client that sends a message to server to have a heartbeat. optional
+        //  do not implement yet;
+        Game game = ongoingGames.get(gid);
+        return game.getNextRound(answersArray, pid);
     }
 
     @Override
     public Player[] viewLeaderboards() {
-        return new Player[0];
+        return ServerJDBC.fetchTopPlayers();
     }
 }

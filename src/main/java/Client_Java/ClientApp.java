@@ -1,6 +1,7 @@
 package Client_Java;
 
 import Client_Java.controller.LoginPage;
+import Client_Java.model.ClientModel;
 import Client_Java.model.LoginPageModel;
 import Client_Java.view.LoginPageView;
 import javafx.application.Application;
@@ -10,8 +11,12 @@ public class ClientApp extends Application {
     public static Stage APPLICATION_STAGE;
 
     public static void main(String[] args) {
+        // initialize configurations
+        ClientModel clientModel = new ClientModel();
+        clientModel.init();
+
         launch(args);
-    }
+    } // end of main
 
     @Override
     public void start(Stage stage) {
