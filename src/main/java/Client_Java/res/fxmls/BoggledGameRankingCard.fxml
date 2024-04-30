@@ -9,17 +9,17 @@
    <children>
       <Text layoutX="28.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
-            <Font size="18.0" />
+            <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Text>
       <Text layoutX="116.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brianna">
          <font>
-            <Font size="18.0" />
+            <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Text>
       <Text layoutX="289.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
-            <Font size="18.0" />
+            <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Text>
       <Separator layoutY="62.0" prefHeight="3.0" prefWidth="369.0" style="-fx-background-color: #8BCE39;" />

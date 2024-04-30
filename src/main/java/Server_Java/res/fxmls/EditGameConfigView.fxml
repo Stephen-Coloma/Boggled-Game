@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1018.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Server_Java.view.mainmenu.EditGameConfigView">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1018.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Server_Java.view.mainmenu.EditGameConfigView">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="34.0" layoutY="31.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="953.0" style="-fx-border-color: #8bce39; -fx-border-width: 3; -fx-background-color: white;">
          <children>

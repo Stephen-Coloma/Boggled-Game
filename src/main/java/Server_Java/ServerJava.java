@@ -6,7 +6,6 @@ import Server_Java.view.ServerView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.sql.SQLOutput;
 
 public class ServerJava extends Application {
     private ServerModel model;
@@ -19,7 +18,7 @@ public class ServerJava extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         //a new thread that will handle clients
-        Thread thread = new Thread(()->{
+        Thread thread = new Thread(() -> {
             model = new ServerModel();
         });
         thread.setDaemon(true);
