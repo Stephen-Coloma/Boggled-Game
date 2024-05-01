@@ -1,6 +1,11 @@
 package Client_Java.model;
 
 import Client_Java.BoggledApp.Player;
+import Client_Java.ClientJava;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class LobbyPageModel {
     private Player player;
@@ -16,4 +21,8 @@ public class LobbyPageModel {
     public int startGame() {
         return ClientModel.gameService.startGame(player);
     } // end of startGame
+
+    public List<Player> getLeaderboardPlayers() {
+        return Arrays.asList(ClientModel.gameService.viewLeaderboards());
+    }
 } // end of LobbyPageModel class

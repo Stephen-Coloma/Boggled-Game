@@ -5,11 +5,8 @@ import Client_Java.model.LobbyPageModel;
 import Client_Java.model.WaitingRoomSectionModel;
 import Client_Java.view.LobbyPageView;
 import Client_Java.view.WaitingRoomSectionView;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.stage.WindowEvent;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -18,7 +15,6 @@ public class LobbyPage {
     private LobbyPageModel model;
     private LobbyPageView view;
 
-
     public LobbyPage(LobbyPageModel model, LobbyPageView view) {
         this.model = model;
         this.view = view;
@@ -26,7 +22,6 @@ public class LobbyPage {
 
     public void init() {
         try {
-
             FXMLLoader loader = new FXMLLoader(new File("src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml").toURI().toURL());
 
             LOBBY_SCENE = new Scene(loader.load());
@@ -36,6 +31,7 @@ public class LobbyPage {
             ClientJava.APPLICATION_STAGE.setScene(LOBBY_SCENE);
 
             setUpExitApplication();
+            setUpLeaderboardsBT();
             setUpJoinGameBT();
         } catch (RuntimeException | IOException e) {
             e.printStackTrace();
@@ -48,6 +44,13 @@ public class LobbyPage {
             System.exit(0);
         });
     } // end of setUpExitApplication
+
+    private void setUpLeaderboardsBT() {
+        view.getRefreshLeaderboardsBT().setOnMouseClicked(event -> {
+            // TODO: refresh the leaderboards
+            view.refreshLeaderboardTable(model.getLeaderboardPlayers());
+        });
+    } // end of setUpLeaderboardsBT
 
     private void setUpJoinGameBT() {
         view.getJoinGameBT().setOnAction(event -> {
