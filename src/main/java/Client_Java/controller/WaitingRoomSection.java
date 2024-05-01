@@ -85,20 +85,20 @@ public class WaitingRoomSection {
     } // end of initiateCountdown
 
     private void handleFirstRound() {
-        Round round = ClientModel.gameService.playFirstRound(model.getGid());
-        if (round.gid < 0){
-            Timer delay = new Timer(true);
-            delay.schedule(new TimerTask() {
-                @Override
-                public void run() {
+        Timer delayTimer = new Timer();
+        delayTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Round round = ClientModel.gameService.playFirstRound(model.getGid());
+                if (round.gid < 0) {
                     Platform.runLater(() -> ClientJava.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE));
+                } else {
+                    Platform.runLater(() -> {
+                        GamePage gamePage = new GamePage(new GamePageModel(model.getGid(), round), new GamePageView());
+                        gamePage.init();
+                    });
                 }
-            }, 1000);
-        }else {
-            Platform.runLater(() -> {
-                GamePage gamePage = new GamePage(new GamePageModel(model.getGid(), round), new GamePageView());
-                gamePage.init();
-            });
-        }
+            }
+        }, 1000);
     } // end of handleFirstRound
 } // end of WaitingRoomSection class

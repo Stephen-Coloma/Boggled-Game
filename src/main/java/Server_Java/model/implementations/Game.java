@@ -20,6 +20,7 @@ public class Game {
     private static int roundLength = ServerModel.roundLength;
     private CountDownLatch submissionLatch;
     private int totalSubmission;
+    private Round returnedRound;
     //EXTRA Fields
     static HashMap<Integer, List<String>> listOfUniqueStringsPerPlayer = new HashMap<>();
     static Set<String> duplicatedWords = new HashSet<>();
@@ -58,7 +59,7 @@ public class Game {
      * will get uniform data.
      * @return round*/
     public Round getFirstRound(){
-        Round returnedRound = null;
+        returnedRound = null;
         try {
             synchronized (this){
                 totalSubmission++;
@@ -123,7 +124,7 @@ public class Game {
         * 5. If the round winner does not have 3 wins yet, prepare for next round
         * 6. */
 
-        Round returnedRound = null;
+        returnedRound = null;
         try {
             synchronized (this){
                 totalSubmission++;

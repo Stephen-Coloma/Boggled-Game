@@ -162,6 +162,21 @@ public class ServerJDBC {
     }
 
     /**
+     * This method removes the game id saved and resets the auto-increment to (latest - 1)
+     */
+    public static void removeLatestGid() {
+        query = "DELETE FROM games " +
+                "WHERE gid = (SELECT max_gid FROM (SELECT MAX(gid) AS max_gid FROM games) AS temp)";
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.execute(query);
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+    } // end of removeLatestGid
+
+    /**
      * Updates the points of players in the database.
      * This method updates the points of players in a database table named "players"
      * based on the provided list of player data.

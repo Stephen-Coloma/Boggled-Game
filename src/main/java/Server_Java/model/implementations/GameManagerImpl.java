@@ -74,6 +74,8 @@ public class GameManagerImpl extends GameManagerPOA {
     public Round playFirstRound(int gid) {
         Game game = ongoingGames.get(gid);
         if (game == null){
+            ServerJDBC.removeLatestGid();
+
             Round noDataRound = new Round(); //this round is a no data round to be fetched in client side
             noDataRound.gid = -1;
             noDataRound.playersData = new Player[]{};
