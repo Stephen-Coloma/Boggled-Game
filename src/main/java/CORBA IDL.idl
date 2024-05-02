@@ -47,6 +47,7 @@ module BoggledApp{
         boolean submitWord(in string word, in long pid, in long gid);
         string getRoundWinner(in long gid);
         string getGameWinner(in long gid);
+        void leaveGame(in long pid, in long gid);
         StringSequence getLeaderboards(); // string array of players with their respective points e.g. "Leonhard-1234"
     };
 };
