@@ -4,25 +4,18 @@ module BoggledApp{
         long pid;
         string fullName;
         string username;
-        string password;
         long points;
-        long roundsWon;
     };
 
-    // sequence of players
-    typedef sequence<Player> PlayerList;
     // sequence of strings
     typedef sequence<string> StringSequence;
 
     //Round object
     struct Round{
         long gid;
-        PlayerList playersData; //list of players where rounds won and accumulated points can be fetched
+        StringSequence playersData; // string array of players with their respective rounds won e.g. "Leonhard-1"
         string characterSet;
-        long roundLength;
         long roundNumber;
-        Player roundWinner; //default value = null on first round, only changes after first round when there's a winner
-        Player gameWinner; //default value = null, only changes when there is a game winner, characterSet becomes null
     };
 
     //exceptions
@@ -46,11 +39,14 @@ module BoggledApp{
 
     //interface for most of the game methods
     interface GameManager{
-        long startGame(in Player player);
-        long getWaitingTime(in long gid);
-        long getTotalPlayersJoined(in long gid);
-        Round playFirstRound(in long gid); //returns null if game status is false (no joined players). Otherwise, returns a round (for first round)
-        Round submitAndLoadNextRound(in StringSequence answersArray, in long pid, in long gid) raises (NoPlayersLeft);
-        PlayerList viewLeaderboards();
+        long startGame(in long pid);
+        long getRemainingWaitingTime();
+        long getNumberOfPlayersJoined();
+        Round playRound(in long gid);
+        long getRemainingRoundTime(in long gid);
+        boolean submitWord(in string word, in long pid, in long gid);
+        string getRoundWinner(in long gid);
+        string getGameWinner(in long gid);
+        StringSequence getLeaderboards(); // string array of players with their respective points e.g. "Leonhard-1234"
     };
 };
