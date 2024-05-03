@@ -1,5 +1,7 @@
 package Client_Java.controller;
 
+import Client_Java.BoggledApp.GameTimeOut;
+import Client_Java.BoggledApp.Round;
 import Client_Java.ClientJava;
 import Client_Java.model.ClientModel;
 import Client_Java.model.GamePageModel;
@@ -55,29 +57,46 @@ public class WaitingRoomSection {
 
 
     private void initiateCountdown() {
-        //an atomic boolean to stop the thread
-        AtomicBoolean stopCountdown = new AtomicBoolean(false);
+//        AtomicBoolean stopCountdown = new AtomicBoolean(false);
 
-        //a thread that manages the countdown
-        Thread countdownThread = new Thread(()->{
+        Thread countdownThread = new Thread(() -> {
             try {
-                while (!stopCountdown.get()){
-                    remainingTime = model.getWaitingTime();
-                    Platform.runLater(()->{
+                while (true) {
+                    remainingTime = model.getRemainingWaitingTime();
+                    Platform.runLater(() -> {
                         view.getCountdownLB().setText(String.valueOf(remainingTime));
-                        view.getPlayerCountLB().setText(String.valueOf(model.getTotalPlayersJoined()));
+                        view.getPlayerCountLB().setText(String.valueOf(model.getNumberOfPlayersJoined()));
                     });
                     Thread.sleep(100);
-
-                    if (remainingTime <= 0) {
-                        stopCountdown.set(true); // Set the flag to stop the countdown
-                        handleFirstRound();
-                    }
                 }
-            }catch (Exception e){
+            } catch (GameTimeOut gameTimeOutException) {
+                handleFirstRound();
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
+
+//
+//        //a thread that manages the countdown
+//        Thread countdownThread = new Thread(()->{
+//            try {
+//                while (!stopCountdown.get()){
+//                    remainingTime = model.getRemainingWaitingTime();
+//                    Platform.runLater(()->{
+//                        view.getCountdownLB().setText(String.valueOf(remainingTime));
+//                        view.getPlayerCountLB().setText(String.valueOf(model.getNumberOfPlayersJoined()));
+//                    });
+//                    Thread.sleep(100);
+//
+//                    if (remainingTime <= 0) {
+//                        stopCountdown.set(true); // Set the flag to stop the countdown
+//                        handleFirstRound();
+//                    }
+//                }
+//            }catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        });
 
         countdownThread.setDaemon(true);
         countdownThread.start();
@@ -88,7 +107,7 @@ public class WaitingRoomSection {
         delayTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Round round = ClientModel.gameService.playFirstRound(model.getGid());
+                Round round = ClientModel.gameService.playRound(model.getGid());
                 if (round.gid < 0) {
                     Platform.runLater(() -> ClientJava.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE));
                 } else {

@@ -16,11 +16,11 @@ public class LobbyPageView {
 
     public LobbyPageView() {}
 
-    public void refreshLeaderboardTable(List<Player> playerList) {
+    public void refreshLeaderboardTable(List<String> leaderboardEntries) {
         List<Node> leaderboardCards = new ArrayList<>();
 
-        for (int i = 1; i <= playerList.size(); i++) {
-            leaderboardCards.add(LobbyLeaderboardCard.createCard(i, playerList.get(i - 1)));
+        for (int i = 1; i <= leaderboardEntries.size(); i++) {
+            leaderboardCards.add(LobbyLeaderboardCard.createCard(i, leaderboardEntries.get(i - 1)));
         }
         leaderboardPanel.getChildren().clear();
         leaderboardPanel.getChildren().addAll(leaderboardCards);

@@ -11,7 +11,7 @@ public class LobbyLeaderboardCard {
 
     public LobbyLeaderboardCard() {}
 
-    public static Node createCard(int rank, Player player) {
+    public static Node createCard(int rank, String player) {
         try {
             FXMLLoader loader = new FXMLLoader(new File("src/main/java/Client_Java/res/fxmls/LobbyLeaderBoardCard.fxml").toURI().toURL());
 
@@ -19,9 +19,12 @@ public class LobbyLeaderboardCard {
 
             LobbyLeaderboardCardView view = loader.getController();
 
+            String username = player.split("-")[0];
+            String points = player.split("-")[1];
+
             view.getRankLB().setText(String.valueOf(rank));
-            view.getUsernameLB().setText(player.username);
-            view.getPointsLB().setText(String.valueOf(player.points));
+            view.getUsernameLB().setText(username);
+            view.getPointsLB().setText(String.valueOf(points));
 
             return card;
         } catch (RuntimeException | IOException e) {

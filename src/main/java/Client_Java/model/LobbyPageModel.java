@@ -1,5 +1,7 @@
 package Client_Java.model;
 
+import Client_Java.BoggledApp.Player;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,10 +17,10 @@ public class LobbyPageModel {
     } // end of logout
 
     public int startGame() {
-        return ClientModel.gameService.startGame(player);
+        return ClientModel.gameService.startGame(player.pid);
     } // end of startGame
 
-    public List<Player> getLeaderboardPlayers() {
-        return Arrays.asList(ClientModel.gameService.viewLeaderboards());
+    public List<String> getLeaderboardPlayers() {
+        return Arrays.asList(ClientModel.gameService.getLeaderboards());
     }
 } // end of LobbyPageModel class

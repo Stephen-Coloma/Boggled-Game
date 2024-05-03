@@ -1,5 +1,6 @@
 package Client_Java.controller;
 
+import Client_Java.BoggledApp.Round;
 import Client_Java.view.RoundPopupView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

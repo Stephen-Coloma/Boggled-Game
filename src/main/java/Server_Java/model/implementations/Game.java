@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class Game {
     private int gid;
     private Round round;
-    private List<Player> playerList;
+    private List<Player> playerList = new ArrayList<>();
     private HashMap<Integer, List<Integer>> playerRoundPoints;
     private HashMap<Integer, Integer> playerRoundWinCounts;
     private HashMap<Integer, HashSet<String>> playerWordEntries;

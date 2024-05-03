@@ -1,5 +1,6 @@
 package Client_Java.model;
 
+import Client_Java.BoggledApp.GameTimeOut;
 import Client_Java.ClientJava;
 import Client_Java.controller.GamePage;
 import Client_Java.controller.LobbyPage;
@@ -18,12 +19,12 @@ public class WaitingRoomSectionModel {
         this.gid = gid;
     }
 
-    public int getWaitingTime(){
-        return ClientModel.gameService.getWaitingTime(gid);
+    public int getRemainingWaitingTime() throws GameTimeOut {
+        return ClientModel.gameService.getRemainingWaitingTime();
     }
 
-    public int getTotalPlayersJoined(){
-        return ClientModel.gameService.getTotalPlayersJoined(gid);
+    public int getNumberOfPlayersJoined(){
+        return ClientModel.gameService.getNumberOfPlayersJoined();
     }
 
     public int getGid() {
