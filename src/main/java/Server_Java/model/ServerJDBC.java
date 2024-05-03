@@ -4,7 +4,6 @@ import Server_Java.model.implementations.BoggledApp.AccountDoesNotExist;
 import Server_Java.model.implementations.BoggledApp.AlreadyLoggedIn;
 import Server_Java.model.implementations.BoggledApp.Player;
 
-import java.io.*;
 import java.sql.*;
 import java.util.*;
 
@@ -54,7 +53,7 @@ public class ServerJDBC {
 
                     loginHelper(id);
 
-                    return new Player(id, fn, username, password, points, 0);
+                    return new Player(id, fn, username, points);
                 }
             } else {
                 throw new AccountDoesNotExist("Account Does Not Exist");
@@ -230,8 +229,8 @@ public class ServerJDBC {
      * @return Array of Player objects representing the top players
      * @return Empty array if no players are found or in case of an error
      */
-    public static Player[] fetchTopPlayers() {
-        List<Player> topPlayers = new ArrayList<>();
+    public static String[] fetchTopPlayers() {
+        List<String> topPlayers = new ArrayList<>();
         query = "SELECT * FROM players ORDER BY points DESC";
         //  DESC LIMIT 5;
 
@@ -245,14 +244,14 @@ public class ServerJDBC {
                 String username = resultSet.getString("username");
                 int points = resultSet.getInt("points");
 
-                Player player = new Player(id, fullName, username, "", points, 0);
-                topPlayers.add(player);
+                Player player = new Player(id, fullName, username, points);
+                topPlayers.add(player.username + "-" + player.points);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return topPlayers.toArray(new Player[0]);
+        return topPlayers.toArray(new String[0]);
     }
 
     /**

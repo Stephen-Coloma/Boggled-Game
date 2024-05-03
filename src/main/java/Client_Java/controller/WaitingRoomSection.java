@@ -1,6 +1,5 @@
 package Client_Java.controller;
 
-import Client_Java.BoggledApp.Round;
 import Client_Java.ClientJava;
 import Client_Java.model.ClientModel;
 import Client_Java.model.GamePageModel;

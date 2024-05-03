@@ -1,7 +1,5 @@
 package Client_Java.model;
 
-import Client_Java.BoggledApp.Round;
-
 public class GamePageModel {
     private int gid;
     private Round round;

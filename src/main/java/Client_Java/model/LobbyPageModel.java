@@ -1,9 +1,5 @@
 package Client_Java.model;
 
-import Client_Java.BoggledApp.Player;
-import Client_Java.ClientJava;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

@@ -4,19 +4,126 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b47d7a-772d-4808-83a2-185c9d0775cd" name="Changes" comment="">
+    <list default="true" id="11b47d7a-772d-4808-83a2-185c9d0775cd" name="Changes" comment="fix: Game class&#10;&#10;This commit introduces the new version of the Game class to comply with the new changes in the idl structure and the server logic.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2024_7_37_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2024_7_37_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_04_2024_8_21_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_04_2024_8_21_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2024_6_14_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2024_6_14_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm_[Changes]1/ServerJDBC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_26_2024_7_42_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_26_2024_7_42_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/AccountDoesNotExist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/AccountDoesNotExistHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/AccountDoesNotExistHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/AlreadyLoggedIn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/AlreadyLoggedInHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/AlreadyLoggedInHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/Authentication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/AuthenticationHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/AuthenticationHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/AuthenticationOperations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/AuthenticationPOA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/GameManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/GameManagerHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/GameManagerHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/GameManagerOperations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/GameManagerPOA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/NoPlayersLeft.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/NoPlayersLeftHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/NoPlayersLeftHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/PlayerHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/PlayerHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/PlayerListHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/PlayerListHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/Round.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/RoundHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/RoundHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/StringSequenceHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/StringSequenceHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/_AuthenticationStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/BoggledApp/_GameManagerStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/controller/GamePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/controller/LobbyPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/controller/LoginPage$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/controller/LoginPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/controller/WaitingRoomSection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/model/ClientModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/model/GamePageModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/model/LobbyPageModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/model/LoginPageModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/model/WaitingRoomSectionModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/view/GamePageView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/view/LobbyPageView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/view/LoginPageView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client_Java/view/WaitingRoomSectionView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/ServerJava.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/controller/ServerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/controller/mainmenu/CreateAccountController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/controller/mainmenu/CreateAccountController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/controller/mainmenu/EditGameConfigController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/controller/mainmenu/EditGameConfigController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/controller/mainmenu/MainMenuAdminPageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerJDBC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/ServerModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/AuthenticationImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AccountDoesNotExist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AlreadyLoggedIn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/Authentication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationOperations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/AuthenticationPOA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerOperations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/GameManagerPOA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/NoPlayersLeft.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/NoPlayersLeftHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/NoPlayersLeftHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerListHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/PlayerListHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/Round.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/RoundHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/RoundHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/StringSequenceHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/StringSequenceHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/_AuthenticationStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/BoggledApp/_GameManagerStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/implementations/GameManagerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/mainmenu/CreateAccountModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/model/mainmenu/EditGameConfigModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/view/ServerView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/view/mainmenu/CreateAccountConfirmationPopUpView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/view/mainmenu/CreateAccountView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/view/mainmenu/EditGameConfigPopUpView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/view/mainmenu/EditGameConfigView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server_Java/view/mainmenu/MainMenuAdminPageView.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,20 +137,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "server-frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;idl__revamp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main\java" />
+      <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main\java\Server_Java" />
+      <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main\java\Server_Java\model\implementations" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.ServerJDBC">
     <configuration name="ClientJava" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client_Java.ClientJava" />
@@ -86,8 +200,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.ClientJava" />
-      <item itemvalue="Application.ServerJava" />
       <item itemvalue="Application.ServerJDBC" />
+      <item itemvalue="Application.ServerJava" />
     </list>
     <recent_temporary>
       <list>
@@ -107,9 +221,31 @@
       <updated>1714462486942</updated>
       <workItem from="1714462491880" duration="16027000" />
     </task>
+    <task id="LOCAL-00001" summary="chore: Updated compiled files&#10;&#10;This commit updates the generated files resulting from compiling the new IDL file for both the client and server components.">
+      <option name="closed" value="true" />
+      <created>1714629178356</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714629178357</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix: Game class&#10;&#10;This commit introduces the new version of the Game class to comply with the new changes in the idl structure and the server logic.">
+      <option name="closed" value="true" />
+      <created>1714658014366</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714658014366</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: Updated compiled files&#10;&#10;This commit updates the generated files resulting from compiling the new IDL file for both the client and server components." />
+    <MESSAGE value="fix: Game class&#10;&#10;This commit introduces the new version of the Game class to comply with the new changes in the idl structure and the server logic." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Game class&#10;&#10;This commit introduces the new version of the Game class to comply with the new changes in the idl structure and the server logic." />
   </component>
 </project>

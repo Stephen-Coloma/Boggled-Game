@@ -127,6 +127,7 @@ public class ServerModel {
             // get object reference from the servant
             org.omg.CORBA.Object authenticationRef = rootpoa.servant_to_reference(authentication);
             org.omg.CORBA.Object gameManagerRef = rootpoa.servant_to_reference(gameManager);
+
             Authentication aRef = AuthenticationHelper.narrow(authenticationRef);
             GameManager gRef = GameManagerHelper.narrow(gameManagerRef);
 

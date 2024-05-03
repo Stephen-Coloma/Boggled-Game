@@ -27,7 +27,7 @@ module BoggledApp{
         string reason;
     };
 
-    exception NoPlayersLeft{
+    exception GameTimeOut {
         string reason;
     };
 
@@ -40,10 +40,10 @@ module BoggledApp{
     //interface for most of the game methods
     interface GameManager{
         long startGame(in long pid);
-        long getRemainingWaitingTime();
+        long getRemainingWaitingTime() raises (GameTimeOut);
         long getNumberOfPlayersJoined();
         Round playRound(in long gid);
-        long getRemainingRoundTime(in long gid);
+        long getRemainingRoundTime(in long gid) raises (GameTimeOut);
         boolean submitWord(in string word, in long pid, in long gid);
         string getRoundWinner(in long gid);
         string getGameWinner(in long gid);

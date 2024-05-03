@@ -35,7 +35,7 @@ public class Game {
     }
 
     /**
-     * one time call to start the game's lifecycle
+     * one time call to start the game's lifecycle.
      */
     private void startGame() {
         Thread startGameThread = new Thread(() -> {
@@ -64,7 +64,8 @@ public class Game {
     } // end of startGame
 
     /**
-     * creates a player object and adds it to the list of players waiting for the game to start
+     * creates a player object and adds it to the list of players waiting for the game to start.
+     *
      * @param pid the unique id of the player
      */
     public void addPlayer(int pid) {
@@ -78,7 +79,8 @@ public class Game {
     } // end of addPlayer
 
     /**
-     * adds a word entry from a given player to their hash set
+     * adds a word entry from a given player to their hash set.
+     *
      * @param pid the id of the player
      * @param word the word submitted by the player
      */
@@ -87,7 +89,8 @@ public class Game {
     } // end of addWordEntry
 
     /**
-     * prepares the round to be used by the players
+     * prepares the round to be used by the players.
+     *
      * @return next round
      */
     public Round getNextRound() {
@@ -116,7 +119,7 @@ public class Game {
     } // end of getRound
 
     /**
-     * evaluates the round by computing the points of each player per round,
+     * evaluates the round by computing the points of each player per round.
      */
     public void evaluateRound() {
         // compute the points of each player
@@ -157,7 +160,8 @@ public class Game {
     } // end of evaluateRound
 
     /**
-     * removes the player from the game data
+     * removes the player from the game data.
+     *
      * @param pid the id of the player
      */
     public void removePlayer(int pid) {
@@ -175,10 +179,29 @@ public class Game {
         playerWordEntries.remove(pid);
     } // end of removePlayer
 
+    /**
+     * returns a boolean value to check if the game is valid.
+     *
+     * @return true if players are more than 1, false otherwise
+     */
+    public boolean isGameValid() {
+        return playerList.size() > 1;
+    } // end of isGameValid
+
+    /**
+     * returns the number of players in the game.
+     *
+     * @return the number of players
+     */
+    public int getPlayerCount() {
+        return playerList.size();
+    } // end of getPlayerCount
+
     /*--------------------------------< HELPER METHODS >--------------------------------*/
 
     /**
      * prepares the round object by populating the needed information.
+     *
      * @return new round details
      */
     private Round prepareRoundDetails() {
@@ -194,7 +217,8 @@ public class Game {
     } // end of prepareRoundDetails
 
     /**
-     * creates an array containing the win counts of each player in the game
+     * creates an array containing the win counts of each player in the game.
+     *
      * @return array of strings containing the username along with their win count e.g. "Leonhard-3"
      */
     private String[] getWinCounts() {
@@ -210,7 +234,7 @@ public class Game {
     } // end of getRoundsWonByPlayers
 
     /**
-     * computes the points of all players in the current round
+     * computes the points of all players in the current round.
      */
     private void computePoints() {
         List<String> combinedWordEntries = new ArrayList<>();
@@ -240,7 +264,8 @@ public class Game {
     } // end of computePoints
 
     /**
-     * generates a random set of 20 characters, 7 of which are vowels and 13 being consonants
+     * generates a random set of 20 characters, 7 of which are vowels and 13 being consonants.
+     *
      * @return the generated character set in String format
      */
     private String generateCharacterSet() {
@@ -261,6 +286,11 @@ public class Game {
     } // end of generateCharacterSet
 
     /*--------------------------------< GETTER AND SETTER METHODS >--------------------------------*/
+
+    public int getGid() {
+        return gid;
+    }
+
     public int getRoundTime() {
         return roundTime;
     }

@@ -1,6 +1,5 @@
 package Client_Java.view;
 
-import Client_Java.BoggledApp.Player;
 import Client_Java.controller.cards.LobbyLeaderboardCard;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
