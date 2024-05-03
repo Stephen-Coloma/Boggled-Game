@@ -3,6 +3,7 @@ package Server_Java.model.implementations;
 import Server_Java.model.ServerJDBC;
 import Server_Java.model.ServerModel;
 import Server_Java.model.implementations.BoggledApp.GameManagerPOA;
+import Server_Java.model.implementations.BoggledApp.GameNotFound;
 import Server_Java.model.implementations.BoggledApp.GameTimeOut;
 import Server_Java.model.implementations.BoggledApp.Round;
 
@@ -14,7 +15,6 @@ public class GameManagerImpl extends GameManagerPOA {
     private AtomicReference<Game> waitingGame = new AtomicReference<>();
     private HashMap<Integer, Game> ongoingGames = new LinkedHashMap<>();
     private static int timeLeft;
-    private static int playerCounterHolder = 1; // FIXME: temporary, use this if the player count is not being displayed properly for the client. to be used only when the waiting game is now set to null
 
     /**
      * a constructor with a thread that handles the waiting game object and transfers it to the ongoing games list if
@@ -24,16 +24,24 @@ public class GameManagerImpl extends GameManagerPOA {
         Thread ongoingGameManager = new Thread(() -> {
             try {
                 while (true) {
-                    timeLeft = ServerModel.waitingTime;
-                    while (timeLeft != 0) {
-                        Thread.sleep(1000);
-                        timeLeft--;
-                    }
+                    if (waitingGame.get() != null) {
+                        timeLeft = ServerModel.waitingTime;
+                        while (timeLeft != -1) {
+                            Thread.sleep(1000);
+                            timeLeft--;
+                        }
 
-                    if (waitingGame.get().isGameValid()) {
-                        ongoingGames.put(waitingGame.get().getGid(), waitingGame.get());
+                        if (waitingGame.get().isGameValid()) {
+                            // start the game
+                            waitingGame.get().startGame();
+
+                            // put the game to the ongoing games list
+                            ongoingGames.put(waitingGame.get().getGid(), waitingGame.get());
+
+//                            ServerJDBC.saveGameId(waitingGame.get().getGid());
+                        }
+                        waitingGame.set(null);
                     }
-                    waitingGame.set(null);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -54,9 +62,9 @@ public class GameManagerImpl extends GameManagerPOA {
         if (waitingGame.get() == null) {
             int latestGid = ServerJDBC.getLastGameId();
             waitingGame.set(new Game(++latestGid));
-        } else {
-            waitingGame.get().addPlayer(pid);
         }
+
+        waitingGame.get().addPlayer(pid);
         return waitingGame.get().getGid();
     } // end of startGame
 
@@ -68,8 +76,8 @@ public class GameManagerImpl extends GameManagerPOA {
      */
     @Override
     public int getRemainingWaitingTime() throws GameTimeOut {
-        if (timeLeft == 0) {
-            throw new GameTimeOut();
+        if (timeLeft == -1) {
+            throw new GameTimeOut("countdown expired");
         }
         return timeLeft;
     } // end of getRemainingWaitingTime
@@ -89,10 +97,18 @@ public class GameManagerImpl extends GameManagerPOA {
      *
      * @param gid the gid of the game
      * @return the round object containing the information of the next round
+     * @throws GameNotFound throws an exception if the game is not found on the ongoing games.
+     *                      The following may be the causes:
+     *                      - the given gid is wrong.
+     *                      - the waiting game is invalid causing the game to not be added to the ongoing games list.
      */
     @Override
-    public Round playRound(int gid) {
-        return ongoingGames.get(gid).getNextRound();
+    public Round playRound(int gid) throws GameNotFound {
+        if (ongoingGames.keySet().contains(gid)) {
+            return ongoingGames.get(gid).getNextRound();
+        } else {
+            throw new GameNotFound();
+        }
     } // end of playRound
 
     /**
@@ -105,8 +121,8 @@ public class GameManagerImpl extends GameManagerPOA {
     @Override
     public int getRemainingRoundTime(int gid) throws GameTimeOut {
         int remainingTime = ongoingGames.get(gid).getRoundTime();
-        if (remainingTime == 0) {
-            throw new GameTimeOut();
+        if (remainingTime == -1) {
+            throw new GameTimeOut("countdown expired");
         }
         return remainingTime;
     } // end of getRemainingRoundTime
@@ -132,7 +148,7 @@ public class GameManagerImpl extends GameManagerPOA {
      */
     @Override
     public String getRoundWinner(int gid) {
-        return null;
+        return ongoingGames.get(gid).getRoundWinner();
     }
 
     /**
@@ -143,7 +159,7 @@ public class GameManagerImpl extends GameManagerPOA {
      */
     @Override
     public String getGameWinner(int gid) {
-        return null;
+        return ongoingGames.get(gid).getGameWinner();
     }
 
     /**
@@ -154,8 +170,12 @@ public class GameManagerImpl extends GameManagerPOA {
      */
     @Override
     public void leaveGame(int pid, int gid) {
-        ongoingGames.get(gid).removePlayer(pid);
-    }
+        if (ongoingGames.keySet().contains(gid)) {
+            ongoingGames.get(gid).removePlayer(pid);
+        } else {
+            waitingGame.get().removePlayer(pid);
+        }
+    } // end of leaveGame
 
     /**
      * returns the top 5 players with the highest points in descending order.

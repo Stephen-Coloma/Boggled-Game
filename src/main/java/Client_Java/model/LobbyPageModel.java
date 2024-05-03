@@ -20,6 +20,10 @@ public class LobbyPageModel {
         return ClientModel.gameService.startGame(player.pid);
     } // end of startGame
 
+    public int getPid() {
+        return player.pid;
+    }
+
     public List<String> getLeaderboardPlayers() {
         return Arrays.asList(ClientModel.gameService.getLeaderboards());
     }

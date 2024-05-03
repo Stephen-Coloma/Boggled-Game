@@ -30,8 +30,8 @@ public class ServerJDBC {
      * @return the player object
      * @throws AccountDoesNotExist if player does not exist
      */
-    public static Player getPlayer(int pid) throws AccountDoesNotExist {
-        query = "SELECT * FROM players WHERE Username = ? AND Password = ?";
+    public static Player getPlayer(int pid) {
+        query = "SELECT * FROM players WHERE pid = ?";
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, pid);
@@ -42,14 +42,13 @@ public class ServerJDBC {
                 String username = resultSet.getString("username");
                 int points = resultSet.getInt("points");
                 return new Player(pid, fullname, username, points);
-            } else {
-                throw new AccountDoesNotExist("Player Does Not Exist");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
+
     /**
      * Logs in a player with the given username and password.
      *

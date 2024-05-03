@@ -1,5 +1,6 @@
 package Server_Java.model.implementations;
 
+import Server_Java.model.ServerJDBC;
 import Server_Java.model.ServerModel;
 import Server_Java.model.implementations.BoggledApp.Player;
 import Server_Java.model.implementations.BoggledApp.Round;
@@ -11,18 +12,17 @@ import java.util.stream.Collectors;
 
 public class Game {
     private int gid;
-    private Round round;
+    private Round round = null;
     private List<Player> playerList = new ArrayList<>();
-    private HashMap<Integer, List<Integer>> playerRoundPoints;
-    private HashMap<Integer, Integer> playerRoundWinCounts;
-    private HashMap<Integer, HashSet<String>> playerWordEntries;
-    private String characterSet;
-    private String roundWinner;
-    private String gameWinner;
+    private HashMap<Integer, List<Integer>> playerRoundPoints = new LinkedHashMap<>();
+    private HashMap<Integer, Integer> playerRoundWinCounts = new LinkedHashMap<>();
+    private HashMap<Integer, HashSet<String>> playerWordEntries = new LinkedHashMap<>();
+    private String roundWinner = "None";
+    private String gameWinner = "None";
     private static int roundTime;
     private int roundNumber;
     private int totalSubmissions;
-    private AtomicBoolean startNextGame = new AtomicBoolean(false);
+    private AtomicBoolean startNextRound = new AtomicBoolean(false);
     private CountDownLatch submissionLatch;
 
 
@@ -37,22 +37,25 @@ public class Game {
     /**
      * one time call to start the game's lifecycle.
      */
-    private void startGame() {
+    public void startGame() {
         Thread startGameThread = new Thread(() -> {
             while (true) {
-                if (startNextGame.get()) {
+                if (startNextRound.get()) {
+
+                    System.out.println("Starting Next Round"); // TODO: remove after debugging
+
                     roundTime = ServerModel.roundLength;
                     totalSubmissions = 0;
 
                     try {
-                        while (roundTime > 0) {
+                        while (roundTime != -1) {
                             roundTime--;
                             Thread.sleep(1000);
                         }
 
                         evaluateRound();
 
-                        startNextGame.set(false);
+                        startNextRound.set(false);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -69,8 +72,7 @@ public class Game {
      * @param pid the unique id of the player
      */
     public void addPlayer(int pid) {
-        // TODO: query from the database to obtain the details of the player
-        Player player = new Player();
+        Player player = ServerJDBC.getPlayer(pid);
 
         playerList.add(player);
         playerRoundPoints.put(pid, new ArrayList<>());
@@ -94,16 +96,18 @@ public class Game {
      * @return next round
      */
     public Round getNextRound() {
-        round = null;
         try {
             synchronized (this) {
                 totalSubmissions++;
 
                 if (totalSubmissions == playerList.size()) {
+
                     // prepare the next round
                     round = prepareRoundDetails();
 
-                    startNextGame.set(true);
+                    startNextRound.set(true);
+
+                    System.out.println("SET NEXT ROUND TO TRUE"); // TODO: remove after debugging
 
                     // release the latch
                     submissionLatch.countDown();
@@ -157,6 +161,8 @@ public class Game {
 
             // TODO: use the server model to add the points (player.points) of each player
         }
+
+        System.out.println("FINISHED EVALUATING ROUND"); // TODO: remove after debugging
     } // end of evaluateRound
 
     /**

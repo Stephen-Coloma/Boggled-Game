@@ -56,7 +56,7 @@ public class LobbyPage {
         view.getJoinGameBT().setOnAction(event -> {
             // TODO: add a mechanism to send a request to server that the player wants to play a game before loading the waiting room section
             int gid = model.startGame();
-            WaitingRoomSection waitingRoomSection = new WaitingRoomSection(new WaitingRoomSectionModel(gid), new WaitingRoomSectionView());
+            WaitingRoomSection waitingRoomSection = new WaitingRoomSection(new WaitingRoomSectionModel(model.getPid(), gid), new WaitingRoomSectionView());
             waitingRoomSection.init();
         });
     } // end of setUpJoinGameBT

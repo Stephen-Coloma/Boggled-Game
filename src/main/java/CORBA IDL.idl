@@ -31,6 +31,10 @@ module BoggledApp{
         string reason;
     };
 
+    exception GameNotFound {
+        string reason;
+    };
+
     //interface for authentication
     interface Authentication{
         Player login(in string username, in string password) raises (AccountDoesNotExist, AlreadyLoggedIn);
@@ -42,7 +46,7 @@ module BoggledApp{
         long startGame(in long pid);
         long getRemainingWaitingTime() raises (GameTimeOut);
         long getNumberOfPlayersJoined();
-        Round playRound(in long gid);
+        Round playRound(in long gid) raises (GameNotFound);
         long getRemainingRoundTime(in long gid) raises (GameTimeOut);
         boolean submitWord(in string word, in long pid, in long gid);
         string getRoundWinner(in long gid);
