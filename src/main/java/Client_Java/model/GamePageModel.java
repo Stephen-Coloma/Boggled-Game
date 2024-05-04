@@ -6,7 +6,7 @@ import Client_Java.BoggledApp.Round;
 
 public class GamePageModel {
     private int gid;
-    private Round round;
+    private Round round = new Round(0, null, null, 0);
 
     public GamePageModel(int gid) {
         this.gid = gid;

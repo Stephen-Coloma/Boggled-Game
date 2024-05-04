@@ -7,12 +7,13 @@ import Server_Java.model.implementations.BoggledApp.Round;
 
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 public class Game {
     private int gid;
-    private Round round = null;
+    private Round currentRound = null, nextRound = new Round();
     private List<Player> playerList = new ArrayList<>();
     private HashMap<Integer, List<Integer>> playerRoundPoints = new LinkedHashMap<>();
     private HashMap<Integer, Integer> playerRoundWinCounts = new LinkedHashMap<>();
@@ -38,26 +39,32 @@ public class Game {
      * one time call to start the game's lifecycle.
      */
     public void startGame() {
+        // use the newRound to create the first round to be assigned to the getNextRound method for the first instance of the game
+        nextRound = prepareRoundDetails();
+
         Thread startGameThread = new Thread(() -> {
             while (true) {
                 if (startNextRound.get()) {
+                    synchronized (this) { // TODO: this fixed the multiple instances being started
+                        roundTime = ServerModel.roundLength;
 
-                    System.out.println("Starting Next Round"); // TODO: remove after debugging
+                        System.out.println("- STARTING ROUND"); // TODO: remove after debugging
 
-                    roundTime = ServerModel.roundLength;
-                    totalSubmissions = 0;
+                        try {
+                            while (roundTime != -1) {
+                                roundTime--;
+                                Thread.sleep(1000);
+                            }
 
-                    try {
-                        while (roundTime != -1) {
-                            roundTime--;
-                            Thread.sleep(1000);
+                            evaluateRound();
+
+                            startNextRound.set(false);
+
+                            // create the next round after the current round is finished
+                            nextRound = prepareRoundDetails();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
-
-                        evaluateRound();
-
-                        startNextRound.set(false);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
                 }
             }
@@ -101,25 +108,27 @@ public class Game {
                 totalSubmissions++;
 
                 if (totalSubmissions == playerList.size()) {
-
-                    // prepare the next round
-                    round = prepareRoundDetails();
-
                     startNextRound.set(true);
 
-                    System.out.println("SET NEXT ROUND TO TRUE"); // TODO: remove after debugging
+                    totalSubmissions = 0;
 
                     // release the latch
                     submissionLatch.countDown();
                 }
             }
+
             // hold the threads invoking the getRound method if not all players invoked the call
             submissionLatch.await();
+
+            // assign the next round to the current round
+            currentRound = nextRound;
+
+            System.out.println("\n- CURRENT ROUND: " + currentRound.roundNumber);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        return round;
+        return currentRound;
     } // end of getRound
 
     /**
@@ -162,7 +171,7 @@ public class Game {
             // TODO: use the server model to add the points (player.points) of each player
         }
 
-        System.out.println("FINISHED EVALUATING ROUND"); // TODO: remove after debugging
+        System.out.println("\n- FINISHED EVALUATING CURRENT ROUND"); // TODO: remove after debugging
     } // end of evaluateRound
 
     /**
@@ -213,13 +222,13 @@ public class Game {
     private Round prepareRoundDetails() {
         roundNumber++;
 
-        Round newRound = new Round();
-        newRound.gid = gid;
-        newRound.playersData = getWinCounts();
-        newRound.characterSet = generateCharacterSet();
-        newRound.roundNumber = roundNumber;
+        Round r = new Round();
+        r.gid = gid;
+        r.playersData = getWinCounts();
+        r.characterSet = generateCharacterSet();
+        r.roundNumber = roundNumber;
 
-        return newRound;
+        return r;
     } // end of prepareRoundDetails
 
     /**

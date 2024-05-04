@@ -19,6 +19,7 @@ public class GamePage {
     private GamePageView view;
     private boolean endGame = false;
     private static int remainingTime;
+    private boolean roundRequested = false;
 
     public GamePage(GamePageModel model, GamePageView view) {
         this.model = model;
@@ -58,11 +59,16 @@ public class GamePage {
                     // TODO: display the round winner
                 }
 
-                model.obtainRound();
-                showRoundPopup();
-                System.out.println(model.getRound().characterSet);
+                if (!roundRequested) {
+                    model.obtainRound();
+//                    showRoundPopup();
+                    System.out.println(model.getRound().characterSet);
+                    roundRequested = true;
+                }
 
                 startCountdown();
+
+                roundRequested = false;
             }
         });
         gameThread.setDaemon(true);
