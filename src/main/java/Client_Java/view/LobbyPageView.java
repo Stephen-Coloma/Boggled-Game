@@ -10,7 +10,7 @@ import java.util.List;
 
 public class LobbyPageView {
     @FXML
-    private Button joinGameBT, refreshLeaderboardsBT;
+    private Button joinGameBT, logoutBT, refreshLeaderboardsBT;
     @FXML
     private FlowPane leaderboardPanel;
 
@@ -28,6 +28,10 @@ public class LobbyPageView {
 
     public Button getJoinGameBT() {
         return joinGameBT;
+    }
+
+    public Button getLogoutBT() {
+        return logoutBT;
     }
 
     public Button getRefreshLeaderboardsBT() {

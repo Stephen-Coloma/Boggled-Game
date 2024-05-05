@@ -1,26 +1,31 @@
 package Client_Java.model;
 
 import Client_Java.BoggledApp.GameTimeOut;
+import Client_Java.BoggledApp.Player;
 
 public class WaitingRoomSectionModel {
-    private int pid;
+    private Player player;
     private int gid;
 
-    public WaitingRoomSectionModel(int pid, int gid) {
-        this.pid = pid;
+    public WaitingRoomSectionModel(Player player, int gid) {
+        this.player = player;
         this.gid = gid;
     }
 
     public void leaveGame() {
-        ClientModel.gameService.leaveGame(pid, gid);
+        ClientModel.gameService.leaveGame(player.pid, gid);
     }
 
     public int getRemainingWaitingTime() throws GameTimeOut {
         return ClientModel.gameService.getRemainingWaitingTime();
     }
 
-    public int getNumberOfPlayersJoined(){
+    public int getNumberOfPlayersWaiting(){
         return ClientModel.gameService.getNumberOfPlayersJoined();
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 
     public int getGid() {

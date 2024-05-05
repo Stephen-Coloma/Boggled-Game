@@ -6,6 +6,8 @@ import Client_Java.BoggledApp.Player;
 
 public class LoginPageModel {
 
+    public LoginPageModel() {}
+
     public Player login(String username, String password) throws AlreadyLoggedIn, AccountDoesNotExist {
         return ClientModel.authService.login(username, password);
     } // end of login

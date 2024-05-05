@@ -12,12 +12,12 @@ public class WaitingRoomSectionView {
 
     public WaitingRoomSectionView() {}
 
-    public Label getCountdownLB() {
-        return countdownLB;
+    public void setRemainingTime(int remainingTime) {
+        countdownLB.setText(String.valueOf(remainingTime));
     }
 
-    public Label getPlayerCountLB() {
-        return playerCountLB;
+    public void setWaitingPlayersCount(int waitingPlayers) {
+        playerCountLB.setText(String.valueOf(waitingPlayers));
     }
 
     public Button getCancelBT() {

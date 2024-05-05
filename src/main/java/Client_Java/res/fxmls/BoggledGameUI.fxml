@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1300.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client_Java.view.GamePageView">
 <children>
-    <Pane prefHeight="760.0" prefWidth="950.0">
+    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="876.0">
         <children>
-            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" layoutX="322.0" layoutY="94.0" orientation="VERTICAL" prefHeight="428.0" prefWidth="523.0" style="-fx-background-color: #248946; -fx-background-radius: 20;">
+            <FlowPane fx:id="characterSetPanel" alignment="CENTER" hgap="15.0" layoutX="322.0" layoutY="94.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="428.0" prefWidth="523.0" prefWrapLength="523.0" rowValignment="TOP" style="-fx-background-color: #248946; -fx-background-radius: 20;" vgap="15.0">
                 <children>
                     <Pane centerShape="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-border-radius: 10; -fx-background-radius: 10;">
                         <children>
@@ -163,136 +156,32 @@
                             <Insets right="15.0" top="15.0" />
                         </FlowPane.margin>
                     </Pane>
-                    <Pane centerShape="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-border-radius: 10; -fx-background-radius: 10;">
-                        <children>
-                            <Text layoutX="33.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
-                                <font>
-                                    <Font name="Arial Rounded MT Bold" size="45.0" />
-                                </font>
-                            </Text>
-                        </children>
-                        <FlowPane.margin>
-                            <Insets right="15.0" top="15.0" />
-                        </FlowPane.margin>
-                    </Pane>
-                    <Pane centerShape="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-border-radius: 10; -fx-background-radius: 10;">
-                        <children>
-                            <Text layoutX="30.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
-                                <font>
-                                    <Font name="Arial Rounded MT Bold" size="45.0" />
-                                </font>
-                            </Text>
-                        </children>
-                        <FlowPane.margin>
-                            <Insets right="15.0" top="15.0" />
-                        </FlowPane.margin>
-                    </Pane>
-                    <Pane centerShape="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-border-radius: 10; -fx-background-radius: 10;">
-                        <children>
-                            <Text layoutX="32.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
-                                <font>
-                                    <Font name="Arial Rounded MT Bold" size="45.0" />
-                                </font>
-                            </Text>
-                        </children>
-                        <FlowPane.margin>
-                            <Insets right="15.0" top="15.0" />
-                        </FlowPane.margin>
-                    </Pane>
-                    <Pane centerShape="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-border-radius: 10; -fx-background-radius: 10;">
-                        <children>
-                            <Text layoutX="32.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
-                                <font>
-                                    <Font name="Arial Rounded MT Bold" size="45.0" />
-                                </font>
-                            </Text>
-                        </children>
-                        <FlowPane.margin>
-                            <Insets right="15.0" top="15.0" />
-                        </FlowPane.margin>
-                    </Pane>
-                    <Pane centerShape="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-border-radius: 10; -fx-background-radius: 10;">
-                        <children>
-                            <Text layoutX="32.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
-                                <font>
-                                    <Font name="Arial Rounded MT Bold" size="45.0" />
-                                </font>
-                            </Text>
-                        </children>
-                        <FlowPane.margin>
-                            <Insets right="15.0" top="15.0" />
-                        </FlowPane.margin>
-                    </Pane>
-                    <Pane centerShape="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-border-radius: 10; -fx-background-radius: 10;">
-                        <children>
-                            <Text layoutX="30.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
-                                <font>
-                                    <Font name="Arial Rounded MT Bold" size="45.0" />
-                                </font>
-                            </Text>
-                        </children>
-                        <FlowPane.margin>
-                            <Insets right="15.0" top="15.0" />
-                        </FlowPane.margin>
-                    </Pane>
-                    <Pane centerShape="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-border-radius: 10; -fx-background-radius: 10;">
-                        <children>
-                            <Text layoutX="31.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
-                                <font>
-                                    <Font name="Arial Rounded MT Bold" size="45.0" />
-                                </font>
-                            </Text>
-                        </children>
-                        <FlowPane.margin>
-                            <Insets right="15.0" top="15.0" />
-                        </FlowPane.margin>
-                    </Pane>
-                    <Pane centerShape="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-border-radius: 10; -fx-background-radius: 10;">
-                        <children>
-                            <Text layoutX="32.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
-                                <font>
-                                    <Font name="Arial Rounded MT Bold" size="45.0" />
-                                </font>
-                            </Text>
-                        </children>
-                        <FlowPane.margin>
-                            <Insets right="15.0" top="15.0" />
-                        </FlowPane.margin>
-                    </Pane>
                 </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </FlowPane>
-            <ScrollPane hbarPolicy="NEVER" layoutX="38.0" layoutY="96.0" prefHeight="632.0" prefWidth="254.0" style="-fx-background-color: #248946;">
-                <content>
-                    <FlowPane prefHeight="633.0" prefWidth="254.0" style="-fx-background-color: white;">
-                        <children>
-                            <Pane prefHeight="45.0" prefWidth="223.0" style="-fx-background-color: #8BCE39;">
-                                <children>
-                                    <Text fill="#000000cc" layoutX="11.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WORDS ENTERED" textAlignment="CENTER" wrappingWidth="208.76705932617188">
-                                        <font>
-                                            <Font name="Arial Rounded MT Bold" size="22.0" />
-                                        </font>
-                                    </Text>
-                                </children>
-                                <FlowPane.margin>
-                                    <Insets left="9.0" top="10.0" />
-                                </FlowPane.margin>
-                            </Pane>
-                            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="222.0" style="-fx-background-color: #F2E7D1; -fx-background-radius: 5; -fx-border-radius: 5;">
-                                <children>
-                                    <Text layoutX="12.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="aggregate">
-                                        <font>
-                                            <Font size="21.0" />
-                                        </font>
-                                    </Text>
-                                </children>
-                                <FlowPane.margin>
-                                    <Insets left="9.0" top="10.0" />
-                                </FlowPane.margin>
-                            </Pane>
-                        </children>
-                    </FlowPane>
-                </content>
-            </ScrollPane>
+            <Pane layoutX="38.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="254.0" style="-fx-background-color: #248946; -fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0;">
+               <children>
+                  <ScrollPane hbarPolicy="NEVER" layoutY="70.0" prefHeight="562.0" prefWidth="254.0" style="-fx-background-color: #248946;">
+                      <content>
+                          <FlowPane fx:id="wordEntryPanel" columnHalignment="CENTER" prefHeight="563.0" prefWidth="254.0" prefWrapLength="254.0" style="-fx-background-color: white;" vgap="8.0">
+                           <padding>
+                              <Insets bottom="8.0" top="8.0" />
+                           </padding></FlowPane>
+                      </content>
+                  </ScrollPane>
+                      <Pane layoutX="16.0" layoutY="14.0" prefHeight="45.0" prefWidth="223.0" style="-fx-background-color: #8BCE39;">
+                          <children>
+                              <Text fill="#000000cc" layoutX="11.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WORDS ENTERED" textAlignment="CENTER" wrappingWidth="208.76705932617188">
+                                  <font>
+                                      <Font name="Arial Rounded MT Bold" size="22.0" />
+                                  </font>
+                              </Text>
+                          </children>
+                      </Pane>
+               </children>
+            </Pane>
             <Text layoutX="322.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Remaining : " wrappingWidth="156.6472930908202">
                 <font>
                     <Font name="Arial Rounded MT Bold" size="17.0" />
@@ -313,12 +202,12 @@
                     <Font name="Arial Rounded MT Bold" size="18.0" />
                 </font>
             </Button>
-            <Text fill="#248946" layoutX="429.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROUND: 1" textAlignment="CENTER" wrappingWidth="300.91395568847656">
+            <Text fx:id="roundLB" fill="#248946" layoutX="429.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROUND: 1" textAlignment="CENTER" wrappingWidth="300.91395568847656">
                 <font>
                     <Font name="Arial Rounded MT Bold" size="45.0" />
                 </font>
             </Text>
-            <Text layoutX="101.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAYER: Brianna" wrappingWidth="156.6472930908203">
+            <Text fx:id="playerNameLB" layoutX="101.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAYER: Brianna" wrappingWidth="300.0">
                 <font>
                     <Font name="Arial Rounded MT Bold" size="18.0" />
                 </font>
@@ -340,7 +229,7 @@
             </Text>
         </children>
     </Pane>
-    <Pane layoutX="10.0" layoutY="10.0" prefHeight="760.0" prefWidth="498.0">
+    <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="424.0">
         <children>
             <Pane layoutY="185.0" prefHeight="537.0" prefWidth="392.0" style="-fx-border-color: GREEN; -fx-background-color: white; -fx-background-radius: 10;">
                 <children>
@@ -353,30 +242,10 @@
                             </Text>
                         </children>
                     </Pane>
-                    <ScrollPane layoutX="9.0" layoutY="63.0" prefHeight="466.0" prefWidth="375.0">
+                    <ScrollPane hbarPolicy="NEVER" layoutX="9.0" layoutY="95.0" prefHeight="434.0" prefWidth="375.0" vbarPolicy="ALWAYS">
                         <content>
-                            <FlowPane prefHeight="452.0" prefWidth="374.0">
+                            <FlowPane fx:id="rankingPanel" prefHeight="452.0" prefWidth="374.0">
                                 <children>
-                                    <Pane prefHeight="41.0" prefWidth="370.0" style="-fx-background-color: #F2E7D1;">
-                                        <children>
-                                            <Text layoutX="14.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rank">
-                                                <font>
-                                                    <Font size="18.0" />
-                                                </font>
-                                            </Text>
-                                            <Text layoutX="122.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player ">
-                                                <font>
-                                                    <Font size="18.0" />
-                                                </font>
-                                            </Text>
-                                            <Text layoutX="247.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rounds won ">
-                                                <font>
-                                                    <Font size="18.0" />
-                                                </font>
-                                            </Text>
-                                            <Separator layoutY="36.0" prefHeight="0.0" prefWidth="363.0" style="-fx-background-color: #8BCE39;" />
-                                        </children>
-                                    </Pane>
                                     <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="366.0" style="-fx-background-color: white;">
                                         <children>
                                             <Text layoutX="28.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
@@ -481,6 +350,26 @@
                             </FlowPane>
                         </content>
                     </ScrollPane>
+                        <Pane layoutX="9.0" layoutY="54.0" prefHeight="41.0" prefWidth="375.0" style="-fx-background-color: #F2E7D1;">
+                            <children>
+                                <Text layoutX="14.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rank">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="122.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player ">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="247.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rounds won ">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Text>
+                                <Separator layoutY="36.0" prefHeight="3.0" prefWidth="375.0" style="-fx-background-color: #8BCE39;" />
+                            </children>
+                        </Pane>
                 </children>
             </Pane>
             <Pane layoutY="36.0" prefHeight="115.0" prefWidth="392.0" style="-fx-border-color: GREEN; -fx-background-color: white;">

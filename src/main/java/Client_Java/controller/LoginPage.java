@@ -18,14 +18,22 @@ import java.util.TimerTask;
 
 public class LoginPage {
     public static Scene LOGIN_SCENE;
-    private LoginPageModel model;
+    private final LoginPageModel model;
     private LoginPageView view;
+    private final LobbyPage lobbyPage;
+    private final LobbyPageModel lobbyPageModel;
+
     private Timer timer = new Timer();
 
 
     public LoginPage(LoginPageModel model, LoginPageView view) {
         this.model = model;
         this.view = view;
+
+        lobbyPageModel = new LobbyPageModel();
+        LobbyPageView lobbyPageView = new LobbyPageView();
+        lobbyPage = new LobbyPage(lobbyPageModel, lobbyPageView);
+        lobbyPage.init();
     }
 
     public void init() {
@@ -46,30 +54,29 @@ public class LoginPage {
 
     private void setUpLoginButton() {
         view.getLogInButton().setOnAction(event -> {
-            // TODO: Use the model to authenticate the player in order to proceed to the lobby
             try {
-                Player player = model.login(view.getUsernameField().getText(), view.getPasswordField().getText());
+                Player player = model.login(view.getUsernameFieldValue(), view.getPasswordFieldValue());
 
-                LobbyPage lobbyPage = new LobbyPage(new LobbyPageModel(player), new LobbyPageView());
-                lobbyPage.init();
+                lobbyPageModel.setPlayer(player);
+                lobbyPage.switchScene();
             } catch (AlreadyLoggedIn exception1) {
-                setNoticeText("Account is already logged in");
+                setNotice("Account is already logged in");
             } catch (AccountDoesNotExist exception2) {
-                setNoticeText("Invalid credentials");
+                setNotice("Invalid credentials");
             }
         });
     } // end of setUpLoginButton
 
-    private void setNoticeText(String text) {
+    private void setNotice(String text) {
         timer.cancel();
 
-        view.getNoticeLB().setText(text);
+        view.setNoticeText(text);
 
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                view.getNoticeLB().setText("");
+                view.setNoticeText("");
             }
         }, 5000);
     } // end of setNoticeText

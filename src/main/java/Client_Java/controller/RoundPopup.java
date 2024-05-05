@@ -2,26 +2,27 @@ package Client_Java.controller;
 
 import Client_Java.BoggledApp.Round;
 import Client_Java.view.RoundPopupView;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.io.IOException;
 
 public class RoundPopup {
-    private Round round;
     private RoundPopupView view;
+    private Stage popupStage;
 
-    public RoundPopup(Round round, RoundPopupView view) {
-        this.round = round;
+    public RoundPopup(RoundPopupView view) {
         this.view = view;
     }
 
     public void init() {
         try {
-            Stage popupStage = new Stage();
+            popupStage = new Stage();
 
             FXMLLoader loader = new FXMLLoader(new File("src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml").toURI().toURL());
 
@@ -29,19 +30,24 @@ public class RoundPopup {
 
             view = loader.getController();
 
-            setRoundLB();
-
-            popupStage.setTitle("ROUND " + round.roundNumber);
             popupStage.setFullScreen(false);
+            popupStage.initStyle(StageStyle.UNDECORATED);
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.setScene(roundScene);
-            popupStage.show();
         } catch (RuntimeException | IOException e) {
             e.printStackTrace();
         }
     } // end of init
 
-    private void setRoundLB() {
-        view.getRoundNumberLB().setText("ROUND " + round.roundNumber);
+    public void setCurrentRound(int roundNumber) {
+        view.getRoundNumberLB().setText("ROUND " + roundNumber);
+    }
+
+    public void showPopup() {
+        Platform.runLater(() -> popupStage.show());
+    }
+
+    public void hidePopup() {
+        Platform.runLater(() -> popupStage.hide());
     }
 } // end of RoundPopup class

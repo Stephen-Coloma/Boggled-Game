@@ -48,9 +48,10 @@ public class Game {
                     synchronized (this) { // TODO: this fixed the multiple instances being started
                         roundTime = ServerModel.roundLength;
 
-                        System.out.println("- STARTING ROUND"); // TODO: remove after debugging
-
                         try {
+                            Thread.sleep(5000);
+                            System.out.println("- STARTING ROUND"); // TODO: remove after debugging
+
                             while (roundTime != -1) {
                                 roundTime--;
                                 Thread.sleep(1000);
@@ -224,7 +225,7 @@ public class Game {
 
         Round r = new Round();
         r.gid = gid;
-        r.playersData = getWinCounts();
+        r.playersData = getPlayerDatas();
         r.characterSet = generateCharacterSet();
         r.roundNumber = roundNumber;
 
@@ -234,15 +235,20 @@ public class Game {
     /**
      * creates an array containing the win counts of each player in the game.
      *
-     * @return array of strings containing the username along with their win count e.g. "Leonhard-3"
+     * @return array of strings containing the username along with their win count e.g. "Leonhard-3-145"
      */
-    private String[] getWinCounts() {
+    private String[] getPlayerDatas() {
         List<String> temp = new ArrayList<>();
 
         for (Player player : playerList) {
             int winCount = playerRoundWinCounts.get(player.pid);
 
-            temp.add(player.username + "-" + winCount);
+            List<Integer> pointsList = playerRoundPoints.get(player.pid);
+            if (pointsList.isEmpty()) {
+                temp.add(player.username + "-" + winCount + "-" + 0);
+            } else {
+                temp.add(player.username + "-" + winCount + "-" + pointsList.get(pointsList.size() - 1));
+            }
         }
 
         return temp.toArray(new String[0]);

@@ -20,19 +20,19 @@ public class LoginPageView {
         noticeLB.setText("");
     }
 
-    public TextField getUsernameField() {
-        return usernameField;
+    public void setNoticeText(String notice) {
+        noticeLB.setText(notice);
     }
 
-    public TextField getPasswordField() {
-        return passwordField;
+    public String getUsernameFieldValue() {
+        return usernameField.getText();
+    }
+
+    public String getPasswordFieldValue() {
+        return passwordField.getText();
     }
 
     public Button getLogInButton() {
         return logInButton;
-    }
-
-    public Text getNoticeLB() {
-        return noticeLB;
     }
 } // end of LoginPageView class

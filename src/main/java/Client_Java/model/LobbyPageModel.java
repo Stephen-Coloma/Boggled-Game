@@ -8,23 +8,29 @@ import java.util.List;
 public class LobbyPageModel {
     private Player player;
 
-    public LobbyPageModel(Player player) {
-        this.player = player;
+    public LobbyPageModel() {
+        player = null;
     }
 
     public void logout() {
-        ClientModel.authService.logout(player.pid);
+        if (player != null) {
+            ClientModel.authService.logout(player.pid);
+        }
     } // end of logout
 
     public int startGame() {
         return ClientModel.gameService.startGame(player.pid);
     } // end of startGame
 
-    public int getPid() {
-        return player.pid;
-    }
-
     public List<String> getLeaderboardPlayers() {
         return Arrays.asList(ClientModel.gameService.getLeaderboards());
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 } // end of LobbyPageModel class

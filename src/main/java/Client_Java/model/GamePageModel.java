@@ -2,13 +2,16 @@ package Client_Java.model;
 
 import Client_Java.BoggledApp.GameNotFound;
 import Client_Java.BoggledApp.GameTimeOut;
+import Client_Java.BoggledApp.Player;
 import Client_Java.BoggledApp.Round;
 
 public class GamePageModel {
+    private Player player;
     private int gid;
     private Round round = new Round(0, null, null, 0);
 
-    public GamePageModel(int gid) {
+    public GamePageModel(Player player, int gid) {
+        this.player = player;
         this.gid = gid;
     }
 
@@ -20,12 +23,20 @@ public class GamePageModel {
         try {
             round = ClientModel.gameService.playRound(gid);
         } catch (GameNotFound gameNotFound) {
-            System.out.println(gameNotFound.reason);
+            round = new Round(0, new String[0], "", 0);
         }
     }
 
     public int getRemainingRoundTime() throws GameTimeOut {
         return ClientModel.gameService.getRemainingRoundTime(gid);
+    }
+
+    public String getUsername() {
+        return player.username;
+    }
+
+    public int getPid() {
+        return player.pid;
     }
 
     public String getRoundWinner() {

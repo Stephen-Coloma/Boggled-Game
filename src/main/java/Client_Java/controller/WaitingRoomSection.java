@@ -16,7 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class WaitingRoomSection {
-    private WaitingRoomSectionModel model;
+    private final WaitingRoomSectionModel model;
     private WaitingRoomSectionView view;
     private static int remainingTime;
     private int playerCount;
@@ -45,29 +45,25 @@ public class WaitingRoomSection {
 
     private void setUpCancelBT() {
         view.getCancelBT().setOnAction(event -> {
-            model.leaveGame();
             ClientJava.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE);
+            model.leaveGame();
         });
     } // end of setUpCancelBT
 
-
     private void initiateCountdown() {
-//        AtomicBoolean stopCountdown = new AtomicBoolean(false); FIXME: remove this if not needed
-
         Thread countdownThread = new Thread(() -> {
             try {
                 while (true) {
                     remainingTime = model.getRemainingWaitingTime();
-                    playerCount = model.getNumberOfPlayersJoined();
+                    playerCount = model.getNumberOfPlayersWaiting();
 
                     Platform.runLater(() -> {
-                        view.getCountdownLB().setText(String.valueOf(remainingTime));
-                        view.getPlayerCountLB().setText(String.valueOf(playerCount));
+                        view.setRemainingTime(remainingTime);
+                        view.setWaitingPlayersCount(playerCount);
                     });
                     Thread.sleep(100);
                 }
             } catch (GameTimeOut gameTimeOutException) {
-                System.out.println(gameTimeOutException.reason); // TODO: Remove this line if code is working now
                 handleFirstRound();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -83,9 +79,10 @@ public class WaitingRoomSection {
             @Override
             public void run() {
                 if (playerCount > 1) {
-                    // TODO: go to the game page
-                    GamePage gamePage = new GamePage(new GamePageModel(model.getGid()), new GamePageView());
-                    gamePage.init();
+                    Platform.runLater(() -> {
+                        GamePage gamePage = new GamePage(new GamePageModel(model.getPlayer(), model.getGid()), new GamePageView());
+                        gamePage.init();
+                    });
                 } else {
                     Platform.runLater(() -> ClientJava.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE));
                 }

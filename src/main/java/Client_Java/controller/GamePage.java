@@ -1,6 +1,7 @@
 package Client_Java.controller;
 
 import Client_Java.BoggledApp.GameTimeOut;
+import Client_Java.BoggledApp.Round;
 import Client_Java.ClientJava;
 import Client_Java.model.GamePageModel;
 import Client_Java.view.GamePageView;
@@ -11,41 +12,51 @@ import javafx.scene.Scene;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class GamePage {
     private GamePageModel model;
     private GamePageView view;
-    private boolean endGame = false;
+    RoundPopup roundPopup;
     private static int remainingTime;
     private boolean roundRequested = false;
 
     public GamePage(GamePageModel model, GamePageView view) {
         this.model = model;
         this.view = view;
+
+        roundPopup = new RoundPopup(new RoundPopupView());
+        roundPopup.init();
     }
 
+    /**
+     * initializes the ui and loads it to the application stage
+     */
     public void init() {
-        Platform.runLater(() -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(new File("src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml").toURI().toURL());
+        try {
+            FXMLLoader loader = new FXMLLoader(new File("src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml").toURI().toURL());
 
-                Scene gameScene = new Scene(loader.load());
+            Scene gameScene = new Scene(loader.load());
 
-                view = loader.getController();
+            view = loader.getController();
 
-                ClientJava.APPLICATION_STAGE.setScene(gameScene);
+            view.setPlayerName(model.getUsername());
 
+            ClientJava.APPLICATION_STAGE.setScene(gameScene);
 
-            } catch (RuntimeException | IOException e) {
-                e.printStackTrace();
-            }
+            setEnterWordBT();
+        } catch (RuntimeException | IOException e) {
+            e.printStackTrace();
+        }
 
-            startGame();
-        });
+        startGame();
     } // end of init
 
+    /**
+     * one time method to handle the game until the game is finished
+     */
     private void startGame() {
         Thread gameThread = new Thread(() -> {
             while (true) {
@@ -61,7 +72,8 @@ public class GamePage {
 
                 if (!roundRequested) {
                     model.obtainRound();
-//                    showRoundPopup();
+                    updateData();
+                    showRoundPopup();
                     System.out.println(model.getRound().characterSet);
                     roundRequested = true;
                 }
@@ -75,26 +87,16 @@ public class GamePage {
         gameThread.start();
     } // end of startGame
 
-    private void showRoundPopup() {
-        new Timer(true).schedule(new TimerTask() {
-            @Override
-            public void run() {
-                Platform.runLater(() -> {
-                    RoundPopup roundPopup = new RoundPopup(model.getRound(), new RoundPopupView());
-                    roundPopup.init();
-                });
-            }
-        }, 1000);
-    } // end of showRoundPopup
-
+    /**
+     * initiates the countdown sequence indicating the round is starting
+     */
     private void startCountdown() {
         while (true) {
             try {
                 remainingTime = model.getRemainingRoundTime();
 
-                Platform.runLater(() -> {
-                    view.getTimeRemainingLB().setText(remainingTime + " seconds");
-                });
+                Platform.runLater(() -> view.setRemainingTime(remainingTime));
+
                 Thread.sleep(100);
             } catch (GameTimeOut gameTimeOut) {
                 break;
@@ -102,5 +104,72 @@ public class GamePage {
                 e.printStackTrace();
             }
         }
+    } // end of startCountdown
+
+    private void setEnterWordBT() {
+        view.getEnterWordBT().setOnAction(event -> {
+            view.addEntryToWordPanel(view.getInput());
+            view.clearInputField();
+        });
     }
+
+    /**
+     * updates the necessary data in the game UI for the current round
+     */
+    private void updateData() {
+        Platform.runLater(() -> {
+            // set current round number
+            view.setRoundNumber(model.getRound().roundNumber);
+
+            // set game points
+            String[] playerDatas = model.getRound().playersData;
+            for (String entry : playerDatas) {
+                String username = entry.split("-")[0];
+                String points = entry.split("-")[2];
+
+                if (username.equals(model.getUsername())) {
+                    view.setGamePoints(points);
+                    break;
+                }
+            }
+
+            // update character set
+            view.updateCharacterSetPanel(model.getRound().characterSet);
+
+            // clear word entries
+            view.clearWordEntriesPanel();
+
+            // TODO: update scoreboard
+            view.updateScoreboard(model.getRound().playersData);
+        });
+    } // end of updateData
+
+    /**
+     * displays the round popup for the current round
+     */
+    private void showRoundPopup() {
+        initiateDelay(1000);
+
+        roundPopup.setCurrentRound(model.getRound().roundNumber);
+        roundPopup.showPopup();
+        new Timer(true).schedule(new TimerTask() {
+            @Override
+            public void run() {
+                roundPopup.hidePopup();
+            }
+        }, 3000);
+    } // end of showRoundPopup
+
+    /**
+     * blocks the thread from running in a given amount of time
+     *
+     * @param millis the amount of delay in milliseconds
+     */
+    private void initiateDelay(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    } // end of initiateDelay
 } // end of GamePage class
