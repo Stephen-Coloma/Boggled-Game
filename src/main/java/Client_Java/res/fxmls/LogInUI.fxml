@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1300.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1300.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client_Java.view.LoginPageView">
    <children>
       <Pane prefHeight="760.0" prefWidth="715.0">
          <children>
@@ -14,21 +14,26 @@
                   <Image url="@../images/boggledlogo.png" />
                </image>
             </ImageView>
-            <TextField id="usernameField" layoutX="89.0" layoutY="402.0" prefHeight="70.0" prefWidth="525.0" promptText="\@username" style="-fx-border-color: #248946; -fx-border-radius: 15; -fx-background-radius: 15;">
+            <TextField id="usernameField" fx:id="usernameField" layoutX="89.0" layoutY="402.0" prefHeight="70.0" prefWidth="525.0" promptText="\@username" style="-fx-border-color: #248946; -fx-border-radius: 15; -fx-background-radius: 15;">
                <font>
                   <Font name="Arial Rounded MT Bold" size="20.0" />
                </font>
             </TextField>
-            <TextField id="passwordField" layoutX="89.0" layoutY="514.0" prefHeight="70.0" prefWidth="525.0" promptText="password" style="-fx-border-color: #248946; -fx-background-radius: 15; -fx-border-radius: 15;">
+            <TextField id="passwordField" fx:id="passwordField" layoutX="89.0" layoutY="514.0" prefHeight="70.0" prefWidth="525.0" promptText="password" style="-fx-border-color: #248946; -fx-background-radius: 15; -fx-border-radius: 15;">
                <font>
                   <Font name="Arial Rounded MT Bold" size="20.0" />
                </font>
             </TextField>
-            <Button id="logInButton" layoutX="234.0" layoutY="635.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="261.0" style="-fx-background-color: #248946;" text="LOG IN" textFill="WHITE">
+            <Button id="logInButton" fx:id="logInButton" layoutX="234.0" layoutY="635.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="261.0" style="-fx-background-color: #248946;" text="LOG IN" textFill="WHITE">
                <font>
-                  <Font name="Arial Black" size="18.0" />
+                  <Font name="Arial Rounded MT Bold" size="20.0" />
                </font>
             </Button>
+            <Text fx:id="noticeLB" fill="RED" layoutX="89.0" layoutY="614.0" strokeType="OUTSIDE" strokeWidth="0.0" text="// error here" textAlignment="RIGHT" wrappingWidth="525.0">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>

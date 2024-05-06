@@ -17,10 +17,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ServerModel {
     private AuthenticationImpl authentication;
@@ -127,6 +124,7 @@ public class ServerModel {
             // get object reference from the servant
             org.omg.CORBA.Object authenticationRef = rootpoa.servant_to_reference(authentication);
             org.omg.CORBA.Object gameManagerRef = rootpoa.servant_to_reference(gameManager);
+
             Authentication aRef = AuthenticationHelper.narrow(authenticationRef);
             GameManager gRef = GameManagerHelper.narrow(gameManagerRef);
 
@@ -146,7 +144,7 @@ public class ServerModel {
 
             ncRef.rebind(authenticationPath, aRef);
             ncRef.rebind(gameManagerPath, gRef);
-            System.out.println("HelloServer ready and waiting ...");
+            System.out.println("Boggled Server ready and waiting ...");
             // wait for invocations from clients
             orb.run();
         }catch (Exception e){

@@ -1,0 +1,103 @@
+package Client_Java.view;
+
+import Client_Java.controller.cards.LetterCard;
+import Client_Java.controller.cards.RankingCard;
+import Client_Java.controller.cards.WordCard;
+import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.text.Text;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GamePageView {
+    @FXML
+    private Text roundLB, playerNameLB, gamePointsLB, timeRemainingLB;
+    @FXML
+    private Button enterWordBT, clearInputBT;
+    @FXML
+    private TextField inputFieldTF;
+    @FXML
+    FlowPane characterSetPanel, wordEntryPanel, rankingPanel;
+
+    @FXML
+    public void initialize() {
+        clearInputBT.setOnAction(event -> inputFieldTF.clear());
+    }
+
+    public GamePageView() {}
+
+    public String getInput() {
+        return inputFieldTF.getText();
+    }
+
+    public void updateScoreboard(String[] playerDatas) {
+        List<Node> scoreboardCard = new ArrayList<>();
+
+        for (int i = 0; i < playerDatas.length; i++) {
+            String entry = playerDatas[i];
+            String username = entry.split("-")[0];
+            String winCount = entry.split("-")[1];
+
+            scoreboardCard.add(RankingCard.createCard(String.valueOf(i + 1), username, winCount));
+        }
+
+        rankingPanel.getChildren().clear();
+        rankingPanel.getChildren().addAll(scoreboardCard);
+    } // end of updateScoreboard
+
+    public void setPlayerName(String username) {
+        playerNameLB.setText("PLAYER: " + username);
+    }
+
+    public void setRoundNumber(int roundNumber) {
+        roundLB.setText("ROUND: " + roundNumber);
+    }
+
+    public void setGamePoints(String gamePoints) {
+        gamePointsLB.setText(gamePoints);
+    }
+
+    public void setRemainingTime(int remainingTime) {
+        timeRemainingLB.setText(remainingTime + " seconds");
+    } // end of setRemainingTime
+
+    public void updateCharacterSetPanel(String characterSet) {
+        List<Node> letterCards = new ArrayList<>();
+
+        for (char letter : characterSet.toCharArray()) {
+            letterCards.add(LetterCard.createCard(letter));
+        }
+
+        characterSetPanel.getChildren().clear();
+        characterSetPanel.getChildren().addAll(letterCards);
+    } // end of updateCharacterSetPanel
+
+    public void addEntryToWordPanel(String word) {
+        wordEntryPanel.getChildren().add(WordCard.createCard(word));
+    }
+
+    public void clearWordEntriesPanel() {
+        wordEntryPanel.getChildren().clear();
+    }
+
+    public void clearInputField() {
+        inputFieldTF.clear();
+    }
+
+
+    public Text getGamePointsLB() {
+        return gamePointsLB;
+    }
+
+    public Button getEnterWordBT() {
+        return enterWordBT;
+    }
+
+    public TextField getInputFieldTF() {
+        return inputFieldTF;
+    }
+} // end of GamePageView class

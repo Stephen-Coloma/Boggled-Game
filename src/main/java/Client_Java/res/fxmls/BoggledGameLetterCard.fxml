@@ -3,12 +3,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="85.0" style="-fx-background-color: #F2E7D1; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="78.25" prefWidth="78.6" style="-fx-background-color: #F2E7D1; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client_Java.view.cards.LetterCardView">
    <children>
-      <Text layoutX="29.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="b">
+      <Text fx:id="letterLB" boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="b" textAlignment="CENTER" wrappingWidth="92.52499389648438">
          <font>
             <Font name="Arial Rounded MT Bold" size="45.0" />
          </font>
       </Text>
    </children>
-</Pane>
+</VBox>

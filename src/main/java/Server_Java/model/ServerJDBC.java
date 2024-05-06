@@ -4,16 +4,12 @@ import Server_Java.model.implementations.BoggledApp.AccountDoesNotExist;
 import Server_Java.model.implementations.BoggledApp.AlreadyLoggedIn;
 import Server_Java.model.implementations.BoggledApp.Player;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
-    private static final String USER = "user";
+    private static final String USER = "LeonardosAdmin";
     private static final String PASSWORD = "password";
     private static Connection connection;
     private static String query;
@@ -26,6 +22,31 @@ public class ServerJDBC {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * Method that gets a player object from the database
+     * @param pid the id of the player
+     * @return the player object
+     * @throws AccountDoesNotExist if player does not exist
+     */
+    public static Player getPlayer(int pid) {
+        query = "SELECT * FROM players WHERE pid = ?";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, pid);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                String fullname = resultSet.getString("fullname");
+                String username = resultSet.getString("username");
+                int points = resultSet.getInt("points");
+                return new Player(pid, fullname, username, points);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -57,7 +78,7 @@ public class ServerJDBC {
 
                     loginHelper(id);
 
-                    return new Player(id, fn, username, password, points, 0);
+                    return new Player(id, fn, username, points);
                 }
             } else {
                 throw new AccountDoesNotExist("Account Does Not Exist");
@@ -129,14 +150,15 @@ public class ServerJDBC {
      * @param gameWinner - the player's pid who won the game
      * @param roundNumber - the total rounds played in the game*/
     public static void saveGame(int gid, int gameWinner, int roundNumber) {
-        query = "INSERT INTO games(gid,gamewinner,totalrounds) " +
-                "VALUES(?,?,?)";
+        query = "UPDATE games " +
+                "SET gamewinner = ?, totalrounds = ? " +
+                "WHERE gid = ?";
 
         try {
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, gid);
-            preparedStatement.setInt(2, gameWinner);
-            preparedStatement.setInt(3, roundNumber);
+            preparedStatement.setInt(1, gameWinner);
+            preparedStatement.setInt(2, roundNumber);
+            preparedStatement.setInt(3, gid);
 
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0){
@@ -148,6 +170,35 @@ public class ServerJDBC {
             e.printStackTrace();
         }
     }
+
+    /**This method just adds the gid into the games table so that it will not be taken by other starting games*/
+    public static void saveGameId(int gid) {
+        query = "INSERT INTO games(gid) " +
+                "VALUES(?)";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, gid);
+            int rowsAffected = preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method removes the game id saved and resets the auto-increment to (latest - 1)
+     */
+    public static void removeLatestGid() {
+        query = "DELETE FROM games " +
+                "WHERE gid = (SELECT max_gid FROM (SELECT MAX(gid) AS max_gid FROM games) AS temp)";
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.execute(query);
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+    } // end of removeLatestGid
 
     /**
      * Updates the points of players in the database.
@@ -203,8 +254,8 @@ public class ServerJDBC {
      * @return Array of Player objects representing the top players
      * @return Empty array if no players are found or in case of an error
      */
-    public static Player[] fetchTopPlayers() {
-        List<Player> topPlayers = new ArrayList<>();
+    public static String[] fetchTopPlayers() {
+        List<String> topPlayers = new ArrayList<>();
         query = "SELECT * FROM players ORDER BY points DESC";
         //  DESC LIMIT 5;
 
@@ -218,14 +269,65 @@ public class ServerJDBC {
                 String username = resultSet.getString("username");
                 int points = resultSet.getInt("points");
 
-                Player player = new Player(id, fullName, username, "", points, 0);
-                topPlayers.add(player);
+                Player player = new Player(id, fullName, username, points);
+                topPlayers.add(player.username + "-" + player.points);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return topPlayers.toArray(new Player[0]);
+        return topPlayers.toArray(new String[0]);
+    }
+
+    /**
+     * Checks if a username already exists in the database.
+     *
+     * @param username The username to check for existence.
+     * @return {@code true} if the username exists, {@code false} otherwise.
+     * @throws RuntimeException If an SQL exception occurs during the database operation.
+     */
+    public static boolean isUsernameExist(String username) {
+        query = "SELECT username FROM players" +
+                " WHERE username = ?";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, username);
+            resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception exception){
+            exception.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Creates a new player account with the provided information.
+     *
+     * @param fullName The full name of the player.
+     * @param username The username for the player account.
+     * @param password The password for the player account.
+     * @throws RuntimeException If an SQL exception occurs during the database operation.
+     */
+    public static void createPlayerAccount(String fullName, String username, String password) {
+      query = "INSERT INTO players (fullname, username, password, points, loggedinstatus) "+
+              "VALUES ( ?, ?, ?, ?, ?); ";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, fullName);
+            preparedStatement.setString(2, username);
+            preparedStatement.setString(3, password);
+            preparedStatement.setInt(4, 0);
+            preparedStatement.setInt(5, 0);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception exception){
+            exception.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
