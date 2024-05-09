@@ -3,8 +3,8 @@ package Server_Java.model;
 import Server_Java.model.implementations.AuthenticationImpl;
 import Server_Java.model.implementations.BoggledApp.Authentication;
 import Server_Java.model.implementations.BoggledApp.AuthenticationHelper;
-import Server_Java.model.implementations.BoggledApp.GameManager;
-import Server_Java.model.implementations.BoggledApp.GameManagerHelper;
+import Server_Java.model.implementations.BoggledApp.GameService;
+import Server_Java.model.implementations.BoggledApp.GameServiceHelper;
 import Server_Java.model.implementations.GameManagerImpl;
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NameComponent;
@@ -126,7 +126,7 @@ public class ServerModel {
             org.omg.CORBA.Object gameManagerRef = rootpoa.servant_to_reference(gameManager);
 
             Authentication aRef = AuthenticationHelper.narrow(authenticationRef);
-            GameManager gRef = GameManagerHelper.narrow(gameManagerRef);
+            GameService gRef = GameServiceHelper.narrow(gameManagerRef);
 
             // get the root naming context
             org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");

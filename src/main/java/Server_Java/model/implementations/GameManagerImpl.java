@@ -2,16 +2,13 @@ package Server_Java.model.implementations;
 
 import Server_Java.model.ServerJDBC;
 import Server_Java.model.ServerModel;
-import Server_Java.model.implementations.BoggledApp.GameManagerPOA;
-import Server_Java.model.implementations.BoggledApp.GameNotFound;
-import Server_Java.model.implementations.BoggledApp.GameTimeOut;
-import Server_Java.model.implementations.BoggledApp.Round;
+import Server_Java.model.implementations.BoggledApp.*;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class GameManagerImpl extends GameManagerPOA {
+public class GameManagerImpl extends GameServicePOA {
     private AtomicReference<Game> waitingGame = new AtomicReference<>();
     private HashMap<Integer, Game> ongoingGames = new LinkedHashMap<>();
     private static int timeLeft;
@@ -38,7 +35,7 @@ public class GameManagerImpl extends GameManagerPOA {
                             // put the game to the ongoing games list
                             ongoingGames.put(waitingGame.get().getGid(), waitingGame.get());
 
-//                            ServerJDBC.saveGameId(waitingGame.get().getGid());
+//                          TODO:  ServerJDBC.saveGameId(waitingGame.get().getGid());
                         }
                         waitingGame.set(null);
                     }
@@ -107,7 +104,7 @@ public class GameManagerImpl extends GameManagerPOA {
         if (ongoingGames.keySet().contains(gid)) {
             return ongoingGames.get(gid).getNextRound();
         } else {
-            throw new GameNotFound();
+            throw new GameNotFound("game not found");
         }
     } // end of playRound
 
@@ -136,8 +133,8 @@ public class GameManagerImpl extends GameManagerPOA {
      * @return true if the given word is valid, false otherwise
      */
     @Override
-    public boolean submitWord(String word, int pid, int gid) {
-        return false;
+    public void submitWord(String word, int pid, int gid) throws InvalidWord {
+
     } // end of submitWord
 
     /**

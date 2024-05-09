@@ -4,74 +4,79 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b47d7a-772d-4808-83a2-185c9d0775cd" name="Changes" comment="chore: Updated client package&#10;&#10;This commit resolves compile errors due to some restructuring in the idl file.">
+    <list default="true" id="11b47d7a-772d-4808-83a2-185c9d0775cd" name="Changes" comment="feat: Implement game UI, round popup, and lobby logout&#10;&#10;This commit introduces several features:&#10;1. All components in the game UI are now updating after each round passes.&#10;2. A round popup will be displayed on the center screen before starting the round.&#10;3. A logout button is placed in the lobby UI that redirects the player back to the login UI.">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_26_2024_7_42_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_26_2024_7_42_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orb.db/NC0" beforeDir="false" afterPath="$PROJECT_DIR$/orb.db/NC0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CORBA IDL.idl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CORBA IDL.idl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExistHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExistHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedIn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedInHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedInHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Authentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationOperations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationPOA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExistHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExistHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExistHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExistHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedInHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedInHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedInHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedInHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationPOA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationPOA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameManager.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameManagerHelper.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameManagerHolder.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameManagerOperations.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameManagerPOA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOut.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOutHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOutHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/PlayerHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/PlayerHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Round.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/RoundHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/RoundHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/StringSequenceHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/StringSequenceHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/_AuthenticationStub.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameNotFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameNotFoundHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameNotFoundHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameNotFoundHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameNotFoundHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOutHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOutHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOutHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOutHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/PlayerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/PlayerHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/PlayerHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/PlayerHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Round.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Round.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/RoundHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/RoundHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/RoundHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/RoundHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/StringSequenceHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/StringSequenceHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/StringSequenceHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/StringSequenceHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/_AuthenticationStub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/_AuthenticationStub.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/_GameManagerStub.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/GamePageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/GamePageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/LobbyPageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/LobbyPageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/WaitingRoomSectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/WaitingRoomSectionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedIn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Authentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationOperations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationPOA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/RoundPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/RoundPopup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationPOA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationPOA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameManager.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameManagerHelper.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameManagerHolder.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameManagerOperations.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameManagerPOA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOut.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOutHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOutHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/PlayerHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/PlayerHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Round.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/RoundHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/RoundHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/StringSequenceHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/StringSequenceHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/_AuthenticationStub.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameNotFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameNotFoundHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameNotFoundHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameNotFoundHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameNotFoundHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOutHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOutHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOutHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOutHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/PlayerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/PlayerHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/PlayerHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/PlayerHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Round.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Round.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/RoundHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/RoundHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/RoundHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/RoundHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/StringSequenceHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/StringSequenceHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/StringSequenceHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/StringSequenceHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/_AuthenticationStub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/_AuthenticationStub.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/_GameManagerStub.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" afterDir="false" />
@@ -219,7 +224,31 @@
       <option name="project" value="LOCAL" />
       <updated>1714729495191</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: Implement waiting room and Game room&#10;&#10;This commit adds the feature to join a game.&#10;&#10;TO BE FIXED:&#10;- After round 1, the rounds are being created infinitely.">
+      <option name="closed" value="true" />
+      <created>1714753774088</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714753774088</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix: Resolve infinite round initialization and inaccurate round distribution&#10;&#10;This commit addresses two main issues:&#10;1. Resolves an issue where after the first round ends, multiple rounds are started simultaneously, leading to the creation and start of over 100 rounds instantaneously. This problem is fixed by ensuring that only one round is started at a time.&#10;2. Fixes an issue where players receive different character sets due to rounds being created individually for each player. Now, all players receive the same round, ensuring consistency across the game.">
+      <option name="closed" value="true" />
+      <created>1714782829273</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714782829273</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: Implement game UI, round popup, and lobby logout&#10;&#10;This commit introduces several features:&#10;1. All components in the game UI are now updating after each round passes.&#10;2. A round popup will be displayed on the center screen before starting the round.&#10;3. A logout button is placed in the lobby UI that redirects the player back to the login UI.">
+      <option name="closed" value="true" />
+      <created>1714920234239</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714920234239</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +259,9 @@
     <MESSAGE value="fix: Game class&#10;&#10;This commit introduces the new version of the Game class to comply with the new changes in the idl structure and the server logic." />
     <MESSAGE value="chore: Updated servant classes&#10;&#10;This commit introduces the updated servant class that conforms with the new idl structure.&#10;&#10;MINOR CHANGES:&#10;- changed some return types in the ServerJDBC.class to avoid compile errors due to a restructure in the servant class" />
     <MESSAGE value="chore: Updated client package&#10;&#10;This commit resolves compile errors due to some restructuring in the idl file." />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: Updated client package&#10;&#10;This commit resolves compile errors due to some restructuring in the idl file." />
+    <MESSAGE value="feat: Implement waiting room and Game room&#10;&#10;This commit adds the feature to join a game.&#10;&#10;TO BE FIXED:&#10;- After round 1, the rounds are being created infinitely." />
+    <MESSAGE value="fix: Resolve infinite round initialization and inaccurate round distribution&#10;&#10;This commit addresses two main issues:&#10;1. Resolves an issue where after the first round ends, multiple rounds are started simultaneously, leading to the creation and start of over 100 rounds instantaneously. This problem is fixed by ensuring that only one round is started at a time.&#10;2. Fixes an issue where players receive different character sets due to rounds being created individually for each player. Now, all players receive the same round, ensuring consistency across the game." />
+    <MESSAGE value="feat: Implement game UI, round popup, and lobby logout&#10;&#10;This commit introduces several features:&#10;1. All components in the game UI are now updating after each round passes.&#10;2. A round popup will be displayed on the center screen before starting the round.&#10;3. A logout button is placed in the lobby UI that redirects the player back to the login UI." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Implement game UI, round popup, and lobby logout&#10;&#10;This commit introduces several features:&#10;1. All components in the game UI are now updating after each round passes.&#10;2. A round popup will be displayed on the center screen before starting the round.&#10;3. A logout button is placed in the lobby UI that redirects the player back to the login UI." />
   </component>
 </project>

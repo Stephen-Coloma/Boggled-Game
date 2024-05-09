@@ -1,7 +1,6 @@
 package Client_Java.controller;
 
 import Client_Java.BoggledApp.GameTimeOut;
-import Client_Java.BoggledApp.Round;
 import Client_Java.ClientJava;
 import Client_Java.model.GamePageModel;
 import Client_Java.view.GamePageView;
@@ -12,7 +11,6 @@ import javafx.scene.Scene;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
