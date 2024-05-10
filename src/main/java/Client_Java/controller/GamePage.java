@@ -82,11 +82,12 @@ public class GamePage {
 
                 roundRequested = false;
 
-                initiateDelay(1000);
-                /*
-                fixme: instead of delaying the thread, it might be good to use a loop then use a condition to check if
-                 the evaluation is done in the server side before initiation the next round?
-                 */
+                // slows down the thread and waits until the game is finished evaluating the current round
+                while (true) {
+                    if (model.isDoneEvaluatingRound()) {
+                        break;
+                    }
+                }
             }
         });
         gameThread.setDaemon(true);
@@ -161,7 +162,11 @@ public class GamePage {
      * displays the round popup for the current round
      */
     private void showRoundPopup() {
-        initiateDelay(1000);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         roundPopup.setCurrentRound(model.getRound().roundNumber);
         roundPopup.showPopup();

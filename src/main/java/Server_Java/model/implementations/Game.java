@@ -8,7 +8,6 @@ import Server_Java.model.implementations.BoggledApp.Round;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class Game {
@@ -23,6 +22,7 @@ public class Game {
     private static int roundTime;
     private int roundNumber;
     private int totalSubmissions;
+    private boolean isDoneEvaluating = true;
     private AtomicBoolean startNextRound = new AtomicBoolean(false);
     private CountDownLatch submissionLatch;
 
@@ -113,6 +113,8 @@ public class Game {
 
                     totalSubmissions = 0;
 
+                    isDoneEvaluating = false;
+
                     // release the latch
                     submissionLatch.countDown();
                 }
@@ -123,7 +125,6 @@ public class Game {
 
             // assign the next round to the current round
             currentRound = nextRound;
-
             System.out.println("\n- CURRENT ROUND: " + currentRound.roundNumber);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -182,6 +183,8 @@ public class Game {
 
         playerWordEntries.forEach((key, value) -> value.clear());
 
+        isDoneEvaluating = true;
+
         System.out.println("\n- FINISHED EVALUATING CURRENT ROUND"); // TODO: remove after debugging
     } // end of evaluateRound
 
@@ -213,6 +216,10 @@ public class Game {
     public boolean isGameValid() {
         return playerList.size() > 1;
     } // end of isGameValid
+
+    public boolean isDoneEvaluatingRound() {
+        return isDoneEvaluating;
+    }
 
     /**
      * returns the number of players in the game.

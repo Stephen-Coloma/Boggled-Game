@@ -32,6 +32,10 @@ public class GamePageModel {
         ClientModel.gameService.submitWord(word, player.pid, gid);
     }
 
+    public boolean isDoneEvaluatingRound() {
+        return ClientModel.gameService.roundEvaluationDone(gid);
+    }
+
     public String getUsername() {
         return player.username;
     }

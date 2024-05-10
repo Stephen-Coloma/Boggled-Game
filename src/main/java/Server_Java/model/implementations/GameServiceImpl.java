@@ -172,6 +172,11 @@ public class GameServiceImpl extends GameServicePOA {
         return ongoingGames.get(gid).getGameWinner();
     }
 
+    @Override
+    public boolean roundEvaluationDone(int gid) {
+        return ongoingGames.get(gid).isDoneEvaluatingRound();
+    }
+
     /**
      * removes the player from the game if the player left the game room.
      *

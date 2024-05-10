@@ -55,6 +55,7 @@ module BoggledApp {
         void submitWord(in string word, in long pid, in long gid) raises (InvalidWord);
         string getRoundWinner(in long gid);
         string getGameWinner(in long gid);
+        boolean roundEvaluationDone(in long gid);
         void leaveGame(in long pid, in long gid);
         StringSequence getLeaderboards(); // string array of players with their respective points e.g. "Leonhard-1234"
     };
