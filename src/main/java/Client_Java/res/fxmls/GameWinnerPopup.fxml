@@ -7,11 +7,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" prefHeight="510.0" prefWidth="800.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" prefHeight="510.0" prefWidth="800.0" style="-fx-background-color: #248946;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="510.0" prefWidth="515.0">
          <children>
-            <Pane layoutX="27.0" layoutY="84.0" prefHeight="328.0" prefWidth="461.0" style="-fx-background-color: #248946; -fx-background-radius: 20; -fx-border-radius: 20;">
+            <Pane layoutX="27.0" layoutY="84.0" prefHeight="328.0" prefWidth="461.0" style="-fx-background-color: #F2FBEA; -fx-background-radius: 20; -fx-border-radius: 20;">
                <children>
                   <ImageView fitHeight="307.0" fitWidth="467.0" layoutX="-3.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -23,7 +23,7 @@
                         <Image url="@../images/boggledlogo.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" layoutX="9.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME WINNER" textAlignment="CENTER" wrappingWidth="446.1519775390625">
+                  <Text fill="#04431b" layoutX="9.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME WINNER" textAlignment="CENTER" wrappingWidth="446.1519775390625">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="50.0" />
                      </font>
@@ -37,7 +37,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Text fill="WHITE" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2000000 points" textAlignment="CENTER" wrappingWidth="458.6106262207031">
+                  <Text fill="#04431b" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2000000 points" textAlignment="CENTER" wrappingWidth="458.6106262207031">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
