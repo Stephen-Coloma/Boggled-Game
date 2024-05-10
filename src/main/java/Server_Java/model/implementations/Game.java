@@ -8,6 +8,7 @@ import Server_Java.model.implementations.BoggledApp.Round;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class Game {
@@ -138,19 +139,27 @@ public class Game {
         // compute the points of each player
         computePoints();
 
-        // determine the round winner
-        roundWinner = playerRoundPoints.entrySet().stream()
-                .max(Comparator.comparingInt(entry -> entry.getValue().get(entry.getValue().size() - 1)))
-                .map(entry -> {
-                    int roundWinnerPid = entry.getKey();
-
-                    return playerList.stream()
-                            .filter(player -> player.pid == roundWinnerPid)
-                            .map(player -> player.username)
-                            .findFirst()
-                            .orElse("None");
-                })
-                .orElse("None");
+        roundWinner = computeRoundWinner();
+//        roundWinner = playerRoundPoints.entrySet().stream()
+//                .sorted(Collections.reverseOrder(Map.Entry.comparingByKey()))
+//                .collect(Collectors.groupingBy(Map.Entry::getValue,
+//                        LinkedHashMap::new,
+//                        Collectors.mapping(Map.Entry::getKey, Collectors.toList())))
+//                .entrySet().stream()
+//                .findFirst()
+//                .map(entry -> {
+//                    List<Integer> roundPoints = entry.getKey(); // Get the round points
+//                    if (roundPoints.size() > 1) {
+//                        return "None"; // Ties, so no round winner
+//                    } else {
+//                        int roundWinnerPid = roundPoints.get(0); // Extract the player ID from the round points
+//                        return playerList.stream()
+//                                .filter(player -> player.pid == roundWinnerPid)
+//                                .map(player -> player.username)
+//                                .findFirst()
+//                                .orElse("None");
+//                    }
+//                }).get();
 
         // check if a player has three wins
         gameWinner = playerList.stream()
@@ -170,6 +179,8 @@ public class Game {
 
             // TODO: use the server model to add the points (player.points) of each player
         }
+
+        playerWordEntries.forEach((key, value) -> value.clear());
 
         System.out.println("\n- FINISHED EVALUATING CURRENT ROUND"); // TODO: remove after debugging
     } // end of evaluateRound
@@ -282,6 +293,33 @@ public class Game {
             playerRoundPoints.get(player.pid).add(points);
         }
     } // end of computePoints
+
+    private String computeRoundWinner() {
+        String username = "None";
+
+        int highestPoints = 0;
+        int roundWinnerPid = 0;
+
+        for (Map.Entry<Integer, List<Integer>> entry : playerRoundPoints.entrySet()) {
+            int playerPoints = entry.getValue().get(entry.getValue().size() - 1);
+
+            if (playerPoints > highestPoints) {
+                highestPoints = playerPoints;
+                roundWinnerPid = entry.getKey();
+            } else if (highestPoints == playerPoints) {
+                username = "None";
+                roundWinnerPid = 0;
+                break;
+            }
+        }
+
+        for (Player player : playerList) {
+            if (player.pid == roundWinnerPid) {
+                username = player.username;
+            }
+        }
+        return username;
+    } // end of computeRoundWinner
 
     /**
      * generates a random set of 20 characters, 7 of which are vowels and 13 being consonants.

@@ -1,9 +1,6 @@
 package Client_Java.model;
 
-import Client_Java.BoggledApp.GameNotFound;
-import Client_Java.BoggledApp.GameTimeOut;
-import Client_Java.BoggledApp.Player;
-import Client_Java.BoggledApp.Round;
+import Client_Java.BoggledApp.*;
 
 public class GamePageModel {
     private Player player;
@@ -29,6 +26,10 @@ public class GamePageModel {
 
     public int getRemainingRoundTime() throws GameTimeOut {
         return ClientModel.gameService.getRemainingRoundTime(gid);
+    }
+
+    public void submitWord(String word) throws InvalidWord {
+        ClientModel.gameService.submitWord(word, player.pid, gid);
     }
 
     public String getUsername() {

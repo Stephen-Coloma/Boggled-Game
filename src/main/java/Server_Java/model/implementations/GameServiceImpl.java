@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class GameManagerImpl extends GameServicePOA {
+public class GameServiceImpl extends GameServicePOA {
     private AtomicReference<Game> waitingGame = new AtomicReference<>();
     private HashMap<Integer, Game> ongoingGames = new LinkedHashMap<>();
     private static int timeLeft;
@@ -17,7 +17,7 @@ public class GameManagerImpl extends GameServicePOA {
      * a constructor with a thread that handles the waiting game object and transfers it to the ongoing games list if
      * certain conditions are met.
      */
-    public GameManagerImpl() {
+    public GameServiceImpl() {
         Thread ongoingGameManager = new Thread(() -> {
             try {
                 while (true) {
@@ -130,11 +130,24 @@ public class GameManagerImpl extends GameServicePOA {
      * @param word the word to be validated
      * @param pid the id of the player
      * @param gid the id of the game the player is in
-     * @return true if the given word is valid, false otherwise
+     *
+     */
+
+    /**
+     * validates the word sent by the player.
+     *
+     * @param word the word to be validated
+     * @param pid the id of the player
+     * @param gid the id of the game the player is in
+     * @throws InvalidWord thrown when the word is not included to the word bank or it does not comply to the word rules
      */
     @Override
     public void submitWord(String word, int pid, int gid) throws InvalidWord {
-
+        if (word.length() >= 4 || ServerModel.isFoundInWordBank(word)) {
+            ongoingGames.get(gid).addWordEntry(pid, word);
+        } else {
+            throw new InvalidWord(word + " is invalid");
+        }
     } // end of submitWord
 
     /**
@@ -167,7 +180,7 @@ public class GameManagerImpl extends GameServicePOA {
      */
     @Override
     public void leaveGame(int pid, int gid) {
-        if (ongoingGames.keySet().contains(gid)) {
+        if (ongoingGames.containsKey(gid)) {
             ongoingGames.get(gid).removePlayer(pid);
         } else {
             waitingGame.get().removePlayer(pid);

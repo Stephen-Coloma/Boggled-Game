@@ -222,7 +222,7 @@
                     <Font name="Arial Rounded MT Bold" size="17.0" />
                 </font>
             </Text>
-            <Text fill="#ff0101" layoutX="716.0" layoutY="667.0" strokeType="OUTSIDE" strokeWidth="0.0" text="// error here" textAlignment="RIGHT" wrappingWidth="127.49999999999989">
+            <Text fx:id="noticeLB" fill="#ff0101" layoutX="716.0" layoutY="667.0" strokeType="OUTSIDE" strokeWidth="0.0" text="// error here" textAlignment="RIGHT" wrappingWidth="127.49999999999989">
                 <font>
                     <Font name="Arial Rounded MT Bold" size="13.0" />
                 </font>

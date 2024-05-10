@@ -15,7 +15,7 @@ import java.util.List;
 
 public class GamePageView {
     @FXML
-    private Text roundLB, playerNameLB, gamePointsLB, timeRemainingLB;
+    private Text roundLB, playerNameLB, gamePointsLB, timeRemainingLB, noticeLB;
     @FXML
     private Button enterWordBT, clearInputBT;
     @FXML
@@ -25,6 +25,7 @@ public class GamePageView {
 
     @FXML
     public void initialize() {
+        noticeLB.setText("");
         clearInputBT.setOnAction(event -> inputFieldTF.clear());
     }
 
@@ -55,6 +56,10 @@ public class GamePageView {
 
     public void setRoundNumber(int roundNumber) {
         roundLB.setText("ROUND: " + roundNumber);
+    }
+
+    public void setNoticeMessage(String message) {
+        noticeLB.setText(message);
     }
 
     public void setGamePoints(String gamePoints) {

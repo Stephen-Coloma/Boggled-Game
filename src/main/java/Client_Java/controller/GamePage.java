@@ -1,6 +1,7 @@
 package Client_Java.controller;
 
 import Client_Java.BoggledApp.GameTimeOut;
+import Client_Java.BoggledApp.InvalidWord;
 import Client_Java.ClientJava;
 import Client_Java.model.GamePageModel;
 import Client_Java.view.GamePageView;
@@ -65,6 +66,7 @@ public class GamePage {
                 }
 
                 if (!model.getRoundWinner().equals("None")) {
+                    System.out.println("ROUND WINNER: " + model.getRoundWinner());
                     // TODO: display the round winner
                 }
 
@@ -79,6 +81,12 @@ public class GamePage {
                 startCountdown();
 
                 roundRequested = false;
+
+                initiateDelay(1000);
+                /*
+                fixme: instead of delaying the thread, it might be good to use a loop then use a condition to check if
+                 the evaluation is done in the server side before initiation the next round?
+                 */
             }
         });
         gameThread.setDaemon(true);
@@ -106,8 +114,15 @@ public class GamePage {
 
     private void setEnterWordBT() {
         view.getEnterWordBT().setOnAction(event -> {
-            view.addEntryToWordPanel(view.getInput());
-            view.clearInputField();
+            try {
+                model.submitWord(view.getInput());
+                view.addEntryToWordPanel(view.getInput());
+            } catch (InvalidWord e) {
+                // Display a notif that the word is invalid
+                view.setNoticeMessage(view.getInput() + " is invalid");
+            } finally {
+                view.clearInputField();
+            }
         });
     }
 
