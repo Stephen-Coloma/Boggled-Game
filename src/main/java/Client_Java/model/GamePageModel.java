@@ -44,6 +44,19 @@ public class GamePageModel {
         return player.pid;
     }
 
+    public String getGamePoints() {
+        String[] playerDatas = round.playersData;
+        for (String entry : playerDatas) {
+            String username = entry.split("-")[0];
+            String points = entry.split("-")[2];
+
+            if (username.equals(player.username)) {
+                return points;
+            }
+        }
+        return "0";
+    }
+
     public String getRoundWinner() {
         return ClientModel.gameService.getRoundWinner(gid);
     }

@@ -16,7 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GamePage {
-    private GamePageModel model;
+    private final GamePageModel model;
     private GamePageView view;
     RoundPopup roundPopup;
     private static int remainingTime;
@@ -116,7 +116,7 @@ public class GamePage {
     private void setEnterWordBT() {
         view.getEnterWordBT().setOnAction(event -> {
             try {
-                model.submitWord(view.getInput());
+                model.submitWord(view.getInput().trim());
                 view.addEntryToWordPanel(view.getInput());
             } catch (InvalidWord e) {
                 // Display a notif that the word is invalid
@@ -136,16 +136,7 @@ public class GamePage {
             view.setRoundNumber(model.getRound().roundNumber);
 
             // set game points
-            String[] playerDatas = model.getRound().playersData;
-            for (String entry : playerDatas) {
-                String username = entry.split("-")[0];
-                String points = entry.split("-")[2];
-
-                if (username.equals(model.getUsername())) {
-                    view.setGamePoints(points);
-                    break;
-                }
-            }
+            view.setGamePoints(model.getGamePoints());
 
             // update character set
             view.updateCharacterSetPanel(model.getRound().characterSet);
@@ -153,7 +144,6 @@ public class GamePage {
             // clear word entries
             view.clearWordEntriesPanel();
 
-            // TODO: update scoreboard
             view.updateScoreboard(model.getRound().playersData);
         });
     } // end of updateData
@@ -177,17 +167,4 @@ public class GamePage {
             }
         }, 3000);
     } // end of showRoundPopup
-
-    /**
-     * blocks the thread from running in a given amount of time
-     *
-     * @param millis the amount of delay in milliseconds
-     */
-    private void initiateDelay(int millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    } // end of initiateDelay
 } // end of GamePage class

@@ -143,11 +143,27 @@ public class GameServiceImpl extends GameServicePOA {
      */
     @Override
     public void submitWord(String word, int pid, int gid) throws InvalidWord {
-        if (word.length() >= 4 || ServerModel.isFoundInWordBank(word)) {
-            ongoingGames.get(gid).addWordEntry(pid, word);
-        } else {
-            throw new InvalidWord(word + " is invalid");
+
+        // check if the word length is greater than 3
+        if (word.length() < 4) throw new InvalidWord(word + " is invalid");
+
+        // check if the letters of the word are included in the character set
+        StringBuilder characterSet = new StringBuilder(ongoingGames.get(gid).getCharacterSet());
+        for (char letter : word.toCharArray()) {
+            int index = characterSet.indexOf(String.valueOf(letter));
+
+            if (index != -1) {
+                characterSet.deleteCharAt(index);
+            } else {
+                throw new InvalidWord(word + " is invalid");
+            }
         }
+
+        // check if the word is included in the word bank
+        if (!ServerModel.isFoundInWordBank(word)) throw new InvalidWord(word + " is invalid");
+
+        // store the word in the player's word entry container.
+        ongoingGames.get(gid).addWordEntry(pid, word);
     } // end of submitWord
 
     /**

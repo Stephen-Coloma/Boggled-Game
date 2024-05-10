@@ -11,21 +11,18 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 public class Game {
-    private int gid;
+    private final int gid;
     private Round currentRound = null, nextRound = new Round();
-    private List<Player> playerList = new ArrayList<>();
-    private HashMap<Integer, List<Integer>> playerRoundPoints = new LinkedHashMap<>();
-    private HashMap<Integer, Integer> playerRoundWinCounts = new LinkedHashMap<>();
-    private HashMap<Integer, HashSet<String>> playerWordEntries = new LinkedHashMap<>();
-    private String roundWinner = "None";
-    private String gameWinner = "None";
+    private final List<Player> playerList = new ArrayList<>();
+    private final HashMap<Integer, List<Integer>> playerRoundPoints = new LinkedHashMap<>();
+    private final HashMap<Integer, Integer> playerRoundWinCounts = new LinkedHashMap<>();
+    private final HashMap<Integer, HashSet<String>> playerWordEntries = new LinkedHashMap<>();
+    private String roundWinner = "None", gameWinner = "None";
     private static int roundTime;
-    private int roundNumber;
-    private int totalSubmissions;
-    private boolean isDoneEvaluating = true;
-    private AtomicBoolean startNextRound = new AtomicBoolean(false);
-    private CountDownLatch submissionLatch;
-
+    private int roundNumber, totalSubmissions;
+    private boolean isDoneEvaluating = false;
+    private final AtomicBoolean startNextRound = new AtomicBoolean(false);
+    private final CountDownLatch submissionLatch;
 
     public Game(int gid) {
         this.gid = gid;
@@ -125,7 +122,7 @@ public class Game {
 
             // assign the next round to the current round
             currentRound = nextRound;
-            System.out.println("\n- CURRENT ROUND: " + currentRound.roundNumber);
+            System.out.println("\n- CURRENT ROUND: " + currentRound.roundNumber); // TODO: Remove after debugging
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -140,48 +137,19 @@ public class Game {
         // compute the points of each player
         computePoints();
 
-        roundWinner = computeRoundWinner();
-//        roundWinner = playerRoundPoints.entrySet().stream()
-//                .sorted(Collections.reverseOrder(Map.Entry.comparingByKey()))
-//                .collect(Collectors.groupingBy(Map.Entry::getValue,
-//                        LinkedHashMap::new,
-//                        Collectors.mapping(Map.Entry::getKey, Collectors.toList())))
-//                .entrySet().stream()
-//                .findFirst()
-//                .map(entry -> {
-//                    List<Integer> roundPoints = entry.getKey(); // Get the round points
-//                    if (roundPoints.size() > 1) {
-//                        return "None"; // Ties, so no round winner
-//                    } else {
-//                        int roundWinnerPid = roundPoints.get(0); // Extract the player ID from the round points
-//                        return playerList.stream()
-//                                .filter(player -> player.pid == roundWinnerPid)
-//                                .map(player -> player.username)
-//                                .findFirst()
-//                                .orElse("None");
-//                    }
-//                }).get();
+        roundWinner = determineRoundWinner();
 
-        // check if a player has three wins
-        gameWinner = playerList.stream()
-                .filter(player -> playerRoundWinCounts.containsKey(player.pid) && playerRoundWinCounts.get(player.pid) == 3)
-                .map(player -> player.username)
-                .findFirst()
-                .orElse("None");
+        gameWinner = determineGameWinner();
 
         // finalize the points of each player by adding the points of each round to the player if a game winner is determined
         if (!gameWinner.equals("None")) {
-            playerList.forEach(player -> {
-                player.points += playerRoundPoints.get(player.pid)
-                        .stream()
-                        .mapToInt(Integer::intValue)
-                        .sum();
-            });
+            playerList.forEach(player -> player.points += playerRoundPoints.get(player.pid)
+                    .stream()
+                    .mapToInt(Integer::intValue)
+                    .sum());
 
             // TODO: use the server model to add the points (player.points) of each player
         }
-
-        playerWordEntries.forEach((key, value) -> value.clear());
 
         isDoneEvaluating = true;
 
@@ -240,6 +208,8 @@ public class Game {
     private Round prepareRoundDetails() {
         roundNumber++;
 
+        playerWordEntries.values().forEach(HashSet::clear);
+
         Round r = new Round();
         r.gid = gid;
         r.playersData = getPlayerDatas();
@@ -258,15 +228,27 @@ public class Game {
         List<String> temp = new ArrayList<>();
 
         for (Player player : playerList) {
-            int winCount = playerRoundWinCounts.get(player.pid);
+            int winCount = playerRoundWinCounts.getOrDefault(player.pid, 0);
 
             List<Integer> pointsList = playerRoundPoints.get(player.pid);
             if (pointsList.isEmpty()) {
                 temp.add(player.username + "-" + winCount + "-" + 0);
             } else {
-                temp.add(player.username + "-" + winCount + "-" + pointsList.get(pointsList.size() - 1));
+                int totalPoints = 0;
+
+                for (int roundPoints : pointsList) {
+                    totalPoints += roundPoints;
+                }
+
+                temp.add(player.username + "-" + winCount + "-" + totalPoints);
             }
         }
+
+        temp.sort((a, b) -> {
+            int winCountA = Integer.parseInt(a.split("-")[1]);
+            int winCountB = Integer.parseInt(b.split("-")[1]);
+            return Integer.compare(winCountB, winCountA);
+        });
 
         return temp.toArray(new String[0]);
     } // end of getRoundsWonByPlayers
@@ -301,14 +283,18 @@ public class Game {
         }
     } // end of computePoints
 
-    private String computeRoundWinner() {
+    private String determineRoundWinner() {
         String username = "None";
 
         int highestPoints = 0;
         int roundWinnerPid = 0;
 
+        System.out.println("PLAYER ROUND POINTS SIZE: " + playerRoundPoints.size());
         for (Map.Entry<Integer, List<Integer>> entry : playerRoundPoints.entrySet()) {
-            int playerPoints = entry.getValue().get(entry.getValue().size() - 1);
+            List<Integer> playerPointsList = entry.getValue();
+            int lastIndex = playerPointsList.size() - 1;
+
+            int playerPoints = lastIndex >= 0 ? playerPointsList.get(lastIndex) : 0;
 
             if (playerPoints > highestPoints) {
                 highestPoints = playerPoints;
@@ -316,17 +302,29 @@ public class Game {
             } else if (highestPoints == playerPoints) {
                 username = "None";
                 roundWinnerPid = 0;
-                break;
             }
         }
 
-        for (Player player : playerList) {
-            if (player.pid == roundWinnerPid) {
-                username = player.username;
+        if (roundWinnerPid != 0) {
+            for (Player player : playerList) {
+                if (player.pid == roundWinnerPid) {
+                    username = player.username;
+                    playerRoundWinCounts.compute(roundWinnerPid, (key, value) -> (value == null) ? 1 : value + 1);
+                    break;
+                }
             }
         }
         return username;
     } // end of computeRoundWinner
+
+    private String determineGameWinner() {
+        // check if a player has three wins
+        return playerList.stream()
+                .filter(player -> playerRoundWinCounts.containsKey(player.pid) && playerRoundWinCounts.get(player.pid) == 3)
+                .map(player -> player.username)
+                .findFirst()
+                .orElse("None");
+    }
 
     /**
      * generates a random set of 20 characters, 7 of which are vowels and 13 being consonants.
@@ -366,5 +364,9 @@ public class Game {
 
     public String getGameWinner() {
         return gameWinner;
+    }
+
+    public String getCharacterSet() {
+        return currentRound.characterSet;
     }
 } // end of Game class
