@@ -9,15 +9,15 @@ public class LobbyLeaderboardCardView {
 
     public LobbyLeaderboardCardView() {}
 
-    public Label getRankLB() {
-        return rankLB;
+    public void setRank(int rank) {
+        rankLB.setText(String.valueOf(rank));
     }
 
-    public Label getUsernameLB() {
-        return usernameLB;
+    public void setUsername(String username) {
+        usernameLB.setText(username);
     }
 
-    public Label getPointsLB() {
-        return pointsLB;
+    public void setPoints(String points) {
+        pointsLB.setText(points);
     }
 } // end of LobbyLeaderboardCardView class

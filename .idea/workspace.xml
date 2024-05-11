@@ -4,11 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b47d7a-772d-4808-83a2-185c9d0775cd" name="Changes" comment="chore: New method added in idl file&#10;&#10;This commit adds additional method to check whether the server has already finished evaluating the results of the current round before proceeding to the next round.">
+    <list default="true" id="11b47d7a-772d-4808-83a2-185c9d0775cd" name="Changes" comment="fix:Game lifecycle&#10;&#10;This commit resolves an issue where the round winner, and the highest points are being calculated incorrectly which resulted to the game logic getting wrong each round.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/popups/GameWinnerPopup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/popups/RoundWinnerPopup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/RoundWinnerPopup.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/popups/GameWinnerPopupView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/popups/RoundWinnerPopupView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/RoundPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/popups/RoundPopup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/cards/LobbyLeaderboardCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/cards/LobbyLeaderboardCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/GamePageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/GamePageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameWordCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameWordCard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameWinnerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameWinnerPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/RoundPopupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/popups/RoundPopupView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/cards/LobbyLeaderboardCardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/cards/LobbyLeaderboardCardView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/orb.db/NC0" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orb.db/NC0" afterDir="false" />
     </list>
@@ -20,6 +33,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -36,20 +50,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;idl__revamp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "client",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main\java" />
@@ -210,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715326673796</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix:Game lifecycle&#10;&#10;This commit resolves an issue where the round winner, and the highest points are being calculated incorrectly which resulted to the game logic getting wrong each round.">
+      <option name="closed" value="true" />
+      <created>1715336984212</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715336984212</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +249,7 @@
     <MESSAGE value="chore: Update idl structure&#10;&#10;This commit adds a new exception in the idl file which will be utilized when a player submits a word to the server for validation." />
     <MESSAGE value="fix: fixed an issue for the round winner&#10;&#10;This commit resolves an issue where the round winner is not being evaluated properly" />
     <MESSAGE value="chore: New method added in idl file&#10;&#10;This commit adds additional method to check whether the server has already finished evaluating the results of the current round before proceeding to the next round." />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: New method added in idl file&#10;&#10;This commit adds additional method to check whether the server has already finished evaluating the results of the current round before proceeding to the next round." />
+    <MESSAGE value="fix:Game lifecycle&#10;&#10;This commit resolves an issue where the round winner, and the highest points are being calculated incorrectly which resulted to the game logic getting wrong each round." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:Game lifecycle&#10;&#10;This commit resolves an issue where the round winner, and the highest points are being calculated incorrectly which resulted to the game logic getting wrong each round." />
   </component>
 </project>

@@ -44,14 +44,20 @@ public class GamePageModel {
         return player.pid;
     }
 
-    public String getGamePoints() {
+    public String getGamePoints(boolean gameWinner) {
         String[] playerDatas = round.playersData;
         for (String entry : playerDatas) {
             String username = entry.split("-")[0];
             String points = entry.split("-")[2];
 
-            if (username.equals(player.username)) {
-                return points;
+            if (gameWinner) {
+                if (username.equals(getGameWinner())) {
+                    return points;
+                }
+            } else {
+                if (username.equals(player.username)) {
+                    return points;
+                }
             }
         }
         return "0";
@@ -63,6 +69,10 @@ public class GamePageModel {
 
     public String getGameWinner() {
         return ClientModel.gameService.getGameWinner(gid);
+    }
+
+    public void leaveGame() {
+        ClientModel.gameService.leaveGame(player.pid, gid);
     }
 
     public Round getRound() {

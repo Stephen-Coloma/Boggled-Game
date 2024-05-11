@@ -1,6 +1,7 @@
-package Client_Java.controller;
+package Client_Java.controller.popups;
 
-import Client_Java.view.RoundPopupView;
+import Client_Java.view.popups.RoundPopupView;
+import Client_Java.view.popups.RoundWinnerPopupView;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,35 +12,33 @@ import javafx.stage.StageStyle;
 import java.io.File;
 import java.io.IOException;
 
-public class RoundPopup {
-    private RoundPopupView view;
+public class RoundWinnerPopup {
+    private RoundWinnerPopupView view;
     private Stage popupStage;
 
-    public RoundPopup(RoundPopupView view) {
-        this.view = view;
-    }
+    public RoundWinnerPopup() {}
 
     public void init() {
         try {
             popupStage = new Stage();
 
-            FXMLLoader loader = new FXMLLoader(new File("src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml").toURI().toURL());
+            FXMLLoader loader = new FXMLLoader(new File("src/main/java/Client_Java/res/fxmls/RoundWinnerPopup.fxml").toURI().toURL());
 
-            Scene roundScene = new Scene(loader.load());
+            Scene roundWinnerScene = new Scene(loader.load());
 
             view = loader.getController();
 
             popupStage.setFullScreen(false);
             popupStage.initStyle(StageStyle.UNDECORATED);
             popupStage.initModality(Modality.APPLICATION_MODAL);
-            popupStage.setScene(roundScene);
+            popupStage.setScene(roundWinnerScene);
         } catch (RuntimeException | IOException e) {
             e.printStackTrace();
         }
     } // end of init
 
-    public void setCurrentRound(int roundNumber) {
-        view.getRoundNumberLB().setText("ROUND " + roundNumber);
+    public void setRoundWinner(String username) {
+        view.setUsername(username);
     }
 
     public void showPopup() {
@@ -49,4 +48,4 @@ public class RoundPopup {
     public void hidePopup() {
         Platform.runLater(() -> popupStage.hide());
     }
-} // end of RoundPopup class
+} // end of RoundWinnerPopup class

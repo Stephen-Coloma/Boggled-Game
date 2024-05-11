@@ -3,9 +3,12 @@ package Client_Java.controller;
 import Client_Java.BoggledApp.GameTimeOut;
 import Client_Java.BoggledApp.InvalidWord;
 import Client_Java.ClientJava;
+import Client_Java.controller.popups.GameWinnerPopup;
+import Client_Java.controller.popups.RoundPopup;
+import Client_Java.controller.popups.RoundWinnerPopup;
 import Client_Java.model.GamePageModel;
 import Client_Java.view.GamePageView;
-import Client_Java.view.RoundPopupView;
+import Client_Java.view.popups.RoundPopupView;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,16 +21,22 @@ import java.util.TimerTask;
 public class GamePage {
     private final GamePageModel model;
     private GamePageView view;
-    RoundPopup roundPopup;
+    private RoundPopup roundPopup;
+    private RoundWinnerPopup roundWinnerPopup;
+    private GameWinnerPopup gameWinnerPopup;
     private static int remainingTime;
-    private boolean roundRequested = false;
 
     public GamePage(GamePageModel model, GamePageView view) {
         this.model = model;
         this.view = view;
 
-        roundPopup = new RoundPopup(new RoundPopupView());
+        roundPopup = new RoundPopup();
+        roundWinnerPopup = new RoundWinnerPopup();
+        gameWinnerPopup = new GameWinnerPopup();
+
         roundPopup.init();
+        roundWinnerPopup.init();
+        gameWinnerPopup.init();
     }
 
     /**
@@ -59,28 +68,31 @@ public class GamePage {
     private void startGame() {
         Thread gameThread = new Thread(() -> {
             while (true) {
+                // check if there is a game winner
                 if (!model.getGameWinner().equals("None")) {
                     // TODO: display the game winner
-                    System.out.println("Ending Game");
+                    finalizeGame();
+                    Platform.runLater(() -> ClientJava.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE));
                     break;
                 }
 
+                // check if there is a round winner
                 if (!model.getRoundWinner().equals("None")) {
-                    System.out.println("ROUND WINNER: " + model.getRoundWinner());
-                    // TODO: display the round winner
+                    showRoundWinnerPopup();
+                    initiateDelay(4000);
                 }
 
-                if (!roundRequested) {
-                    model.obtainRound();
-                    updateData();
-                    showRoundPopup();
-                    System.out.println(model.getRound().characterSet);
-                    roundRequested = true;
-                }
+                // obtain the current round
+                model.obtainRound();
 
+                // update the UI
+                updateData();
+
+                // display the round popup
+                showRoundPopup();
+
+                // start the game countdown timer
                 startCountdown();
-
-                roundRequested = false;
 
                 // slows down the thread and waits until the game is finished evaluating the current round
                 while (true) {
@@ -104,11 +116,9 @@ public class GamePage {
 
                 Platform.runLater(() -> view.setRemainingTime(remainingTime));
 
-                Thread.sleep(100);
+                initiateDelay(100);
             } catch (GameTimeOut gameTimeOut) {
                 break;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
     } // end of startCountdown
@@ -136,7 +146,7 @@ public class GamePage {
             view.setRoundNumber(model.getRound().roundNumber);
 
             // set game points
-            view.setGamePoints(model.getGamePoints());
+            view.setGamePoints(model.getGamePoints(false));
 
             // update character set
             view.updateCharacterSetPanel(model.getRound().characterSet);
@@ -144,6 +154,7 @@ public class GamePage {
             // clear word entries
             view.clearWordEntriesPanel();
 
+            // update scoreboard
             view.updateScoreboard(model.getRound().playersData);
         });
     } // end of updateData
@@ -152,11 +163,7 @@ public class GamePage {
      * displays the round popup for the current round
      */
     private void showRoundPopup() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        initiateDelay(1000);
 
         roundPopup.setCurrentRound(model.getRound().roundNumber);
         roundPopup.showPopup();
@@ -167,4 +174,65 @@ public class GamePage {
             }
         }, 3000);
     } // end of showRoundPopup
+
+    /**
+     * displays the round winner popup
+     */
+    private void showRoundWinnerPopup() {
+        initiateDelay(1000);
+
+        roundWinnerPopup.setRoundWinner(model.getRoundWinner());
+        roundWinnerPopup.showPopup();
+        new Timer(true).schedule(new TimerTask() {
+            @Override
+            public void run() {
+                roundWinnerPopup.hidePopup();
+            }
+        }, 3000);
+    } // end of showRoundWinnerPopup
+
+    /**
+     * displays the game winner popup
+     */
+    private void showGameWinnerPopup() {
+        initiateDelay(1000);
+
+        gameWinnerPopup.setGameWinner(model.getGameWinner());
+        gameWinnerPopup.setWinnerPoints(model.getGamePoints(true));
+        gameWinnerPopup.showPopup();
+        new Timer(true).schedule(new TimerTask() {
+            @Override
+            public void run() {
+                gameWinnerPopup.hidePopup();
+            }
+        }, 3000);
+    } // end of showGameWinnerPopup
+
+    /**
+     * delays the thread
+     * @param millis the duration of the delay
+     */
+    private void initiateDelay(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    } // end of initiateDelay
+
+    /**
+     * finalizes the game by updating the points and scoreboard before displaying the game winner
+     */
+    private void finalizeGame() {
+        model.obtainRound();
+
+        Platform.runLater(() -> {
+            view.setGamePoints(model.getGamePoints(false));
+            view.updateScoreboard(model.getRound().playersData);
+        });
+
+        showGameWinnerPopup();
+        initiateDelay(4000);
+        model.leaveGame();
+    } // end of finalizeGame
 } // end of GamePage class

@@ -130,15 +130,6 @@ public class GameServiceImpl extends GameServicePOA {
      * @param word the word to be validated
      * @param pid the id of the player
      * @param gid the id of the game the player is in
-     *
-     */
-
-    /**
-     * validates the word sent by the player.
-     *
-     * @param word the word to be validated
-     * @param pid the id of the player
-     * @param gid the id of the game the player is in
      * @throws InvalidWord thrown when the word is not included to the word bank or it does not comply to the word rules
      */
     @Override

@@ -31,9 +31,16 @@ public class GamePageView {
 
     public GamePageView() {}
 
-    public String getInput() {
-        return inputFieldTF.getText();
-    }
+    public void updateCharacterSetPanel(String characterSet) {
+        List<Node> letterCards = new ArrayList<>();
+
+        for (char letter : characterSet.toCharArray()) {
+            letterCards.add(LetterCard.createCard(letter));
+        }
+
+        characterSetPanel.getChildren().clear();
+        characterSetPanel.getChildren().addAll(letterCards);
+    } // end of updateCharacterSetPanel
 
     public void updateScoreboard(String[] playerDatas) {
         List<Node> scoreboardCard = new ArrayList<>();
@@ -50,6 +57,14 @@ public class GamePageView {
         rankingPanel.getChildren().addAll(scoreboardCard);
     } // end of updateScoreboard
 
+    public String getInput() {
+        return inputFieldTF.getText();
+    }
+
+    public void setRemainingTime(int remainingTime) {
+        timeRemainingLB.setText(remainingTime + " seconds");
+    } // end of setRemainingTime
+
     public void setPlayerName(String username) {
         playerNameLB.setText("PLAYER: " + username);
     }
@@ -58,28 +73,13 @@ public class GamePageView {
         roundLB.setText("ROUND: " + roundNumber);
     }
 
-    public void setNoticeMessage(String message) {
-        noticeLB.setText(message);
-    }
-
     public void setGamePoints(String gamePoints) {
         gamePointsLB.setText(gamePoints);
     }
 
-    public void setRemainingTime(int remainingTime) {
-        timeRemainingLB.setText(remainingTime + " seconds");
-    } // end of setRemainingTime
-
-    public void updateCharacterSetPanel(String characterSet) {
-        List<Node> letterCards = new ArrayList<>();
-
-        for (char letter : characterSet.toCharArray()) {
-            letterCards.add(LetterCard.createCard(letter));
-        }
-
-        characterSetPanel.getChildren().clear();
-        characterSetPanel.getChildren().addAll(letterCards);
-    } // end of updateCharacterSetPanel
+    public void setNoticeMessage(String message) {
+        noticeLB.setText(message);
+    }
 
     public void addEntryToWordPanel(String word) {
         wordEntryPanel.getChildren().add(WordCard.createCard(word));
@@ -93,16 +93,7 @@ public class GamePageView {
         inputFieldTF.clear();
     }
 
-
-    public Text getGamePointsLB() {
-        return gamePointsLB;
-    }
-
     public Button getEnterWordBT() {
         return enterWordBT;
-    }
-
-    public TextField getInputFieldTF() {
-        return inputFieldTF;
     }
 } // end of GamePageView class

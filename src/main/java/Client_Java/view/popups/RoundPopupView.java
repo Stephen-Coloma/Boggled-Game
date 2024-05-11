@@ -1,4 +1,4 @@
-package Client_Java.view;
+package Client_Java.view.popups;
 
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
@@ -9,7 +9,7 @@ public class RoundPopupView {
 
     public RoundPopupView() {}
 
-    public Text getRoundNumberLB() {
-        return roundNumberLB;
+    public void setRoundNumber(int roundNumber) {
+        roundNumberLB.setText("ROUND " + roundNumber);
     }
 } // end of RoundPopupView class
