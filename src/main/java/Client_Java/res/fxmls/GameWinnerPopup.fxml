@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER" prefHeight="510.0" prefWidth="800.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" prefHeight="510.0" prefWidth="800.0" style="-fx-background-color: #248946;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client_Java.view.popups.GameWinnerPopupView">
    <children>
       <Pane prefHeight="510.0" prefWidth="515.0">
          <children>
-            <Pane layoutX="27.0" layoutY="84.0" prefHeight="328.0" prefWidth="461.0" style="-fx-background-color: #248946; -fx-background-radius: 20; -fx-border-radius: 20;">
+            <Pane layoutX="27.0" layoutY="84.0" prefHeight="328.0" prefWidth="461.0" style="-fx-background-color: #F2FBEA; -fx-background-radius: 20; -fx-border-radius: 20;">
                <children>
-                  <ImageView fitHeight="307.0" fitWidth="467.0" layoutX="-3.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="258.0" fitWidth="461.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/confetti.png" />
                      </image>
@@ -23,21 +20,21 @@
                         <Image url="@../images/boggledlogo.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" layoutX="9.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME WINNER" textAlignment="CENTER" wrappingWidth="446.1519775390625">
+                  <Text fill="#04431b" layoutX="9.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME WINNER" textAlignment="CENTER" wrappingWidth="446.1519775390625">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="50.0" />
                      </font>
                   </Text>
-                  <Pane layoutX="-1.0" layoutY="190.0" prefHeight="71.0" prefWidth="462.0" style="-fx-background-color: #F2E7D1;">
+                  <Pane layoutY="190.0" prefHeight="71.0" prefWidth="461.0" style="-fx-background-color: #F2E7D1;">
                      <children>
-                        <Text fill="#248946" layoutX="3.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brianna" textAlignment="CENTER" wrappingWidth="458.6106262207031">
+                        <Text fx:id="usernameLB" fill="#248946" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brianna" textAlignment="CENTER" wrappingWidth="461.0">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="45.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Text fill="WHITE" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2000000 points" textAlignment="CENTER" wrappingWidth="458.6106262207031">
+                  <Text fx:id="pointsLB" fill="#04431b" layoutX="1.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2000000 points" textAlignment="CENTER" wrappingWidth="458.6106262207031">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>

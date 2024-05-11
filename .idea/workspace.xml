@@ -4,77 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b47d7a-772d-4808-83a2-185c9d0775cd" name="Changes" comment="chore: Updated client package&#10;&#10;This commit resolves compile errors due to some restructuring in the idl file.">
+    <list default="true" id="11b47d7a-772d-4808-83a2-185c9d0775cd" name="Changes" comment="fix:Game lifecycle&#10;&#10;This commit resolves an issue where the round winner, and the highest points are being calculated incorrectly which resulted to the game logic getting wrong each round.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/popups/GameWinnerPopup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/popups/RoundWinnerPopup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/RoundWinnerPopup.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/popups/GameWinnerPopupView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/popups/RoundWinnerPopupView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orb.db/NC0" beforeDir="false" afterPath="$PROJECT_DIR$/orb.db/NC0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CORBA IDL.idl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CORBA IDL.idl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExistHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AccountDoesNotExistHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedIn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedInHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AlreadyLoggedInHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Authentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationOperations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/AuthenticationPOA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameManagerHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameManagerHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameManagerOperations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameManagerPOA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOut.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOutHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/GameTimeOutHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/PlayerHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/PlayerHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/Round.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/RoundHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/RoundHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/StringSequenceHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/StringSequenceHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/_AuthenticationStub.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/BoggledApp/_GameManagerStub.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/RoundPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/popups/RoundPopup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/cards/LobbyLeaderboardCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/cards/LobbyLeaderboardCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/GamePageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/GamePageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/LobbyPageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/LobbyPageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/WaitingRoomSectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/WaitingRoomSectionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AccountDoesNotExistHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedIn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AlreadyLoggedInHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Authentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationOperations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/AuthenticationPOA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameManagerHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameManagerHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameManagerOperations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameManagerPOA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOut.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOutHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/GameTimeOutHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/PlayerHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/PlayerHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/Round.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/RoundHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/RoundHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/StringSequenceHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/StringSequenceHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/_AuthenticationStub.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/BoggledApp/_GameManagerStub.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameWordCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameWordCard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameRoundPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameWinnerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameWinnerPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/RoundPopupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/popups/RoundPopupView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/cards/LobbyLeaderboardCardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/cards/LobbyLeaderboardCardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/orb.db/NC0" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orb.db/NC0" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,6 +33,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -101,20 +50,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;idl__revamp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "client",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main\java" />
@@ -219,7 +168,71 @@
       <option name="project" value="LOCAL" />
       <updated>1714729495191</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: Implement waiting room and Game room&#10;&#10;This commit adds the feature to join a game.&#10;&#10;TO BE FIXED:&#10;- After round 1, the rounds are being created infinitely.">
+      <option name="closed" value="true" />
+      <created>1714753774088</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714753774088</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix: Resolve infinite round initialization and inaccurate round distribution&#10;&#10;This commit addresses two main issues:&#10;1. Resolves an issue where after the first round ends, multiple rounds are started simultaneously, leading to the creation and start of over 100 rounds instantaneously. This problem is fixed by ensuring that only one round is started at a time.&#10;2. Fixes an issue where players receive different character sets due to rounds being created individually for each player. Now, all players receive the same round, ensuring consistency across the game.">
+      <option name="closed" value="true" />
+      <created>1714782829273</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714782829273</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: Implement game UI, round popup, and lobby logout&#10;&#10;This commit introduces several features:&#10;1. All components in the game UI are now updating after each round passes.&#10;2. A round popup will be displayed on the center screen before starting the round.&#10;3. A logout button is placed in the lobby UI that redirects the player back to the login UI.">
+      <option name="closed" value="true" />
+      <created>1714920234239</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714920234239</updated>
+    </task>
+    <task id="LOCAL-00008" summary="chore: Update idl structure&#10;&#10;This commit adds a new exception in the idl file which will be utilized when a player submits a word to the server for validation.">
+      <option name="closed" value="true" />
+      <created>1715294849916</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715294849916</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chore: Update idl structure&#10;&#10;This commit adds a new exception in the idl file which will be utilized when a player submits a word to the server for validation.">
+      <option name="closed" value="true" />
+      <created>1715294866048</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715294866048</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: fixed an issue for the round winner&#10;&#10;This commit resolves an issue where the round winner is not being evaluated properly">
+      <option name="closed" value="true" />
+      <created>1715299918351</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715299918351</updated>
+    </task>
+    <task id="LOCAL-00011" summary="chore: New method added in idl file&#10;&#10;This commit adds additional method to check whether the server has already finished evaluating the results of the current round before proceeding to the next round.">
+      <option name="closed" value="true" />
+      <created>1715326673796</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715326673796</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix:Game lifecycle&#10;&#10;This commit resolves an issue where the round winner, and the highest points are being calculated incorrectly which resulted to the game logic getting wrong each round.">
+      <option name="closed" value="true" />
+      <created>1715336984212</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715336984212</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +243,13 @@
     <MESSAGE value="fix: Game class&#10;&#10;This commit introduces the new version of the Game class to comply with the new changes in the idl structure and the server logic." />
     <MESSAGE value="chore: Updated servant classes&#10;&#10;This commit introduces the updated servant class that conforms with the new idl structure.&#10;&#10;MINOR CHANGES:&#10;- changed some return types in the ServerJDBC.class to avoid compile errors due to a restructure in the servant class" />
     <MESSAGE value="chore: Updated client package&#10;&#10;This commit resolves compile errors due to some restructuring in the idl file." />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: Updated client package&#10;&#10;This commit resolves compile errors due to some restructuring in the idl file." />
+    <MESSAGE value="feat: Implement waiting room and Game room&#10;&#10;This commit adds the feature to join a game.&#10;&#10;TO BE FIXED:&#10;- After round 1, the rounds are being created infinitely." />
+    <MESSAGE value="fix: Resolve infinite round initialization and inaccurate round distribution&#10;&#10;This commit addresses two main issues:&#10;1. Resolves an issue where after the first round ends, multiple rounds are started simultaneously, leading to the creation and start of over 100 rounds instantaneously. This problem is fixed by ensuring that only one round is started at a time.&#10;2. Fixes an issue where players receive different character sets due to rounds being created individually for each player. Now, all players receive the same round, ensuring consistency across the game." />
+    <MESSAGE value="feat: Implement game UI, round popup, and lobby logout&#10;&#10;This commit introduces several features:&#10;1. All components in the game UI are now updating after each round passes.&#10;2. A round popup will be displayed on the center screen before starting the round.&#10;3. A logout button is placed in the lobby UI that redirects the player back to the login UI." />
+    <MESSAGE value="chore: Update idl structure&#10;&#10;This commit adds a new exception in the idl file which will be utilized when a player submits a word to the server for validation." />
+    <MESSAGE value="fix: fixed an issue for the round winner&#10;&#10;This commit resolves an issue where the round winner is not being evaluated properly" />
+    <MESSAGE value="chore: New method added in idl file&#10;&#10;This commit adds additional method to check whether the server has already finished evaluating the results of the current round before proceeding to the next round." />
+    <MESSAGE value="fix:Game lifecycle&#10;&#10;This commit resolves an issue where the round winner, and the highest points are being calculated incorrectly which resulted to the game logic getting wrong each round." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:Game lifecycle&#10;&#10;This commit resolves an issue where the round winner, and the highest points are being calculated incorrectly which resulted to the game logic getting wrong each round." />
   </component>
 </project>

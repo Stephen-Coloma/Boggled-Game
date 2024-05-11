@@ -22,9 +22,10 @@ public class LobbyLeaderboardCard {
             String username = player.split("-")[0];
             String points = player.split("-")[1];
 
-            view.getRankLB().setText(String.valueOf(rank));
-            view.getUsernameLB().setText(username);
-            view.getPointsLB().setText(String.valueOf(points));
+
+            view.setRank(rank);
+            view.setUsername(username);
+            view.setPoints(points);
 
             return card;
         } catch (RuntimeException | IOException e) {

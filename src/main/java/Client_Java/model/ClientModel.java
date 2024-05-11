@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class ClientModel {
     public static Authentication authService;
-    public static GameManager gameService;
+    public static GameService gameService;
 
     public ClientModel() {}
 
@@ -35,7 +35,7 @@ public class ClientModel {
             String gameServiceName = "Game Manager";
 
             authService = AuthenticationHelper.narrow(ncRef.resolve_str(authServiceName));
-            gameService = GameManagerHelper.narrow(ncRef.resolve_str(gameServiceName));
+            gameService = GameServiceHelper.narrow(ncRef.resolve_str(gameServiceName));
 
             System.out.println("connected to the server");
         } catch (Exception e) {
