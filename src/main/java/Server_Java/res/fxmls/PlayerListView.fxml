@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1018.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1018.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Server_Java.view.mainmenu.PlayerListView">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="982.0" style="-fx-border-color: #8BCE39; -fx-background-color: white; -fx-border-width: 3;">
          <children>
@@ -34,22 +34,22 @@
                         <Image url="@../images/search.png" />
                      </image>
                   </ImageView>
-                  <TextField prefHeight="35.0" prefWidth="310.0" promptText="Search" style="-fx-background-color: transparent; -fx-border-color: #248946; -fx-background-radius: 10; -fx-border-radius: 10;">
+                  <TextField fx:id="searchTextField" prefHeight="35.0" prefWidth="310.0" promptText="Search" style="-fx-background-color: transparent; -fx-border-color: #248946; -fx-background-radius: 10; -fx-border-radius: 10;">
                      <HBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
                   </TextField>
                </children>
             </HBox>
-            <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="604.0" prefWidth="950.0" style="-fx-background-color: white; -fx-table-header-background: #8BCE39; -fx-border-color: #248946;">
+            <TableView fx:id="playersTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="604.0" prefWidth="950.0" style="-fx-background-color: white; -fx-table-header-background: #8BCE39; -fx-border-color: #248946;">
                <columns>
-                  <TableColumn prefWidth="106.4000244140625" text="USERNAME" />
-                  <TableColumn prefWidth="135.99996948242188" text="PASSWORD" />
-                  <TableColumn prefWidth="183.199951171875" text="FULL NAME" />
-                  <TableColumn prefWidth="185.60009765625" text="NUMBER OF GAMES PLAYED" />
-                  <TableColumn prefWidth="138.39996337890625" text="GAME POINTS" />
-                  <TableColumn prefWidth="116.0" text="EDIT DETAILS" />
-                  <TableColumn prefWidth="80.79996337890623" text="DELETE" />
+                  <TableColumn fx:id="usernameClmn" prefWidth="106.4000244140625" text="USERNAME" />
+                  <TableColumn fx:id="passwordClmn" prefWidth="135.99996948242188" text="PASSWORD" />
+                  <TableColumn fx:id="fullNameClmn" prefWidth="183.199951171875" text="FULL NAME" />
+                  <TableColumn fx:id="totalGamesClmn" prefWidth="185.60009765625" style="-fx-alignment: CENTER;" text="TOTAL GAMES PLAYED" />
+                  <TableColumn fx:id="totalPointsClmn" prefWidth="138.39996337890625" style="-fx-alignment: CENTER;" text="TOTAL GAME POINTS" />
+                  <TableColumn fx:id="editClmn" prefWidth="116.0" style="-fx-alignment: CENTER;" text="EDIT" />
+                  <TableColumn fx:id="deleteClmn" prefWidth="80.79996337890623" style="-fx-alignment: CENTER;" text="DELETE" />
                </columns>
             </TableView>
          </children>

@@ -1,11 +1,14 @@
 package Server_Java.controller.mainmenu;
 
+import Server_Java.model.ServerJDBC;
 import Server_Java.model.ServerModel;
 import Server_Java.model.mainmenu.CreateAccountModel;
 import Server_Java.model.mainmenu.EditGameConfigModel;
+import Server_Java.model.mainmenu.PlayerListModel;
 import Server_Java.view.mainmenu.CreateAccountView;
 import Server_Java.view.mainmenu.EditGameConfigView;
 import Server_Java.view.mainmenu.MainMenuAdminPageView;
+import Server_Java.view.mainmenu.PlayerListView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -36,6 +39,22 @@ public class MainMenuAdminPageController {
         });
 
         //todo: load the view players list
+        this.view.setUpActionViewPlayersButton(event->{
+            try {
+                FXMLLoader loader = new FXMLLoader(new File("src/main/java/Server_Java/res/fxmls/PlayerListView.fxml").toURI().toURL());
+                Pane root = loader.load();
+                view.getPane().getChildren().clear();
+                view.getPane().getChildren().add(root);
+
+                PlayerListModel playerListModel = new PlayerListModel(ServerJDBC.getPlayersList());
+                PlayerListView playerListView = loader.getController();
+                PlayerListController playerListController = new PlayerListController(playerListModel, playerListView);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
+
+
         //todo: load the edit game configutations
         this.view.setUpActionEditGameButton(event -> {
             try {
