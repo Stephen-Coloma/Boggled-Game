@@ -381,6 +381,27 @@ public class ServerJDBC {
         }
     }
 
+    /**This method edits the player details inthe database*/
+    public static void savePlayerDetails(PlayerData playerData) {
+        query = "UPDATE players " +
+                "SET fullname = ?, username = ?, password = ?, points = ? " +
+                "WHERE pid = ?";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, playerData.getFullname());
+            preparedStatement.setString(2, playerData.getUsername());
+            preparedStatement.setString(3, playerData.getPassword());
+            preparedStatement.setInt(4, playerData.getPoints());
+            preparedStatement.setInt(5, playerData.getPid());
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
 
     }
