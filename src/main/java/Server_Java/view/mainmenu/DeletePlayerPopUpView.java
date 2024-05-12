@@ -27,5 +27,27 @@ public class DeletePlayerPopUpView {
         this.noButton.setOnAction(event);
     }
 
+    public Text getLabel() {
+        return label;
+    }
 
+    public void setLabel(Text label) {
+        this.label = label;
+    }
+
+    public Button getNoButton() {
+        return noButton;
+    }
+
+    public void setNoButton(Button noButton) {
+        this.noButton = noButton;
+    }
+
+    public Button getYesButton() {
+        return yesButton;
+    }
+
+    public void setYesButton(Button yesButton) {
+        this.yesButton = yesButton;
+    }
 }

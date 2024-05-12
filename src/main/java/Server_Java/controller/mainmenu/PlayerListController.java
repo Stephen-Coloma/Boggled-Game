@@ -169,7 +169,7 @@ public class PlayerListController {
             Button button = (Button) event.getSource();
             TableCell<Object, Void> cell = (TableCell<Object, Void>) button.getParent();
 
-            Object product = cell.getTableRow().getItem();
+            Object player = cell.getTableRow().getItem();
 
             int filteredIndex = cell.getTableRow().getIndex();
             int originalIndex = view.getFilteredList().getSourceIndex(filteredIndex);
@@ -178,6 +178,7 @@ public class PlayerListController {
             Parent root = loader.load();
 
             DeletePlayerPopUpView popUpView = loader.getController();
+            popUpView.getLabel().setText("Are you sure you want to delete player " + ((ServerJDBC.PlayerData) player).getUsername() + "?");
 
             popUpView.setUpActionNoButton(e -> {
                 ((Node) e.getSource()).getScene().getWindow().hide();
