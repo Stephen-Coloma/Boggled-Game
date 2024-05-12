@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class WaitingRoomSection {
     private final WaitingRoomSectionModel model;
@@ -45,8 +47,8 @@ public class WaitingRoomSection {
 
     private void setUpCancelBT() {
         view.getCancelBT().setOnAction(event -> {
-            ClientJava.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE);
             model.leaveGame();
+            ClientJava.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE);
         });
     } // end of setUpCancelBT
 
