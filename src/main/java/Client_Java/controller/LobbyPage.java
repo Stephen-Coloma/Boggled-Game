@@ -5,6 +5,7 @@ import Client_Java.model.LobbyPageModel;
 import Client_Java.model.WaitingRoomSectionModel;
 import Client_Java.view.LobbyPageView;
 import Client_Java.view.WaitingRoomSectionView;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import java.io.File;
@@ -57,11 +58,20 @@ public class LobbyPage {
         });
     } // end of setUpLogoutBT
 
+    public void setUpRank() {
+        view.setUsername(model.getPlayer().username);
+        view.setPoints(model.getPlayer().points);
+    }
+
     private void setUpLeaderboardsBT() {
         view.getRefreshLeaderboardsBT().setOnMouseClicked(event -> {
-            view.refreshLeaderboardTable(model.getLeaderboardPlayers());
+            view.refreshLeaderboardTable(model.getLeaderboardPlayers(), model.getPlayer().username);
         });
     } // end of setUpLeaderboardsBT
+
+    public void displayInitialLeaderboards() {
+        view.refreshLeaderboardTable(model.getLeaderboardPlayers(), model.getPlayer().username);
+    } // end of displayInitialLeaderboards
 
     private void setUpExitApplication() {
         ClientJava.APPLICATION_STAGE.setOnCloseRequest(windowEvent -> {

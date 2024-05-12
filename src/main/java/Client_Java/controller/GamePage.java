@@ -131,6 +131,12 @@ public class GamePage {
             } catch (InvalidWord e) {
                 // Display a notif that the word is invalid
                 view.setNoticeMessage(view.getInput() + " is invalid");
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        view.setNoticeMessage("");
+                    }
+                }, 3000);
             } finally {
                 view.clearInputField();
             }

@@ -148,7 +148,17 @@ public class Game {
                     .mapToInt(Integer::intValue)
                     .sum());
 
-            // TODO: use the server model to add the points (player.points) of each player
+            int winnerPid = playerList.stream().filter(player -> player.username.equals(gameWinner))
+                    .mapToInt(player -> player.pid)
+                            .findFirst().orElse(-1);
+
+            // update details to the database
+            ServerJDBC.saveGame(gid, winnerPid, roundNumber);
+
+            // TODO: for the update player points, instead of updating using the playerlist, just add the new points to the database
+//            ServerJDBC.updatePlayersPoints();
+
+            ServerJDBC.addPlayerGameSessions(playerList, gid);
         }
 
         isDoneEvaluating = true;

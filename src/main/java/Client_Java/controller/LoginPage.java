@@ -59,6 +59,8 @@ public class LoginPage {
 
                 lobbyPageModel.setPlayer(player);
                 lobbyPage.switchScene();
+                lobbyPage.displayInitialLeaderboards();
+                lobbyPage.setUpRank();
             } catch (AlreadyLoggedIn exception1) {
                 setNotice("Account is already logged in");
             } catch (AccountDoesNotExist exception2) {

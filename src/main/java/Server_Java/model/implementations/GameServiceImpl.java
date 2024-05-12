@@ -52,7 +52,7 @@ public class GameServiceImpl extends GameServicePOA {
                             // put the game to the ongoing games list
                             ongoingGames.put(waitingGame.get().getGid(), waitingGame.get());
 
-                            // TODO:  ServerJDBC.saveGameId(waitingGame.get().getGid());
+                            // save the game to the database
                             ServerJDBC.saveGameId(waitingGame.get().getGid());
                         }
 
