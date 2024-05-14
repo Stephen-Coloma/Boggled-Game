@@ -1,0 +1,80 @@
+#enterBT {
+    -fx-background-color: #248946;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-text-fill: white;
+}
+
+#enterBT: hover {
+    -fx-background-color: #4ccf78;
+}
+
+#clearBT {
+    -fx-background-color: #248946;
+    -fx-border-color: transparent;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-text-fill: white;
+}
+
+#clearBT: hover {
+    -fx-background-color: #F2E7D1;
+    -fx-border-color: #248946;
+    -fx-text-fill: #248946;
+}
+
+#wordEntryScrollPane {
+    -fx-background-color: white;
+    -fx-border-color: #248946;
+}
+
+#wordEntryScrollPane > .viewport {
+    -fx-background-color: transparent;
+}
+
+#wordEntryScrollPane .scroll-bar:vertical,
+#wordEntryScrollPane .scroll-bar:vertical .track,
+#wordEntryScrollPane .scroll-bar:vertical, track-background {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+#wordEntryScrollPane .scroll-bar:vertical .thumb {
+    -fx-background-color: #248946;
+}
+
+#wordEntryScrollPane .scroll-bar .increment-button,
+#wordEntryScrollPane .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+}
+
+#rankingScrollPane {
+    -fx-background-color: white;
+    -fx-border-color: #248946;
+}
+
+#rankingScrollPane > .viewport {
+    -fx-background-color: transparent;
+}
+
+#rankingScrollPane .scroll-bar:vertical,
+#rankingScrollPane .scroll-bar:vertical .track,
+#rankingScrollPane .scroll-bar:vertical, track-background {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+#rankingScrollPane .scroll-bar:vertical .thumb {
+    -fx-background-color: #248946;
+}
+
+#rankingScrollPane .scroll-bar .increment-button,
+#rankingScrollPane .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+}
+
+
+
+
+
+

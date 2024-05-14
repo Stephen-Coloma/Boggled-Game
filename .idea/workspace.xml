@@ -4,18 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36b7778a-1dfd-480b-8213-de0b27649342" name="Changes" comment="feat: Implement player points update&#10;&#10;This commit implements a feature to update the total accumulated points of the players.">
+    <list default="true" id="36b7778a-1dfd-480b-8213-de0b27649342" name="Changes" comment="feat: Implement number of games played in the database&#10;&#10;This commit adds a method that adds the number of games played by a player after completing a game.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/audio/game-winner-sound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/audio/round-sound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/audio/round-winner-sound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/audio/word-sound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/css/game.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/css/lobby.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/css/waiting-room.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orb.db/NC0" beforeDir="false" afterPath="$PROJECT_DIR$/orb.db/NC0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/.config" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/LobbyPageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/LobbyPageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/LogInUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/LogInUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingRoomPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingRoomPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/WaitingTimeConfigCard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,10 +54,19 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "client"
+    "git-widget-placeholder": "client",
+    "last_opened_file_path": "C:/Users/asthe/Documents/Programming Files/Java Files/Gitlab School Repo Project/2023-2_9329-finteam2_java/src/main/java/Client_Java/res/audio"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.ServerJava">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main\java\Client_Java\res\audio" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main\java\Client_Java\res\audio" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ClientJava">
     <configuration name="ClientJava" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client_Java.ClientJava" />
       <module name="Boggled" />
@@ -69,8 +99,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerJava" />
         <item itemvalue="Application.ClientJava" />
+        <item itemvalue="Application.ServerJava" />
       </list>
     </recent_temporary>
   </component>
@@ -91,11 +121,20 @@
       <option name="project" value="LOCAL" />
       <updated>1715693293290</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: Implement number of games played in the database&#10;&#10;This commit adds a method that adds the number of games played by a player after completing a game.">
+      <option name="closed" value="true" />
+      <created>1715696273037</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715696273037</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Implement player points update&#10;&#10;This commit implements a feature to update the total accumulated points of the players." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Implement player points update&#10;&#10;This commit implements a feature to update the total accumulated points of the players." />
+    <MESSAGE value="feat: Implement number of games played in the database&#10;&#10;This commit adds a method that adds the number of games played by a player after completing a game." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Implement number of games played in the database&#10;&#10;This commit adds a method that adds the number of games played by a player after completing a game." />
   </component>
 </project>

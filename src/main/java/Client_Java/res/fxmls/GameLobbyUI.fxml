@@ -34,15 +34,15 @@
                         <Font name="Arial Rounded MT Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Button fx:id="joinGameBT" mnemonicParsing="false" prefHeight="62.0" prefWidth="234.0" style="-fx-background-color: #248946;" text="JOIN GAME" textFill="WHITE">
+                  <Button id="joinGameBT" fx:id="joinGameBT" mnemonicParsing="false" prefHeight="62.0" prefWidth="234.0" text="JOIN GAME">
                      <VBox.margin>
-                        <Insets bottom="15.0" top="30.0" />
+                        <Insets bottom="25.0" top="30.0" />
                      </VBox.margin>
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="logoutBT" mnemonicParsing="false" prefHeight="62.0" prefWidth="234.0" style="-fx-border-color: #248946; -fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5;" text="LOGOUT" textFill="#248946">
+                  <Button id="logoutBT" fx:id="logoutBT" mnemonicParsing="false" prefHeight="62.0" prefWidth="234.0" text="LOGOUT">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -106,7 +106,7 @@
                               </Text>
                            </children>
                         </HBox>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="462.0" prefWidth="505.0">
+                        <ScrollPane id="scrollpane" hbarPolicy="NEVER" prefHeight="462.0" prefWidth="505.0">
                            <content>
                               <FlowPane fx:id="leaderboardPanel" prefHeight="394.0" prefWidth="555.0" />
                            </content>

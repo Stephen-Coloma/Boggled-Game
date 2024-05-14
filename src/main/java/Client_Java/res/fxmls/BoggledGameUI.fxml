@@ -163,9 +163,9 @@
             </FlowPane>
             <Pane layoutX="38.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="254.0" style="-fx-background-color: #248946; -fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0;">
                <children>
-                  <ScrollPane hbarPolicy="NEVER" layoutY="70.0" prefHeight="562.0" prefWidth="254.0" style="-fx-background-color: #248946;">
+                  <ScrollPane id="wordEntryScrollPane" hbarPolicy="NEVER" layoutY="70.0" prefHeight="563.0" prefWidth="254.0" vbarPolicy="ALWAYS">
                       <content>
-                          <FlowPane fx:id="wordEntryPanel" columnHalignment="CENTER" prefHeight="563.0" prefWidth="254.0" prefWrapLength="254.0" style="-fx-background-color: white;" vgap="8.0">
+                          <FlowPane fx:id="wordEntryPanel" columnHalignment="CENTER" prefHeight="562.0" prefWidth="254.0" prefWrapLength="254.0" vgap="8.0">
                            <padding>
                               <Insets bottom="8.0" top="8.0" />
                            </padding></FlowPane>
@@ -192,12 +192,12 @@
                     <Font name="Arial Rounded MT Bold" size="20.0" />
                 </font>
             </TextField>
-            <Button fx:id="enterWordBT" layoutX="322.0" layoutY="683.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #248946;" text="ENTER" textFill="WHITE">
+            <Button id="enterBT" fx:id="enterWordBT" layoutX="322.0" layoutY="683.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="ENTER">
                 <font>
                     <Font name="Arial Rounded MT Bold" size="18.0" />
                 </font>
             </Button>
-            <Button fx:id="clearInputBT" layoutX="595.0" layoutY="683.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #248946;" text="CLEAR" textFill="WHITE">
+            <Button id="clearBT" fx:id="clearInputBT" layoutX="595.0" layoutY="683.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="CLEAR">
                 <font>
                     <Font name="Arial Rounded MT Bold" size="18.0" />
                 </font>
@@ -242,9 +242,9 @@
                             </Text>
                         </children>
                     </Pane>
-                    <ScrollPane hbarPolicy="NEVER" layoutX="9.0" layoutY="95.0" prefHeight="434.0" prefWidth="375.0" vbarPolicy="ALWAYS">
+                    <ScrollPane id="rankingScrollPane" hbarPolicy="NEVER" layoutX="9.0" layoutY="95.0" prefHeight="434.0" prefWidth="375.0" vbarPolicy="ALWAYS">
                         <content>
-                            <FlowPane fx:id="rankingPanel" prefHeight="452.0" prefWidth="374.0">
+                            <FlowPane fx:id="rankingPanel" prefHeight="433.0" prefWidth="374.0">
                                 <children>
                                     <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="366.0" style="-fx-background-color: white;">
                                         <children>

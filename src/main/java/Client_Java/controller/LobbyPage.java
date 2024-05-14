@@ -27,6 +27,8 @@ public class LobbyPage {
 
             LOBBY_SCENE = new Scene(loader.load());
 
+            LOBBY_SCENE.getStylesheets().add(new File("src/main/java/Client_Java/res/css/lobby.css").toURI().toURL().toExternalForm());
+
             view = loader.getController();
 
             setUpJoinGameBT();
