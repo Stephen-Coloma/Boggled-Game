@@ -155,8 +155,7 @@ public class Game {
             // update details to the database
             ServerJDBC.saveGame(gid, winnerPid, roundNumber);
 
-            // TODO: for the update player points, instead of updating using the playerlist, just add the new points to the database
-//            ServerJDBC.updatePlayersPoints();
+            ServerJDBC.updatePlayersPoints(playerList);
 
             ServerJDBC.addPlayerGameSessions(playerList, gid);
         }

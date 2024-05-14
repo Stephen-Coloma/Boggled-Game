@@ -4,262 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b47d7a-772d-4808-83a2-185c9d0775cd" name="Changes" comment="feat: Implement waiting game termination&#10;&#10;This commit dissolves the waiting game when all players leave the waiting session.">
+    <list default="true" id="36b7778a-1dfd-480b-8213-de0b27649342" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/EditPlayerPopUpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/PlayerListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/EditPlayerPopUpModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/mainmenu/PlayerListModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/DeletePlayerPopUp.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/EditPlayerPopUp.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/mainmenu/DeletePlayerPopUpView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/mainmenu/EditPlayerPopUpView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/mainmenu/PlayerListView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/LobbyPageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/LobbyPageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/GameServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/orb.db/NC0" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orb.db/NC0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/CreateAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/MainMenuAdminPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/controller/mainmenu/MainMenuAdminPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/PlayerListView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/PlayerListView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="FxmlFile" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="2foLSUfbRrffHvcL4VdPiHnk7Wx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "client",
-    "last_opened_file_path": "C:/Users/asthe/Documents/Programming Files/Java Files/Gitlab School Repo Project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+    "git-widget-placeholder": "Merging client"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main\java" />
-      <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main" />
-      <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main\java\Server_Java" />
-      <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\src\main\java\Server_Java\model\implementations\BoggledApp" />
-      <recent name="C:\Users\asthe\Documents\Programming Files\Java Files\Gitlab School Repo Project\2023-2_9329-finteam2_java\huh" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.ClientJava">
-    <configuration name="ClientJava" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Client_Java.ClientJava" />
-      <module name="Boggled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Client_Java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerJDBC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server_Java.model.ServerJDBC" />
-      <module name="Boggled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Server_Java.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server_Java.ServerJava" />
-      <module name="Boggled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Server_Java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.ClientJava" />
-      <item itemvalue="Application.ServerJDBC" />
-      <item itemvalue="Application.ServerJava" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.ClientJava" />
-        <item itemvalue="Application.ServerJava" />
-        <item itemvalue="Application.ServerJDBC" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="11b47d7a-772d-4808-83a2-185c9d0775cd" name="Changes" comment="" />
-      <created>1714462486942</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1714462486942</updated>
-      <workItem from="1714462491880" duration="16027000" />
-    </task>
-    <task id="LOCAL-00001" summary="chore: Updated compiled files&#10;&#10;This commit updates the generated files resulting from compiling the new IDL file for both the client and server components.">
-      <option name="closed" value="true" />
-      <created>1714629178356</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1714629178357</updated>
-    </task>
-    <task id="LOCAL-00002" summary="fix: Game class&#10;&#10;This commit introduces the new version of the Game class to comply with the new changes in the idl structure and the server logic.">
-      <option name="closed" value="true" />
-      <created>1714658014366</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1714658014366</updated>
-    </task>
-    <task id="LOCAL-00003" summary="chore: Updated servant classes&#10;&#10;This commit introduces the updated servant class that conforms with the new idl structure.&#10;&#10;MINOR CHANGES:&#10;- changed some return types in the ServerJDBC.class to avoid compile errors due to a restructure in the servant class">
-      <option name="closed" value="true" />
-      <created>1714727972152</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1714727972152</updated>
-    </task>
-    <task id="LOCAL-00004" summary="chore: Updated client package&#10;&#10;This commit resolves compile errors due to some restructuring in the idl file.">
-      <option name="closed" value="true" />
-      <created>1714729495191</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1714729495191</updated>
-    </task>
-    <task id="LOCAL-00005" summary="feat: Implement waiting room and Game room&#10;&#10;This commit adds the feature to join a game.&#10;&#10;TO BE FIXED:&#10;- After round 1, the rounds are being created infinitely.">
-      <option name="closed" value="true" />
-      <created>1714753774088</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1714753774088</updated>
-    </task>
-    <task id="LOCAL-00006" summary="fix: Resolve infinite round initialization and inaccurate round distribution&#10;&#10;This commit addresses two main issues:&#10;1. Resolves an issue where after the first round ends, multiple rounds are started simultaneously, leading to the creation and start of over 100 rounds instantaneously. This problem is fixed by ensuring that only one round is started at a time.&#10;2. Fixes an issue where players receive different character sets due to rounds being created individually for each player. Now, all players receive the same round, ensuring consistency across the game.">
-      <option name="closed" value="true" />
-      <created>1714782829273</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1714782829273</updated>
-    </task>
-    <task id="LOCAL-00007" summary="feat: Implement game UI, round popup, and lobby logout&#10;&#10;This commit introduces several features:&#10;1. All components in the game UI are now updating after each round passes.&#10;2. A round popup will be displayed on the center screen before starting the round.&#10;3. A logout button is placed in the lobby UI that redirects the player back to the login UI.">
-      <option name="closed" value="true" />
-      <created>1714920234239</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1714920234239</updated>
-    </task>
-    <task id="LOCAL-00008" summary="chore: Update idl structure&#10;&#10;This commit adds a new exception in the idl file which will be utilized when a player submits a word to the server for validation.">
-      <option name="closed" value="true" />
-      <created>1715294849916</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1715294849916</updated>
-    </task>
-    <task id="LOCAL-00009" summary="chore: Update idl structure&#10;&#10;This commit adds a new exception in the idl file which will be utilized when a player submits a word to the server for validation.">
-      <option name="closed" value="true" />
-      <created>1715294866048</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1715294866048</updated>
-    </task>
-    <task id="LOCAL-00010" summary="fix: fixed an issue for the round winner&#10;&#10;This commit resolves an issue where the round winner is not being evaluated properly">
-      <option name="closed" value="true" />
-      <created>1715299918351</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1715299918351</updated>
-    </task>
-    <task id="LOCAL-00011" summary="chore: New method added in idl file&#10;&#10;This commit adds additional method to check whether the server has already finished evaluating the results of the current round before proceeding to the next round.">
-      <option name="closed" value="true" />
-      <created>1715326673796</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1715326673796</updated>
-    </task>
-    <task id="LOCAL-00012" summary="fix:Game lifecycle&#10;&#10;This commit resolves an issue where the round winner, and the highest points are being calculated incorrectly which resulted to the game logic getting wrong each round.">
-      <option name="closed" value="true" />
-      <created>1715336984212</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1715336984212</updated>
-    </task>
-    <task id="LOCAL-00013" summary="feat: Implement round winner and game winner popup&#10;&#10;This commit introduces popups for displaying the game winner and round winner. When a game winner is determined, all players will leave the game and will be redirected back to the lobby UI.">
-      <option name="closed" value="true" />
-      <created>1715386548017</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1715386548017</updated>
-    </task>
-    <task id="LOCAL-00014" summary="feat: Implement waiting game termination&#10;&#10;This commit dissolves the waiting game when all players leave the waiting session.">
-      <option name="closed" value="true" />
-      <created>1715505704452</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1715505704452</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: Updated compiled files&#10;&#10;This commit updates the generated files resulting from compiling the new IDL file for both the client and server components." />
-    <MESSAGE value="fix: Game class&#10;&#10;This commit introduces the new version of the Game class to comply with the new changes in the idl structure and the server logic." />
-    <MESSAGE value="chore: Updated servant classes&#10;&#10;This commit introduces the updated servant class that conforms with the new idl structure.&#10;&#10;MINOR CHANGES:&#10;- changed some return types in the ServerJDBC.class to avoid compile errors due to a restructure in the servant class" />
-    <MESSAGE value="chore: Updated client package&#10;&#10;This commit resolves compile errors due to some restructuring in the idl file." />
-    <MESSAGE value="feat: Implement waiting room and Game room&#10;&#10;This commit adds the feature to join a game.&#10;&#10;TO BE FIXED:&#10;- After round 1, the rounds are being created infinitely." />
-    <MESSAGE value="fix: Resolve infinite round initialization and inaccurate round distribution&#10;&#10;This commit addresses two main issues:&#10;1. Resolves an issue where after the first round ends, multiple rounds are started simultaneously, leading to the creation and start of over 100 rounds instantaneously. This problem is fixed by ensuring that only one round is started at a time.&#10;2. Fixes an issue where players receive different character sets due to rounds being created individually for each player. Now, all players receive the same round, ensuring consistency across the game." />
-    <MESSAGE value="feat: Implement game UI, round popup, and lobby logout&#10;&#10;This commit introduces several features:&#10;1. All components in the game UI are now updating after each round passes.&#10;2. A round popup will be displayed on the center screen before starting the round.&#10;3. A logout button is placed in the lobby UI that redirects the player back to the login UI." />
-    <MESSAGE value="chore: Update idl structure&#10;&#10;This commit adds a new exception in the idl file which will be utilized when a player submits a word to the server for validation." />
-    <MESSAGE value="fix: fixed an issue for the round winner&#10;&#10;This commit resolves an issue where the round winner is not being evaluated properly" />
-    <MESSAGE value="chore: New method added in idl file&#10;&#10;This commit adds additional method to check whether the server has already finished evaluating the results of the current round before proceeding to the next round." />
-    <MESSAGE value="fix:Game lifecycle&#10;&#10;This commit resolves an issue where the round winner, and the highest points are being calculated incorrectly which resulted to the game logic getting wrong each round." />
-    <MESSAGE value="feat: Implement round winner and game winner popup&#10;&#10;This commit introduces popups for displaying the game winner and round winner. When a game winner is determined, all players will leave the game and will be redirected back to the lobby UI." />
-    <MESSAGE value="feat: Implement waiting game termination&#10;&#10;This commit dissolves the waiting game when all players leave the waiting session." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Implement waiting game termination&#10;&#10;This commit dissolves the waiting game when all players leave the waiting session." />
   </component>
 </project>
