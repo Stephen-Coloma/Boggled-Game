@@ -9,7 +9,7 @@ import java.util.*;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
-    private static final String USER = "user";
+    private static final String USER = "LeonardosAdmin";
     private static final String PASSWORD = "password";
     private static Connection connection;
     private static String query;
@@ -208,8 +208,7 @@ public class ServerJDBC {
      * @throws SQLException If an SQL exception occurs while executing the update queries.
      */
     public static void updatePlayersPoints(List<Player> playersData) {
-        //todo: increment also the numberofgamesplayed column in the database
-        query = "UPDATE players SET points = ? WHERE pid = ?";
+        query = "UPDATE players SET points = ?, numberofgamesplayed = numberofgamesplayed + 1 WHERE pid = ?";
         try{
             for (Player player : playersData){
                 preparedStatement = connection.prepareStatement(query);
@@ -400,10 +399,6 @@ public class ServerJDBC {
         }catch (Exception e){
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 
     public static class PlayerData{

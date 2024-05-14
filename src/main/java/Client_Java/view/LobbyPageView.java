@@ -26,6 +26,7 @@ public class LobbyPageView {
         for (int i = 1; i <= leaderboardEntries.size(); i++) {
             if (leaderboardEntries.get(i - 1).split("-")[0].equals(player)) {
                 rankLB.setText(String.valueOf(i));
+                pointsLB.setText(leaderboardEntries.get(i - 1).split("-")[1]);
             }
 
             leaderboardCards.add(LobbyLeaderboardCard.createCard(i, leaderboardEntries.get(i - 1)));

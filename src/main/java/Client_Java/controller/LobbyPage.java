@@ -65,6 +65,7 @@ public class LobbyPage {
 
     private void setUpLeaderboardsBT() {
         view.getRefreshLeaderboardsBT().setOnMouseClicked(event -> {
+            setUpRank();
             view.refreshLeaderboardTable(model.getLeaderboardPlayers(), model.getPlayer().username);
         });
     } // end of setUpLeaderboardsBT
