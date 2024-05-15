@@ -18,7 +18,7 @@ public class Game {
     private final HashMap<Integer, Integer> playerRoundWinCounts = new LinkedHashMap<>();
     private final HashMap<Integer, HashSet<String>> playerWordEntries = new LinkedHashMap<>();
     private String roundWinner = "None", gameWinner = "None";
-    private static int roundTime;
+    private int roundTime;
     private int roundNumber, totalSubmissions;
     private boolean isDoneEvaluating = false;
     private final AtomicBoolean startNextRound = new AtomicBoolean(false);

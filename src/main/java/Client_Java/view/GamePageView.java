@@ -34,7 +34,7 @@ public class GamePageView {
     public void updateCharacterSetPanel(String characterSet) {
         List<Node> letterCards = new ArrayList<>();
 
-        for (char letter : characterSet.toCharArray()) {
+        for (char letter : characterSet.toUpperCase().toCharArray()) {
             letterCards.add(LetterCard.createCard(letter));
         }
 
