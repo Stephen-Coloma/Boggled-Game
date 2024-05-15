@@ -9,7 +9,7 @@ import java.util.*;
 
 public class ServerJDBC {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/boggleddb";
-    private static final String USER = "LeonardosAdmin";
+    private static final String USER = "user";
     private static final String PASSWORD = "password";
     private static Connection connection;
     private static String query;
@@ -380,7 +380,7 @@ public class ServerJDBC {
         }
     }
 
-    /**This method edits the player details inthe database*/
+    /**This method edits the player details in the database*/
     public static void savePlayerDetails(PlayerData playerData) {
         query = "UPDATE players " +
                 "SET fullname = ?, username = ?, password = ?, points = ? " +
@@ -400,7 +400,6 @@ public class ServerJDBC {
             e.printStackTrace();
         }
     }
-
     public static class PlayerData{
         private int pid;
         private String username;
