@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1300.0" style="-fx-background-color: #F2FBEA;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client_Java.view.LobbyPageView">
    <children>
@@ -40,15 +34,15 @@
                         <Font name="Arial Rounded MT Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Button fx:id="joinGameBT" mnemonicParsing="false" prefHeight="62.0" prefWidth="234.0" style="-fx-background-color: #248946;" text="JOIN GAME" textFill="WHITE">
+                  <Button id="joinGameBT" fx:id="joinGameBT" mnemonicParsing="false" prefHeight="62.0" prefWidth="234.0" text="JOIN GAME">
                      <VBox.margin>
-                        <Insets bottom="15.0" top="30.0" />
+                        <Insets bottom="25.0" top="30.0" />
                      </VBox.margin>
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="logoutBT" mnemonicParsing="false" prefHeight="62.0" prefWidth="234.0" style="-fx-border-color: #248946; -fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5;" text="LOGOUT" textFill="#248946">
+                  <Button id="logoutBT" fx:id="logoutBT" mnemonicParsing="false" prefHeight="62.0" prefWidth="234.0" text="LOGOUT">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -102,7 +96,7 @@
                                     <Font name="Arial Rounded MT Bold" size="20.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game Points" textAlignment="CENTER" wrappingWidth="139.59997725486755">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game Points" textAlignment="CENTER" wrappingWidth="190.0">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="20.0" />
                                  </font>
@@ -112,7 +106,7 @@
                               </Text>
                            </children>
                         </HBox>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="462.0" prefWidth="505.0">
+                        <ScrollPane id="scrollpane" hbarPolicy="NEVER" prefHeight="462.0" prefWidth="505.0">
                            <content>
                               <FlowPane fx:id="leaderboardPanel" prefHeight="394.0" prefWidth="555.0" />
                            </content>
@@ -121,17 +115,17 @@
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8bce39" height="111.0" layoutX="-2.0" layoutY="1.0" stroke="#8bce39" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 10; -fx-arc-width: 10;" width="558.0" />
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="92.0" layoutX="8.0" layoutY="11.0" stroke="#248946" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 10; -fx-arc-width: 10;" width="539.0" />
-                              <Text layoutX="42.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 1" wrappingWidth="44.25">
+                              <Text fx:id="rankLB" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 1" textAlignment="CENTER" wrappingWidth="100.0">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="27.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="174.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lhaine" wrappingWidth="119.9832763671875">
+                              <Text fx:id="usernameLB" layoutX="100.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lhaine" textAlignment="CENTER" wrappingWidth="250.0">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="27.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="365.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1500" wrappingWidth="119.9832763671875">
+                              <Text fx:id="pointsLB" layoutX="350.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1500" textAlignment="CENTER" wrappingWidth="190.0">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="27.0" />
                                  </font>

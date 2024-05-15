@@ -8,12 +8,15 @@ import Client_Java.controller.popups.RoundPopup;
 import Client_Java.controller.popups.RoundWinnerPopup;
 import Client_Java.model.GamePageModel;
 import Client_Java.view.GamePageView;
-import Client_Java.view.popups.RoundPopupView;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineEvent;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -25,6 +28,7 @@ public class GamePage {
     private RoundWinnerPopup roundWinnerPopup;
     private GameWinnerPopup gameWinnerPopup;
     private static int remainingTime;
+    private File roundSE, wordSE, roundWinnerSE, gameWinnerSE;
 
     public GamePage(GamePageModel model, GamePageView view) {
         this.model = model;
@@ -37,6 +41,11 @@ public class GamePage {
         roundPopup.init();
         roundWinnerPopup.init();
         gameWinnerPopup.init();
+
+        roundSE = new File("src/main/java/Client_Java/res/audio/round-sound.wav");
+        wordSE = new File("src/main/java/Client_Java/res/audio/word-sound.wav");
+        roundWinnerSE = new File("src/main/java/Client_Java/res/audio/round-winner-sound.wav");
+        gameWinnerSE = new File("src/main/java/Client_Java/res/audio/game-winner-sound.wav");
     }
 
     /**
@@ -47,6 +56,8 @@ public class GamePage {
             FXMLLoader loader = new FXMLLoader(new File("src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml").toURI().toURL());
 
             Scene gameScene = new Scene(loader.load());
+
+            gameScene.getStylesheets().add(new File("src/main/java/Client_Java/res/css/game.css").toURI().toURL().toExternalForm());
 
             view = loader.getController();
 
@@ -110,6 +121,9 @@ public class GamePage {
      * initiates the countdown sequence indicating the round is starting
      */
     private void startCountdown() {
+        view.clearInputField();
+        view.enableInputField();
+
         while (true) {
             try {
                 remainingTime = model.getRemainingRoundTime();
@@ -118,6 +132,7 @@ public class GamePage {
 
                 initiateDelay(100);
             } catch (GameTimeOut gameTimeOut) {
+                view.disableInputField();
                 break;
             }
         }
@@ -126,11 +141,20 @@ public class GamePage {
     private void setEnterWordBT() {
         view.getEnterWordBT().setOnAction(event -> {
             try {
-                model.submitWord(view.getInput().trim());
-                view.addEntryToWordPanel(view.getInput());
+                if (!view.getInput().isEmpty()) {
+                    model.submitWord(view.getInput().trim());
+                    playSoundEffect(wordSE);
+                    view.addEntryToWordPanel(view.getInput());
+                }
             } catch (InvalidWord e) {
                 // Display a notif that the word is invalid
                 view.setNoticeMessage(view.getInput() + " is invalid");
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        view.setNoticeMessage("");
+                    }
+                }, 3000);
             } finally {
                 view.clearInputField();
             }
@@ -165,6 +189,9 @@ public class GamePage {
     private void showRoundPopup() {
         initiateDelay(1000);
 
+        // TODO: play audio
+        playSoundEffect(roundSE);
+
         roundPopup.setCurrentRound(model.getRound().roundNumber);
         roundPopup.showPopup();
         new Timer(true).schedule(new TimerTask() {
@@ -181,6 +208,9 @@ public class GamePage {
     private void showRoundWinnerPopup() {
         initiateDelay(1000);
 
+        // TODO: play audio
+        playSoundEffect(roundWinnerSE);
+
         roundWinnerPopup.setRoundWinner(model.getRoundWinner());
         roundWinnerPopup.showPopup();
         new Timer(true).schedule(new TimerTask() {
@@ -196,6 +226,9 @@ public class GamePage {
      */
     private void showGameWinnerPopup() {
         initiateDelay(1000);
+
+        //TODO: play audio
+        playSoundEffect(gameWinnerSE);
 
         gameWinnerPopup.setGameWinner(model.getGameWinner());
         gameWinnerPopup.setWinnerPoints(model.getGamePoints(true));
@@ -235,4 +268,23 @@ public class GamePage {
         initiateDelay(4000);
         model.leaveGame();
     } // end of finalizeGame
+
+    private void playSoundEffect(File audioFile) {
+        new Thread(() -> {
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+
+                clip.addLineListener(event -> {
+                    if (event.getType() == LineEvent.Type.STOP) {
+                        event.getLine().close();
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+    } // end of playSoundEffect
 } // end of GamePage class

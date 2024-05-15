@@ -5,6 +5,7 @@ import Client_Java.model.LobbyPageModel;
 import Client_Java.model.WaitingRoomSectionModel;
 import Client_Java.view.LobbyPageView;
 import Client_Java.view.WaitingRoomSectionView;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import java.io.File;
@@ -25,6 +26,8 @@ public class LobbyPage {
             FXMLLoader loader = new FXMLLoader(new File("src/main/java/Client_Java/res/fxmls/GameLobbyUI.fxml").toURI().toURL());
 
             LOBBY_SCENE = new Scene(loader.load());
+
+            LOBBY_SCENE.getStylesheets().add(new File("src/main/java/Client_Java/res/css/lobby.css").toURI().toURL().toExternalForm());
 
             view = loader.getController();
 
@@ -57,11 +60,21 @@ public class LobbyPage {
         });
     } // end of setUpLogoutBT
 
+    public void setUpRank() {
+        view.setUsername(model.getPlayer().username);
+        view.setPoints(model.getPlayer().points);
+    }
+
     private void setUpLeaderboardsBT() {
         view.getRefreshLeaderboardsBT().setOnMouseClicked(event -> {
-            view.refreshLeaderboardTable(model.getLeaderboardPlayers());
+            setUpRank();
+            view.refreshLeaderboardTable(model.getLeaderboardPlayers(), model.getPlayer().username);
         });
     } // end of setUpLeaderboardsBT
+
+    public void displayInitialLeaderboards() {
+        view.refreshLeaderboardTable(model.getLeaderboardPlayers(), model.getPlayer().username);
+    } // end of displayInitialLeaderboards
 
     private void setUpExitApplication() {
         ClientJava.APPLICATION_STAGE.setOnCloseRequest(windowEvent -> {

@@ -93,6 +93,14 @@ public class GamePageView {
         inputFieldTF.clear();
     }
 
+    public void enableInputField() {
+        inputFieldTF.setDisable(false);
+    }
+
+    public void disableInputField() {
+        inputFieldTF.setDisable(true);
+    }
+
     public Button getEnterWordBT() {
         return enterWordBT;
     }

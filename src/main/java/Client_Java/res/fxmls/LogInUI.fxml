@@ -24,7 +24,7 @@
                   <Font name="Arial Rounded MT Bold" size="20.0" />
                </font>
             </TextField>
-            <Button id="logInButton" fx:id="logInButton" layoutX="234.0" layoutY="635.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="261.0" style="-fx-background-color: #248946;" text="LOG IN" textFill="WHITE">
+            <Button id="logInButton" fx:id="logInButton" layoutX="234.0" layoutY="635.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="261.0" text="LOG IN" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="20.0" />
                </font>

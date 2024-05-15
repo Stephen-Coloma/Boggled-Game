@@ -1,0 +1,12 @@
+#cancelBT {
+    -fx-background-color: #F2E7D1;
+    -fx-border-color: transparent;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-text-fill: #008000;
+}
+
+#cancelBT: hover {
+    -fx-background-color: white;
+    -fx-border-color: #008000
+}

@@ -208,8 +208,7 @@ public class ServerJDBC {
      * @throws SQLException If an SQL exception occurs while executing the update queries.
      */
     public static void updatePlayersPoints(List<Player> playersData) {
-        //todo: increment also the numberofgamesplayed column in the database
-        query = "UPDATE players SET points = ? WHERE pid = ?";
+        query = "UPDATE players SET points = ?, numberofgamesplayed = numberofgamesplayed + 1 WHERE pid = ?";
         try{
             for (Player player : playersData){
                 preparedStatement = connection.prepareStatement(query);
@@ -381,7 +380,7 @@ public class ServerJDBC {
         }
     }
 
-    /**This method edits the player details inthe database*/
+    /**This method edits the player details in the database*/
     public static void savePlayerDetails(PlayerData playerData) {
         query = "UPDATE players " +
                 "SET fullname = ?, username = ?, password = ?, points = ? " +
@@ -401,11 +400,6 @@ public class ServerJDBC {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-
-    }
-
     public static class PlayerData{
         private int pid;
         private String username;
