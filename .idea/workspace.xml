@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2970ad-5acb-4844-898f-03c28291e8a9" name="Changes" comment="minor change: Database user&#10;&#10;This commit changes the database user" />
+    <list default="true" id="4a2970ad-5acb-4844-898f-03c28291e8a9" name="Changes" comment="minor change: Database user&#10;&#10;This commit changes the database user">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2024_7_37_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2024_7_37_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_04_2024_8_21_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_04_2024_8_21_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2024_6_14_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2024_6_14_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orb.db/NC0" beforeDir="false" afterPath="$PROJECT_DIR$/orb.db/NC0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +42,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ClientJava">
+  <component name="RunManager" selected="Application.ServerJava">
     <configuration name="ClientJava" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client_Java.ClientJava" />
       <module name="Boggled" />
@@ -66,8 +75,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientJava" />
         <item itemvalue="Application.ServerJava" />
+        <item itemvalue="Application.ClientJava" />
       </list>
     </recent_temporary>
   </component>
