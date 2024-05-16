@@ -42,6 +42,8 @@ public class LoginPage {
 
             LOGIN_SCENE = new Scene(loader.load());
 
+            LOGIN_SCENE.getStylesheets().add(new File("src/main/java/Client_Java/res/css/login.css").toURI().toURL().toExternalForm());
+
             view = loader.getController();
 
             ClientJava.APPLICATION_STAGE.setScene(LOGIN_SCENE);
@@ -59,6 +61,8 @@ public class LoginPage {
 
                 lobbyPageModel.setPlayer(player);
                 lobbyPage.switchScene();
+                lobbyPage.displayInitialLeaderboards();
+                lobbyPage.setUpRank();
             } catch (AlreadyLoggedIn exception1) {
                 setNotice("Account is already logged in");
             } catch (AccountDoesNotExist exception2) {

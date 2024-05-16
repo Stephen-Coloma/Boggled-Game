@@ -1,9 +1,6 @@
 package Client_Java.model;
 
-import Client_Java.BoggledApp.GameNotFound;
-import Client_Java.BoggledApp.GameTimeOut;
-import Client_Java.BoggledApp.Player;
-import Client_Java.BoggledApp.Round;
+import Client_Java.BoggledApp.*;
 
 public class GamePageModel {
     private Player player;
@@ -31,6 +28,14 @@ public class GamePageModel {
         return ClientModel.gameService.getRemainingRoundTime(gid);
     }
 
+    public void submitWord(String word) throws InvalidWord {
+        ClientModel.gameService.submitWord(word, player.pid, gid);
+    }
+
+    public boolean isDoneEvaluatingRound() {
+        return ClientModel.gameService.roundEvaluationDone(gid);
+    }
+
     public String getUsername() {
         return player.username;
     }
@@ -39,12 +44,35 @@ public class GamePageModel {
         return player.pid;
     }
 
+    public String getGamePoints(boolean gameWinner) {
+        String[] playerDatas = round.playersData;
+        for (String entry : playerDatas) {
+            String username = entry.split("-")[0];
+            String points = entry.split("-")[2];
+
+            if (gameWinner) {
+                if (username.equals(getGameWinner())) {
+                    return points;
+                }
+            } else {
+                if (username.equals(player.username)) {
+                    return points;
+                }
+            }
+        }
+        return "0";
+    }
+
     public String getRoundWinner() {
         return ClientModel.gameService.getRoundWinner(gid);
     }
 
     public String getGameWinner() {
         return ClientModel.gameService.getGameWinner(gid);
+    }
+
+    public void leaveGame() {
+        ClientModel.gameService.leaveGame(player.pid, gid);
     }
 
     public Round getRound() {

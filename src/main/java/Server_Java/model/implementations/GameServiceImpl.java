@@ -2,51 +2,70 @@ package Server_Java.model.implementations;
 
 import Server_Java.model.ServerJDBC;
 import Server_Java.model.ServerModel;
-import Server_Java.model.implementations.BoggledApp.GameManagerPOA;
-import Server_Java.model.implementations.BoggledApp.GameNotFound;
-import Server_Java.model.implementations.BoggledApp.GameTimeOut;
-import Server_Java.model.implementations.BoggledApp.Round;
+import Server_Java.model.implementations.BoggledApp.*;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class GameManagerImpl extends GameManagerPOA {
+public class GameServiceImpl extends GameServicePOA {
     private AtomicReference<Game> waitingGame = new AtomicReference<>();
     private HashMap<Integer, Game> ongoingGames = new LinkedHashMap<>();
-    private static int timeLeft;
+    private AtomicInteger timeLeft = new AtomicInteger(0);
 
     /**
      * a constructor with a thread that handles the waiting game object and transfers it to the ongoing games list if
      * certain conditions are met.
      */
-    public GameManagerImpl() {
+    public GameServiceImpl() {
         Thread ongoingGameManager = new Thread(() -> {
             try {
                 while (true) {
                     if (waitingGame.get() != null) {
-                        timeLeft = ServerModel.waitingTime;
-                        while (timeLeft != -1) {
-                            Thread.sleep(1000);
-                            timeLeft--;
+                        int initialTime = ServerModel.waitingTime;
+                        timeLeft.set(initialTime);
+                        System.out.println("Initial time: " + initialTime); // TODO: remove after debugging
+
+
+                        while (timeLeft.get() != -1) {
+                            try {
+                                Thread.sleep(1000);
+                                timeLeft.getAndDecrement();
+                                System.out.println("Decrementing. Time left: " + timeLeft.get()); // TODO: remove after debugging
+
+                                if (waitingGame.get().getPlayerCount() == 0) {
+                                    timeLeft.set(-1);
+                                    break;
+                                }
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
                         }
 
                         if (waitingGame.get().isGameValid()) {
+                            System.out.println("valid game"); // TODO: remove after debugging
+
                             // start the game
                             waitingGame.get().startGame();
 
                             // put the game to the ongoing games list
                             ongoingGames.put(waitingGame.get().getGid(), waitingGame.get());
 
-//                            ServerJDBC.saveGameId(waitingGame.get().getGid());
+                            // save the game to the database
+                            ServerJDBC.saveGameId(waitingGame.get().getGid());
                         }
+
                         waitingGame.set(null);
+
+                        System.out.println("game is set to null"); // TODO: remove after debugging
                     }
                 }
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         });
+
         ongoingGameManager.setDaemon(true);
         ongoingGameManager.start();
     }
@@ -60,11 +79,13 @@ public class GameManagerImpl extends GameManagerPOA {
     @Override
     public int startGame(int pid) {
         if (waitingGame.get() == null) {
+            System.out.println("creating a game"); // TODO: remove after debugging
+
             int latestGid = ServerJDBC.getLastGameId();
             waitingGame.set(new Game(++latestGid));
         }
-
         waitingGame.get().addPlayer(pid);
+
         return waitingGame.get().getGid();
     } // end of startGame
 
@@ -76,10 +97,10 @@ public class GameManagerImpl extends GameManagerPOA {
      */
     @Override
     public int getRemainingWaitingTime() throws GameTimeOut {
-        if (timeLeft == -1) {
+        if (timeLeft.get() == -1) {
             throw new GameTimeOut("countdown expired");
         }
-        return timeLeft;
+        return timeLeft.get();
     } // end of getRemainingWaitingTime
 
     /**
@@ -107,7 +128,7 @@ public class GameManagerImpl extends GameManagerPOA {
         if (ongoingGames.keySet().contains(gid)) {
             return ongoingGames.get(gid).getNextRound();
         } else {
-            throw new GameNotFound();
+            throw new GameNotFound("game not found");
         }
     } // end of playRound
 
@@ -133,11 +154,31 @@ public class GameManagerImpl extends GameManagerPOA {
      * @param word the word to be validated
      * @param pid the id of the player
      * @param gid the id of the game the player is in
-     * @return true if the given word is valid, false otherwise
+     * @throws InvalidWord thrown when the word is not included to the word bank or it does not comply to the word rules
      */
     @Override
-    public boolean submitWord(String word, int pid, int gid) {
-        return false;
+    public void submitWord(String word, int pid, int gid) throws InvalidWord {
+
+        // check if the word length is greater than 3
+        if (word.length() < 4) throw new InvalidWord(word + " is invalid");
+
+        // check if the letters of the word are included in the character set
+        StringBuilder characterSet = new StringBuilder(ongoingGames.get(gid).getCharacterSet());
+        for (char letter : word.toCharArray()) {
+            int index = characterSet.indexOf(String.valueOf(letter));
+
+            if (index != -1) {
+                characterSet.deleteCharAt(index);
+            } else {
+                throw new InvalidWord(word + " is invalid");
+            }
+        }
+
+        // check if the word is included in the word bank
+        if (!ServerModel.isFoundInWordBank(word)) throw new InvalidWord(word + " is invalid");
+
+        // store the word in the player's word entry container.
+        ongoingGames.get(gid).addWordEntry(pid, word);
     } // end of submitWord
 
     /**
@@ -162,6 +203,11 @@ public class GameManagerImpl extends GameManagerPOA {
         return ongoingGames.get(gid).getGameWinner();
     }
 
+    @Override
+    public boolean roundEvaluationDone(int gid) {
+        return ongoingGames.get(gid).isDoneEvaluatingRound();
+    }
+
     /**
      * removes the player from the game if the player left the game room.
      *
@@ -170,7 +216,7 @@ public class GameManagerImpl extends GameManagerPOA {
      */
     @Override
     public void leaveGame(int pid, int gid) {
-        if (ongoingGames.keySet().contains(gid)) {
+        if (ongoingGames.containsKey(gid)) {
             ongoingGames.get(gid).removePlayer(pid);
         } else {
             waitingGame.get().removePlayer(pid);

@@ -1,6 +1,6 @@
-module BoggledApp{
+module BoggledApp {
     // Player Object
-    struct Player{
+    struct Player {
         long pid;
         string fullName;
         string username;
@@ -11,7 +11,7 @@ module BoggledApp{
     typedef sequence<string> StringSequence;
 
     //Round object
-    struct Round{
+    struct Round {
         long gid;
         StringSequence playersData; // string array of players with their respective rounds won e.g. "Leonhard-1"
         string characterSet;
@@ -19,11 +19,11 @@ module BoggledApp{
     };
 
     //exceptions
-    exception AccountDoesNotExist{
+    exception AccountDoesNotExist {
         string reason;
     };
 
-    exception AlreadyLoggedIn{
+    exception AlreadyLoggedIn {
         string reason;
     };
 
@@ -35,22 +35,27 @@ module BoggledApp{
         string reason;
     };
 
+    exception InvalidWord {
+        string reason;
+    };
+
     //interface for authentication
-    interface Authentication{
+    interface Authentication {
         Player login(in string username, in string password) raises (AccountDoesNotExist, AlreadyLoggedIn);
         void logout(in long pid);
     };
 
     //interface for most of the game methods
-    interface GameManager{
+    interface GameService {
         long startGame(in long pid);
         long getRemainingWaitingTime() raises (GameTimeOut);
         long getNumberOfPlayersJoined();
         Round playRound(in long gid) raises (GameNotFound);
         long getRemainingRoundTime(in long gid) raises (GameTimeOut);
-        boolean submitWord(in string word, in long pid, in long gid);
+        void submitWord(in string word, in long pid, in long gid) raises (InvalidWord);
         string getRoundWinner(in long gid);
         string getGameWinner(in long gid);
+        boolean roundEvaluationDone(in long gid);
         void leaveGame(in long pid, in long gid);
         StringSequence getLeaderboards(); // string array of players with their respective points e.g. "Leonhard-1234"
     };

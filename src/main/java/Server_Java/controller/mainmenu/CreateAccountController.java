@@ -37,6 +37,12 @@ public class CreateAccountController {
                 view.getNoticeLabel().setText("fill out all fields");
                 view.getNoticeLabel().setVisible(true);
 
+            }else if (model.getUsername().contains("-")){
+                view.getNoticeLabel().setStyle("-fx-text-fill: red;"); // Change the text color to red
+                view.getNoticeLabel().setText("no hyphen in usernames");
+                view.getUsernameTextField().setText("");
+                view.getUsernameTextField().setPromptText("choose other username");
+                view.getNoticeLabel().setVisible(true);
             }else if (!ServerJDBC.isUsernameExist(model.getUsername())){ //check if the username is NOT taken
                 showConfirmationPopUp();
             }else {

@@ -208,7 +208,7 @@ public class ServerJDBC {
      * @throws SQLException If an SQL exception occurs while executing the update queries.
      */
     public static void updatePlayersPoints(List<Player> playersData) {
-        query = "UPDATE players SET points = ? WHERE pid = ?";
+        query = "UPDATE players SET points = ?, numberofgamesplayed = numberofgamesplayed + 1 WHERE pid = ?";
         try{
             for (Player player : playersData){
                 preparedStatement = connection.prepareStatement(query);
@@ -330,7 +330,140 @@ public class ServerJDBC {
         }
     }
 
-    public static void main(String[] args) {
+    /**
+     * This method fetches all the players data to be dispplayed on the server side
+     *
+     * @return the data to be displayed in the table
+     */
+    public static List<PlayerData> getPlayersList() {
+        List<PlayerData> playersDataList  = new ArrayList<>();
 
+        query = "SELECT pid, username, password, fullname, numberofgamesplayed, points " +
+                "FROM players";
+
+
+        try {
+            Statement statement = connection.createStatement();
+            resultSet = statement.executeQuery(query);
+
+            //fetching all rows
+            while (resultSet.next()){
+                int pid = resultSet.getInt("pid");
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
+                String fullname = resultSet.getString("fullname");
+                int numberOfGamesPlayed = resultSet.getInt("numberofgamesplayed");
+                int points = resultSet.getInt("points");
+
+                PlayerData playerData = new PlayerData(pid, username, password, fullname, numberOfGamesPlayed, points);
+                playersDataList.add(playerData);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return playersDataList;
     }
+
+    /**This method deletes the player into the database.*/
+    public static void deletePlayer(int pid) {
+        query = "DELETE FROM players " +
+                "WHERE pid = ?";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, pid);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**This method edits the player details in the database*/
+    public static void savePlayerDetails(PlayerData playerData) {
+        query = "UPDATE players " +
+                "SET fullname = ?, username = ?, password = ?, points = ? " +
+                "WHERE pid = ?";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, playerData.getFullname());
+            preparedStatement.setString(2, playerData.getUsername());
+            preparedStatement.setString(3, playerData.getPassword());
+            preparedStatement.setInt(4, playerData.getPoints());
+            preparedStatement.setInt(5, playerData.getPid());
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static class PlayerData{
+        private int pid;
+        private String username;
+        private String password;
+        private String fullname;
+        private int numberOfGamesPlayed;
+        private int points;
+
+        public PlayerData(int pid, String username, String password, String fullname, int numberOfGamesPlayed, int points) {
+            this.pid = pid;
+            this.username = username;
+            this.password = password;
+            this.fullname = fullname;
+            this.numberOfGamesPlayed = numberOfGamesPlayed;
+            this.points = points;
+        }
+
+        public int getPid() {
+            return pid;
+        }
+
+        public void setPid(int pid) {
+            this.pid = pid;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
+        }
+
+        public String getFullname() {
+            return fullname;
+        }
+
+        public void setFullname(String fullname) {
+            this.fullname = fullname;
+        }
+
+        public int getNumberOfGamesPlayed() {
+            return numberOfGamesPlayed;
+        }
+
+        public void setNumberOfGamesPlayed(int numberOfGamesPlayed) {
+            this.numberOfGamesPlayed = numberOfGamesPlayed;
+        }
+
+        public int getPoints() {
+            return points;
+        }
+
+        public void setPoints(int points) {
+            this.points = points;
+        }
+    }
+
 }

@@ -8,11 +8,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class ServerView {
     private FXMLLoader loader;
     private final Stage stage;
+
 
     public ServerView(Stage stage) {
         this.stage = stage;
@@ -31,6 +33,8 @@ public class ServerView {
             }
         });
     }
+
+
 
     public FXMLLoader getLoader() {
         return loader;

@@ -3,9 +3,9 @@ package Server_Java.model;
 import Server_Java.model.implementations.AuthenticationImpl;
 import Server_Java.model.implementations.BoggledApp.Authentication;
 import Server_Java.model.implementations.BoggledApp.AuthenticationHelper;
-import Server_Java.model.implementations.BoggledApp.GameManager;
-import Server_Java.model.implementations.BoggledApp.GameManagerHelper;
-import Server_Java.model.implementations.GameManagerImpl;
+import Server_Java.model.implementations.BoggledApp.GameService;
+import Server_Java.model.implementations.BoggledApp.GameServiceHelper;
+import Server_Java.model.implementations.GameServiceImpl;
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NameComponent;
 import org.omg.CosNaming.NamingContextExt;
@@ -21,7 +21,7 @@ import java.util.*;
 
 public class ServerModel {
     private AuthenticationImpl authentication;
-    private GameManagerImpl gameManager;
+    private GameServiceImpl gameManager;
     public static int waitingTime;
     public static int roundLength;
     private static Set<String> wordBank;
@@ -119,14 +119,14 @@ public class ServerModel {
 
             // create servant and register it with the ORB
             authentication = new AuthenticationImpl();
-            gameManager = new GameManagerImpl();
+            gameManager = new GameServiceImpl();
 
             // get object reference from the servant
             org.omg.CORBA.Object authenticationRef = rootpoa.servant_to_reference(authentication);
             org.omg.CORBA.Object gameManagerRef = rootpoa.servant_to_reference(gameManager);
 
             Authentication aRef = AuthenticationHelper.narrow(authenticationRef);
-            GameManager gRef = GameManagerHelper.narrow(gameManagerRef);
+            GameService gRef = GameServiceHelper.narrow(gameManagerRef);
 
             // get the root naming context
             org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
