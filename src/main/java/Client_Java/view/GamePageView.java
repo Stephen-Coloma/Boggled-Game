@@ -11,17 +11,19 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GamePageView {
     @FXML
     private Text roundLB, playerNameLB, gamePointsLB, timeRemainingLB, noticeLB;
     @FXML
-    private Button enterWordBT, clearInputBT;
+    private Button clearInputBT;
     @FXML
     private TextField inputFieldTF;
     @FXML
-    FlowPane characterSetPanel, wordEntryPanel, rankingPanel;
+    private FlowPane characterSetPanel, wordEntryPanel, rankingPanel;
 
     @FXML
     public void initialize() {
@@ -101,7 +103,7 @@ public class GamePageView {
         inputFieldTF.setDisable(true);
     }
 
-    public Button getEnterWordBT() {
-        return enterWordBT;
+    public TextField getInputFieldTF() {
+        return inputFieldTF;
     }
 } // end of GamePageView class
