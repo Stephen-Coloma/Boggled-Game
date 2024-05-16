@@ -299,7 +299,7 @@ public class GamePage {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                view.setNoticeMessage("");
+                Platform.runLater(() -> view.setNoticeMessage(""));
             }
         }, 3000);
     } // end of setNotice
