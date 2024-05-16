@@ -11,6 +11,8 @@ import Client_Java.view.GamePageView;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -18,6 +20,8 @@ import javax.sound.sampled.LineEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -65,7 +69,8 @@ public class GamePage {
 
             ClientJava.APPLICATION_STAGE.setScene(gameScene);
 
-            setEnterWordBT();
+            setEnterWordFunc();
+            setUpExitApplication();
         } catch (RuntimeException | IOException e) {
             e.printStackTrace();
         }
@@ -81,7 +86,6 @@ public class GamePage {
             while (true) {
                 // check if there is a game winner
                 if (!model.getGameWinner().equals("None")) {
-                    // TODO: display the game winner
                     finalizeGame();
                     Platform.runLater(() -> ClientJava.APPLICATION_STAGE.setScene(LobbyPage.LOBBY_SCENE));
                     break;
@@ -138,28 +142,35 @@ public class GamePage {
         }
     } // end of startCountdown
 
-    private void setEnterWordBT() {
-        view.getEnterWordBT().setOnAction(event -> {
-            try {
-                if (!view.getInput().isEmpty()) {
-                    model.submitWord(view.getInput().trim());
-                    playSoundEffect(wordSE);
-                    view.addEntryToWordPanel(view.getInput());
-                }
-            } catch (InvalidWord e) {
-                // Display a notif that the word is invalid
-                view.setNoticeMessage(view.getInput() + " is invalid");
-                new Timer().schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        view.setNoticeMessage("");
+    private void setEnterWordFunc() {
+        view.getInputFieldTF().setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                String word = view.getInput().trim();
+                try {
+                    if (!word.isEmpty()) {
+                        if (model.isAlreadySubmitted(word)) {
+                            view.setNoticeMessage(word + " is already included in the word entries");
+                        } else {
+                            model.submitWord(word);
+                            playSoundEffect(wordSE);
+                            view.addEntryToWordPanel(word);
+                        }
                     }
-                }, 3000);
-            } finally {
-                view.clearInputField();
+                } catch (InvalidWord e) {
+                    // Display a notif that the word is invalid
+                    view.setNoticeMessage(word + " is invalid");
+                    new Timer().schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            view.setNoticeMessage("");
+                        }
+                    }, 3000);
+                } finally {
+                    view.clearInputField();
+                }
             }
         });
-    }
+    } // end of setEnterWordFunc
 
     /**
      * updates the necessary data in the game UI for the current round
@@ -287,4 +298,12 @@ public class GamePage {
             }
         }).start();
     } // end of playSoundEffect
+
+    private void setUpExitApplication() {
+        ClientJava.APPLICATION_STAGE.setOnCloseRequest(windowEvent -> {
+            model.leaveGame();
+            model.logout();
+            System.exit(0);
+        });
+    } // end of setUpExitApplication
 } // end of GamePage class

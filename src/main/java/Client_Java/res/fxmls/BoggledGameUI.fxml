@@ -192,12 +192,7 @@
                     <Font name="Arial Rounded MT Bold" size="20.0" />
                 </font>
             </TextField>
-            <Button id="enterBT" fx:id="enterWordBT" layoutX="322.0" layoutY="683.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="ENTER">
-                <font>
-                    <Font name="Arial Rounded MT Bold" size="18.0" />
-                </font>
-            </Button>
-            <Button id="clearBT" fx:id="clearInputBT" layoutX="595.0" layoutY="683.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="CLEAR">
+            <Button id="clearBT" fx:id="clearInputBT" layoutX="454.0" layoutY="682.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" text="CLEAR">
                 <font>
                     <Font name="Arial Rounded MT Bold" size="18.0" />
                 </font>
@@ -222,7 +217,7 @@
                     <Font name="Arial Rounded MT Bold" size="17.0" />
                 </font>
             </Text>
-            <Text fx:id="noticeLB" fill="#ff0101" layoutX="716.0" layoutY="667.0" strokeType="OUTSIDE" strokeWidth="0.0" text="// error here" textAlignment="RIGHT" wrappingWidth="127.49999999999989">
+            <Text fx:id="noticeLB" fill="#ff0101" layoutX="488.0" layoutY="663.0" strokeType="OUTSIDE" strokeWidth="0.0" text="// error here" textAlignment="RIGHT" wrappingWidth="356.4999999999999">
                 <font>
                     <Font name="Arial Rounded MT Bold" size="13.0" />
                 </font>
