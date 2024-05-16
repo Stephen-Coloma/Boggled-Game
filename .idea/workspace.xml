@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2970ad-5acb-4844-898f-03c28291e8a9" name="Changes" comment="">
+    <list default="true" id="4a2970ad-5acb-4844-898f-03c28291e8a9" name="Changes" comment="minor change: Database user&#10;&#10;This commit changes the database user">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2024_7_37_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2024_7_37_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_04_2024_8_21_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_04_2024_8_21_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2024_6_14_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2024_6_14_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_04_2024_8_59_pm__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orb.db/NC0" beforeDir="false" afterPath="$PROJECT_DIR$/orb.db/NC0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/MainMenuAdminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/res/fxmls/MainMenuAdminPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/view/ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/ServerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/view/mainmenu/MainMenuAdminPageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/view/mainmenu/MainMenuAdminPageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/WaitingRoomSection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/ServerJDBC.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,16 +22,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2gVmzUEZxA5Fbj6yWGsed1SGviQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "client",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;client&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.ServerJava">
     <configuration name="ClientJava" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client_Java.ClientJava" />
@@ -69,7 +80,46 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="fix: Countdown Timer issue&#10;&#10;This commit resolves an issue where the countdown timer is being decremented twice in a game session">
+      <option name="closed" value="true" />
+      <created>1715791271812</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715791271812</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a2970ad-5acb-4844-898f-03c28291e8a9" name="Changes" comment="fix: Countdown Timer issue&#10;&#10;This commit resolves an issue where the countdown timer is being decremented twice in a game session" />
+      <created>1715791381808</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715791381808</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: Submit word with Enter key&#10;&#10;Implemented functionality to submit the word in the input text field when the Enter key is pressed, eliminating the need for a button click.">
+      <option name="closed" value="true" />
+      <created>1715841689821</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715841689821</updated>
+    </task>
+    <task id="LOCAL-00003" summary="minor change: Database user&#10;&#10;This commit changes the database user">
+      <option name="closed" value="true" />
+      <created>1715841728115</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715841728115</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: Countdown Timer issue&#10;&#10;This commit resolves an issue where the countdown timer is being decremented twice in a game session" />
+    <MESSAGE value="feat: Submit word with Enter key&#10;&#10;Implemented functionality to submit the word in the input text field when the Enter key is pressed, eliminating the need for a button click." />
+    <MESSAGE value="minor change: Database user&#10;&#10;This commit changes the database user" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor change: Database user&#10;&#10;This commit changes the database user" />
   </component>
 </project>

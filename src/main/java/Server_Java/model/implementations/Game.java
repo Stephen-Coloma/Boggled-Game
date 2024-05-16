@@ -183,6 +183,8 @@ public class Game {
         playerRoundPoints.remove(pid);
         playerRoundWinCounts.remove(pid);
         playerWordEntries.remove(pid);
+
+        System.out.println("REMAINING PLAYERS: " + playerList.size());
     } // end of removePlayer
 
     /**
