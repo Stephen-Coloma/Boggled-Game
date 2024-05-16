@@ -72,6 +72,10 @@ public class GamePageModel {
         return wordEntry.contains(word);
     }
 
+    public void clearWordEntries() {
+        wordEntry.clear();
+    }
+
     public String getRoundWinner() {
         return ClientModel.gameService.getRoundWinner(gid);
     }

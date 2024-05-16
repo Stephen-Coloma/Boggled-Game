@@ -145,7 +145,7 @@ public class GamePage {
     private void setEnterWordFunc() {
         view.getInputFieldTF().setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER) {
-                String word = view.getInput().trim();
+                String word = view.getInput().trim().toLowerCase();
                 try {
                     if (!word.isEmpty()) {
                         if (model.isAlreadySubmitted(word)) {
@@ -182,6 +182,7 @@ public class GamePage {
 
             // clear word entries
             view.clearWordEntriesPanel();
+            model.clearWordEntries();
 
             // update scoreboard
             view.updateScoreboard(model.getRound().playersData);
