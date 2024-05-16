@@ -149,7 +149,7 @@ public class GamePage {
                 try {
                     if (!word.isEmpty()) {
                         if (model.isAlreadySubmitted(word)) {
-                            view.setNoticeMessage(word + " is already included in the word entries");
+                            setNotice(word + " is already included in the word entries");
                         } else {
                             model.submitWord(word);
                             playSoundEffect(wordSE);
@@ -158,13 +158,7 @@ public class GamePage {
                     }
                 } catch (InvalidWord e) {
                     // Display a notif that the word is invalid
-                    view.setNoticeMessage(word + " is invalid");
-                    new Timer().schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            view.setNoticeMessage("");
-                        }
-                    }, 3000);
+                    setNotice(word + " is invalid");
                 } finally {
                     view.clearInputField();
                 }
@@ -298,6 +292,17 @@ public class GamePage {
             }
         }).start();
     } // end of playSoundEffect
+
+    private void setNotice(String message) {
+        view.setNoticeMessage(message);
+
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                view.setNoticeMessage("");
+            }
+        }, 3000);
+    } // end of setNotice
 
     private void setUpExitApplication() {
         ClientJava.APPLICATION_STAGE.setOnCloseRequest(windowEvent -> {

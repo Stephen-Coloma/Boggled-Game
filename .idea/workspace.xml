@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2970ad-5acb-4844-898f-03c28291e8a9" name="Changes" comment="fix: Countdown Timer issue&#10;&#10;This commit resolves an issue where the countdown timer is being decremented twice in a game session">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orb.db/NC0" beforeDir="false" afterPath="$PROJECT_DIR$/orb.db/NC0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/controller/LobbyPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/model/GamePageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/model/GamePageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/res/fxmls/BoggledGameUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client_Java/view/GamePageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server_Java/model/implementations/Game.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a2970ad-5acb-4844-898f-03c28291e8a9" name="Changes" comment="minor change: Database user&#10;&#10;This commit changes the database user" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,11 +88,29 @@
       <option name="presentableId" value="Default" />
       <updated>1715791381808</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: Submit word with Enter key&#10;&#10;Implemented functionality to submit the word in the input text field when the Enter key is pressed, eliminating the need for a button click.">
+      <option name="closed" value="true" />
+      <created>1715841689821</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715841689821</updated>
+    </task>
+    <task id="LOCAL-00003" summary="minor change: Database user&#10;&#10;This commit changes the database user">
+      <option name="closed" value="true" />
+      <created>1715841728115</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715841728115</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: Countdown Timer issue&#10;&#10;This commit resolves an issue where the countdown timer is being decremented twice in a game session" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Countdown Timer issue&#10;&#10;This commit resolves an issue where the countdown timer is being decremented twice in a game session" />
+    <MESSAGE value="feat: Submit word with Enter key&#10;&#10;Implemented functionality to submit the word in the input text field when the Enter key is pressed, eliminating the need for a button click." />
+    <MESSAGE value="minor change: Database user&#10;&#10;This commit changes the database user" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor change: Database user&#10;&#10;This commit changes the database user" />
   </component>
 </project>
