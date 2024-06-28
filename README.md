@@ -61,7 +61,7 @@ the dropdown menu. Other specifications will be dependent on your machine.
    compile(build) or run the class.
 9. Once the server is ready, it will show the User Interface of the server.
 
-### V. Running the Server Program
+### VI. Running the Server Program
 1. If the client is on a different computer, Locate and open the project file they cloned using IntelliJ Idea.
 2. **Optional:** If the client is on a different computer, turn off the windows defender firewall and
    disable any other virtual machine like virtual box.
